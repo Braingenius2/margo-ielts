@@ -298,6 +298,68 @@
       color: var(--text-muted);
     }
 
+    /* Exam Structure Table */
+    .exam-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .exam-table th, .exam-table td {
+      border: 1px solid var(--border-color);
+      padding: 0.9rem 1rem;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .exam-table td {
+      vertical-align: top;
+    }
+    .exam-table th {
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .exam-table td:first-child {
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+    .exam-table tr:hover {
+      background: rgba(255,255,255,0.02);
+    }
+    .takeaway-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .takeaway-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .takeaway-bullet {
+      color: var(--primary);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .takeaway-item strong {
+      color: var(--primary);
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
       header {
@@ -389,30 +451,87 @@
         </div>
       </div>
 
+      <!-- IELTS Exam Structure -->
+      <div class="card">
+        <div class="card-title">📋 IELTS Academic Exam Structure</div>
+        <p style="color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6;">
+          Total test time: <strong style="color: var(--text-main);">2 hours 45 minutes</strong>. Listening, Reading, and Writing are taken on the same day with <strong style="color: var(--text-main);">no breaks</strong> between them. The Speaking test may be on the same day or up to 7 days before/after.
+        </p>
+        <div class="table-wrapper">
+          <table class="exam-table">
+            <thead>
+              <tr>
+                <th>Section</th>
+                <th>Time</th>
+                <th>Questions</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🎧 Listening</td>
+                <td>~30 min<br>(+10 min transfer)</td>
+                <td>40</td>
+                <td><strong>4 recordings</strong> (2 monologues, 2 conversations) in varying accents. Played only once.</td>
+              </tr>
+              <tr>
+                <td>📖 Reading</td>
+                <td>60 minutes</td>
+                <td>40</td>
+                <td><strong>3 long academic passages</strong> from books, journals, and newspapers. Various question types (matching headings, gap-fill, short answer, multiple choice).</td>
+              </tr>
+              <tr>
+                <td>✍️ Writing</td>
+                <td>60 minutes</td>
+                <td>2 tasks</td>
+                <td><strong>Task 1:</strong> Describe a graph, chart, table, or diagram (150 words, ~20 min)<br><br><strong>Task 2:</strong> Write an essay responding to an argument or problem (250 words, ~40 min). <strong>Worth 2x Task 1.</strong></td>
+              </tr>
+              <tr>
+                <td>🗣️ Speaking</td>
+                <td>11-14 min</td>
+                <td>3 parts</td>
+                <td><strong>Face-to-face with a trained examiner.</strong><br><br><strong>Part 1:</strong> Intro &amp; general questions (4-5 min)<br><strong>Part 2:</strong> Cue card long turn — 1 min prep + 2 min speak (3-4 min)<br><strong>Part 3:</strong> Abstract discussion on Part 2 topic (4-5 min)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-title" style="margin-top: 1.5rem; font-size: 1.1rem;">⚠️ Critical Notes</div>
+        <div class="takeaway-list">
+          <div class="takeaway-item">
+            <span class="takeaway-bullet">⚡</span>
+            <div><strong>No breaks between Listening, Reading, Writing:</strong> These three sections run consecutively. Make sure to manage your time carefully, especially in Writing.</div>
+          </div>
+          <div class="takeaway-item">
+            <span class="takeaway-bullet">🎤</span>
+            <div><strong>Face-to-face Speaking:</strong> Unlike TOEFL, IELTS Speaking is conducted with a real examiner in a private room, not a computer. This allows for a more natural conversation flow.</div>
+          </div>
+          <div class="takeaway-item">
+            <span class="takeaway-bullet">✍️</span>
+            <div><strong>Task 2 is worth double:</strong> The Writing Task 2 essay contributes twice as much to your Writing band score as Task 1. Prioritise quality on the essay.</div>
+          </div>
+        </div>
+      </div>
+
       <!-- Current Homework -->
       <div class="card">
-        <div class="card-title">📝 Homework Assignments</div>
+        <div class="card-title">📝 Homework Assignments — Lesson 1</div>
         <div class="hw-list">
           <div class="hw-item">
             <span class="hw-status status-pending"></span>
             <div>
-              <strong>Writing Task 1 Report:</strong> Write a 150+ word report on the new CO₂ Emissions data set
-              provided at the end of Lesson 3. Ensure your overview identifies key trends without listing specific
-              numbers.
+              <strong>Speaking Task (Audio Recording):</strong> Record a 2-minute response to a new Speaking Part 2 Cue Card: <em>"Describe a decision someone else made that you disagreed with."</em> (1 min prep, 2 min record.) Use at least 3 upgraded collocations from today's class.
             </div>
           </div>
           <div class="hw-item">
             <span class="hw-status status-pending"></span>
             <div>
-              <strong>Vocabulary Journal — Verbs of Change:</strong> Add 6 advanced verbs of change (2 increase, 2
-              decrease, 2 stability) to your journal with appropriate adverb partners and example sentences.
+              <strong>Writing Task:</strong> Write a formal response (150–200 words) to this Part 3 prompt: <em>"To what extent should governments make health decisions for their citizens?"</em> Focus on formal cohesive devices and academic vocabulary.
             </div>
           </div>
           <div class="hw-item">
             <span class="hw-status status-pending"></span>
             <div>
-              <strong>Speaking Practice (Optional):</strong> Review the OREO and PEEL structures from Lesson 2 and try
-              applying them to a new abstract question.
+              <strong>Collocation Journal:</strong> Add 5 new collocations from today's class into your vocabulary journal, writing 2 example sentences for each (one general, one related to your study of French).
             </div>
           </div>
         </div>

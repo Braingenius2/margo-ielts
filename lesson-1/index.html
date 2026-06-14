@@ -392,6 +392,13 @@
       margin-top: 0.5rem;
     }
 
+    /* Homework List (Dedicated Slide) */
+    .hw-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
     /* Homework Section */
     .hw-section {
       margin-top: 2rem;
@@ -510,7 +517,7 @@
   </header>
 
   <div class="main-container">
-    <!-- Sidebar navigation (4 slides only — no Live Feedback Board) -->
+    <!-- Sidebar navigation (5 slides — no Live Feedback Board) -->
     <div class="sidebar">
       <button class="sidebar-btn active" onclick="switchSlide(0)">
         <span class="sidebar-num">01</span> Warm-up: Shadowing
@@ -523,6 +530,9 @@
       </button>
       <button class="sidebar-btn" onclick="switchSlide(3)">
         <span class="sidebar-num">04</span> Speaking Part 3
+      </button>
+      <button class="sidebar-btn" onclick="switchSlide(4)">
+        <span class="sidebar-num">05</span> Homework
       </button>
     </div>
 
@@ -705,17 +715,6 @@
           </div>
         </div>
 
-        <!-- Homework: Speaking Recording -->
-        <div class="card">
-          <div class="hw-section" style="border-top:none; padding-top:0; margin-top:0;">
-            <h4 style="color:var(--accent-blue); margin-bottom:1rem; font-size:1rem;">📋 Homework: Speaking Recording</h4>
-            <div class="hw-task">
-              <strong>Task:</strong> Record a 2-minute response to this cue card:<br>
-              <em>"Describe a time when someone else made a decision that significantly affected your life."</em><br><br>
-              <strong>Requirements:</strong> Use at least 3 upgraded collocations from the Lexical Upgrader (e.g., <em>far-reaching consequences, pivotal moment, weigh the pros and cons</em>).
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- SLIDE 4: SPEAKING PART 3 -->
@@ -752,19 +751,47 @@
           </div>
         </div>
 
-        <!-- Homework: Writing Task & Collocation Journal -->
+      </div>
+
+      <!-- SLIDE 5: HOMEWORK (Dedicated Slide) -->
+      <div class="slide" id="slide-4">
         <div class="card">
-          <div class="hw-section" style="border-top:none; padding-top:0; margin-top:0;">
-            <h4 style="color:var(--accent-blue); margin-bottom:1rem; font-size:1rem;">📋 Homework: Writing Task & Collocation Journal</h4>
-            <div class="hw-task">
-              <strong>Writing Task (150–200 words):</strong><br>
-              <em>"Some believe governments should make all key decisions about public health, while others think individuals should decide for themselves. Discuss both views."</em><br><br>
-              <strong>Structure aid:</strong> Use Part 3 argument templates: <em>"It is widely believed that…"</em>, <em>"From a societal perspective…"</em>, <em>"There is a strong argument in favour of…"</em>
+          <div class="card-title">📋 Lesson 1 Homework Assignments</div>
+          <p class="text-muted" style="margin-bottom: 1.5rem;">Complete the tasks below before our next class. Submit your writing and audio recordings via your usual chat or email channels.</p>
+
+          <div class="hw-list">
+            <div class="card" style="background: rgba(255,255,255,0.01); border-color: var(--border-color); margin-bottom: 1rem; padding: 1.25rem;">
+              <h3 style="font-size: 1.05rem; color: var(--accent-blue); margin-bottom: 0.5rem;">Task 1: Speaking Recording (Audio)</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6;">
+                Record a <strong>2-minute response</strong> to this Part 2 Cue Card:<br>
+                <em>"Describe a decision someone else made that you disagreed with."</em>
+              </p>
+              <ul style="padding-left: 1.25rem; font-size: 0.9rem; margin: 0.5rem 0; color: var(--text-muted);">
+                <li>Use 1 minute preparation, record for 2 minutes.</li>
+                <li>Use at least 3 upgraded collocations from the Lexical Upgrader (<em>far-reaching consequences, pivotal moment, weigh the pros and cons</em>).</li>
+              </ul>
             </div>
-            <div class="hw-task">
-              <strong>Collocation Journal — 5 new collocations:</strong><br>
-              Record each with 2 original example sentences. Suggested collocations from today:<br>
-              <em>far-reaching consequences • momentous decision • weigh the pros and cons • ill-advised choice • at a crossroads</em>
+
+            <div class="card" style="background: rgba(255,255,255,0.01); border-color: var(--border-color); margin-bottom: 1rem; padding: 1.25rem;">
+              <h3 style="font-size: 1.05rem; color: var(--accent-purple); margin-bottom: 0.5rem;">Task 2: Writing (Formal Response)</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6;">
+                Write a <strong>150-200 word</strong> formal response to this Part 3 prompt:<br>
+                <em>"To what extent should governments make health decisions for their citizens?"</em>
+              </p>
+              <ul style="padding-left: 1.25rem; font-size: 0.9rem; margin: 0.5rem 0; color: var(--text-muted);">
+                <li>Focus on formal cohesive devices and academic vocabulary.</li>
+                <li>Use Part 3 argument templates: <em>"It is widely believed that…"</em>, <em>"From a societal perspective…"</em></li>
+              </ul>
+            </div>
+
+            <div class="card" style="background: rgba(255,255,255,0.01); border-color: var(--border-color); margin-bottom: 0; padding: 1.25rem;">
+              <h3 style="font-size: 1.05rem; color: var(--accent-green); margin-bottom: 0.5rem;">Task 3: Collocation Journal</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6;">
+                Add <strong>5 new collocations</strong> from today's class into your vocabulary journal. Write <strong>2 example sentences</strong> for each (one general, one related to your study of French).
+              </p>
+              <ul style="padding-left: 1.25rem; font-size: 0.9rem; margin: 0.5rem 0; color: var(--text-muted);">
+                <li>Suggested collocations: <em>far-reaching consequences, momentous decision, weigh the pros and cons, ill-advised choice, at a crossroads</em></li>
+              </ul>
             </div>
           </div>
         </div>
