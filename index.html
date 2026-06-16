@@ -233,21 +233,8 @@
       line-height: 1.5;
     }
 
-    .hw-status {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
-
-    .status-pending {
-      background-color: var(--primary);
-    }
-
-    .status-completed {
-      background-color: var(--accent-blue);
-    }
+    .hw-checkbox { accent-color: var(--accent-green); width: 18px; height: 18px; cursor: pointer; vertical-align: middle; margin-right: 0.5rem; }
+    .hw-checkbox:checked + label { opacity: 0.6; text-decoration: line-through; }
 
     /* Right column stats */
     .profile-card {
@@ -517,21 +504,24 @@
         <div class="card-title">📝 Homework Assignments — Lesson 1</div>
         <div class="hw-list">
           <div class="hw-item">
-            <span class="hw-status status-pending"></span>
-            <div>
-              <strong>Speaking Task (Audio Recording):</strong> Record a 2-minute response to a new Speaking Part 2 Cue Card: <em>"Describe a decision someone else made that you disagreed with."</em> (1 min prep, 2 min record.) Use at least 3 upgraded collocations from today's class.
+            <input type="checkbox" class="hw-checkbox" data-hw="speaking" id="hw-speaking">
+            <label for="hw-speaking"><strong>Speaking Task (Audio Recording)</strong></label>
+            <div style="margin-top:0.5rem;">
+              Record a 2-minute response to a new Speaking Part 2 Cue Card: <em>"Describe a decision someone else made that you disagreed with."</em> (1 min prep, 2 min record.) Use at least 3 upgraded collocations from today's class.
             </div>
           </div>
           <div class="hw-item">
-            <span class="hw-status status-pending"></span>
-            <div>
-              <strong>Writing Task:</strong> Write a formal response (150–200 words) to this Part 3 prompt: <em>"To what extent should governments make health decisions for their citizens?"</em> Focus on formal cohesive devices and academic vocabulary.
+            <input type="checkbox" class="hw-checkbox" data-hw="writing" id="hw-writing">
+            <label for="hw-writing"><strong>Writing Task</strong></label>
+            <div style="margin-top:0.5rem;">
+              Write a formal response (150–200 words) to this Part 3 prompt: <em>"To what extent should governments make health decisions for their citizens?"</em> Focus on formal cohesive devices and academic vocabulary.
             </div>
           </div>
           <div class="hw-item">
-            <span class="hw-status status-pending"></span>
-            <div>
-              <strong>Collocation Journal:</strong> Add 5 new collocations from today's class into your vocabulary journal, writing 2 example sentences for each (one general, one related to your study of French).
+            <input type="checkbox" class="hw-checkbox" data-hw="collocations" id="hw-collocations">
+            <label for="hw-collocations"><strong>Collocation Journal</strong></label>
+            <div style="margin-top:0.5rem;">
+              Add 5 new collocations from today's class into your vocabulary journal, writing 2 example sentences for each (one general, one related to your study of French).
             </div>
           </div>
         </div>
@@ -578,4 +568,13 @@
 
 </body>
 
+<script>
+  document.querySelectorAll('.hw-checkbox').forEach(cb => {
+    const key = 'margo_hw_' + cb.dataset.hw;
+    cb.checked = localStorage.getItem(key) === 'true';
+    cb.addEventListener('change', () => {
+      localStorage.setItem(key, cb.checked);
+    });
+  });
+</script>
 </html>
