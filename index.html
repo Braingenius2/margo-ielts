@@ -137,7 +137,7 @@
       color: inherit;
     }
 
-    .lesson-item:hover {
+    .lesson-item:hover:not(.disabled) {
       border-color: var(--primary);
       background: rgba(16, 185, 129, 0.03);
       transform: translateY(-2px);
@@ -180,7 +180,7 @@
       flex-shrink: 0;
     }
 
-    .lesson-item:hover .btn-go {
+    .lesson-item:hover:not(.disabled) .btn-go {
       background: #fff;
       transform: scale(1.05);
     }
@@ -425,14 +425,34 @@
             <div class="btn-go">→</div>
           </a>
 
-          <!-- Lesson 3 -->
-          <a href="lesson-3/index.html" class="lesson-item">
+          <!-- Lesson 3 (Coming Soon) -->
+          <a class="lesson-item disabled" style="opacity:0.4;pointer-events:none;cursor:default;">
             <div class="lesson-info">
               <span class="lesson-number">LESSON 03</span>
-              <span class="lesson-name">Writing Task 1: Data & Trends</span>
-              <span class="lesson-date">Class Date: June 26, 2026</span>
+              <span class="lesson-name">Writing Task 1: Describing Data & Trends</span>
+              <span class="lesson-date" style="color: var(--text-muted);">Coming soon</span>
             </div>
-            <div class="btn-go">→</div>
+            <div class="btn-go" style="color: var(--text-muted);">🔒</div>
+          </a>
+
+          <!-- Lesson 4 (Coming Soon) -->
+          <a class="lesson-item disabled" style="opacity:0.4;pointer-events:none;cursor:default;">
+            <div class="lesson-info">
+              <span class="lesson-number">LESSON 04</span>
+              <span class="lesson-name">Writing Task 2: Essay Structure & Argumentation</span>
+              <span class="lesson-date" style="color: var(--text-muted);">Coming soon</span>
+            </div>
+            <div class="btn-go" style="color: var(--text-muted);">🔒</div>
+          </a>
+
+          <!-- Lesson 5 (Coming Soon) -->
+          <a class="lesson-item disabled" style="opacity:0.4;pointer-events:none;cursor:default;">
+            <div class="lesson-info">
+              <span class="lesson-number">LESSON 05</span>
+              <span class="lesson-name">Full Mock Test & Error Recycling</span>
+              <span class="lesson-date" style="color: var(--text-muted);">Coming soon</span>
+            </div>
+            <div class="btn-go" style="color: var(--text-muted);">🔒</div>
           </a>
 
         </div>
@@ -501,27 +521,27 @@
 
       <!-- Current Homework -->
       <div class="card">
-        <div class="card-title">📝 Homework Assignments — Lesson 1</div>
+        <div class="card-title">📝 Homework Assignments — Lesson 2</div>
         <div class="hw-list">
           <div class="hw-item">
             <input type="checkbox" class="hw-checkbox" data-hw="speaking" id="hw-speaking">
-            <label for="hw-speaking"><strong>Speaking Task (Audio Recording)</strong></label>
+            <label for="hw-speaking"><strong>Speaking Task (Audio Recording — 2 min)</strong></label>
             <div style="margin-top:0.5rem;">
-              Record a 2-minute response to a new Speaking Part 2 Cue Card: <em>"Describe a decision someone else made that you disagreed with."</em> (1 min prep, 2 min record.) Use at least 3 upgraded collocations from today's class.
+              Record a 2-minute response to this Part 2 Cue Card: <em>"Describe a place you would like to visit in the future."</em> Use the <strong>OREO structure</strong> and include at least <strong>4 sensory collocations</strong> from today's class (<em>breathtaking panorama, weathered façades, teeming with life, serene retreat, awe-inspiring, picturesque</em>).
             </div>
           </div>
           <div class="hw-item">
             <input type="checkbox" class="hw-checkbox" data-hw="writing" id="hw-writing">
-            <label for="hw-writing"><strong>Writing Task</strong></label>
+            <label for="hw-writing"><strong>Writing Task (150–200 words)</strong></label>
             <div style="margin-top:0.5rem;">
-              Write a formal response (150–200 words) to this Part 3 prompt: <em>"To what extent should governments make health decisions for their citizens?"</em> Focus on formal cohesive devices and academic vocabulary.
+              Write a formal response to this prompt: <em>"To what extent do you agree that preserving historical landmarks is more important than building modern infrastructure? Give reasons and examples."</em> Use the <strong>PEEL structure</strong>, formal cohesive devices, and at least <strong>2 sensory collocations</strong> from the Lexical Upgrader.
             </div>
           </div>
           <div class="hw-item">
             <input type="checkbox" class="hw-checkbox" data-hw="collocations" id="hw-collocations">
             <label for="hw-collocations"><strong>Collocation Journal</strong></label>
             <div style="margin-top:0.5rem;">
-              Add 5 new collocations from today's class into your vocabulary journal, writing 2 example sentences for each (one general, one related to your study of French).
+              Add <strong>5 new place-related collocations</strong> from today's class into your vocabulary journal. For each, write <strong>2 original sentences</strong> (one about a real place you know, one about an imaginary place).
             </div>
           </div>
         </div>
