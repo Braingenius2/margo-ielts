@@ -283,6 +283,10 @@
                 <li>Use formal cohesive devices: <em>It is widely believed that…</em>, <em>From a societal perspective…</em></li>
                 <li>Include at least 2 sensory collocations from the Lexical Upgrader.</li>
               </ul>
+              <textarea id="writing-response" placeholder="Write your response here..." style="width:100%;height:200px;background:rgba(0,0,0,0.3);border:1px solid var(--border-color);border-radius:8px;color:var(--text-main);padding:0.75rem;font-family:inherit;font-size:0.9rem;resize:vertical;margin-top:0.75rem;"></textarea>
+              <div class="word-counter" style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">
+                <span id="hw2WordCount">0 words</span>
+              </div>
             </div>
 
             <div style="background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
@@ -370,8 +374,6 @@
 
   initShadowing();
 
-    const text = "Wandering through the cobblestone alleyways of a medieval city, one is immediately struck by the breathtaking panorama of weathered façades and soaring bell towers. The aroma of freshly baked pastries drifts from a tucked-away bakery, while the distant hum of a street musician fills the tranquil square. Every corner reveals a new vista — a sun-drenched terrace overlooking the harbour, a secluded courtyard draped in ivy, or a bustling marketplace teeming with life and colour.";
-
     let timerInterval = null, timerSeconds = 0;
     function toggleShadowingTimer() {
       const btn = document.getElementById('btn-timer');
@@ -424,7 +426,7 @@
     function autoHighlightWords() {
       document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
       let currentWordIndex = 0;
-      const totalWords = text.split(' ').length;
+      const totalWords = shadowingText.split(' ').length;
       
       if (paceInterval) clearInterval(paceInterval);
       
@@ -493,6 +495,7 @@
     let prepInterval = null, speakInterval = null;
     function runSpeakingClock() {
       resetSpeakingClock();
+      playBeep(400, 100);
       let prepTime = 60, speakTime = 120;
       const prepVal = document.getElementById('prep-time'), speakVal = document.getElementById('speak-time');
       prepVal.style.color = 'var(--accent-blue)';
@@ -501,11 +504,12 @@
         if (prepTime <= 10) prepVal.style.color = 'var(--accent-red)';
         if (prepTime <= 0) {
           clearInterval(prepInterval); prepVal.textContent = "0"; prepVal.style.color = 'var(--text-muted)';
+          playBeep(600, 150);
           speakVal.style.color = 'var(--primary)';
           speakInterval = setInterval(() => {
             speakTime--; speakVal.textContent = speakTime;
             if (speakTime <= 15) speakVal.style.color = 'var(--accent-red)';
-            if (speakTime <= 0) { clearInterval(speakInterval); speakVal.textContent = "Done!"; }
+            if (speakTime <= 0) { clearInterval(speakInterval); speakVal.textContent = "Done!"; playBeep(800, 200, 3); }
           }, 1000);
         }
       }, 1000);
@@ -516,6 +520,13 @@
       document.getElementById('speak-time').textContent = "120"; document.getElementById('speak-time').style.color = 'var(--primary)';
     }
 
+  // Word count
+  function updateHw2Count() {
+    const val = document.getElementById('writing-response').value;
+    document.getElementById('hw2WordCount').textContent = (val.trim() ? val.trim().split(/\s+/).length : 0) + ' words';
+  }
+  document.getElementById('writing-response').addEventListener('input', updateHw2Count);
+  setTimeout(updateHw2Count, 100);
   </script>
 </body>
 </html>

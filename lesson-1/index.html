@@ -809,6 +809,10 @@
                 <li>Focus on formal cohesive devices and academic vocabulary.</li>
                 <li>Use Part 3 argument templates: <em>"It is widely believed that…"</em>, <em>"From a societal perspective…"</em></li>
               </ul>
+              <textarea id="writing-response" placeholder="Write your response here..." style="width:100%;height:200px;background:rgba(0,0,0,0.3);border:1px solid var(--border-color);border-radius:8px;color:var(--text-main);padding:0.75rem;font-family:inherit;font-size:0.9rem;resize:vertical;margin-top:0.75rem;"></textarea>
+              <div class="word-counter" style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">
+                <span id="hw1WordCount">0 words</span>
+              </div>
             </div>
 
             <div class="card" style="background: rgba(255,255,255,0.01); border-color: var(--border-color); margin-bottom: 0; padding: 1.25rem;">
@@ -900,9 +904,6 @@
 
   initShadowing();
 
-    // Shadowing Pacer Text
-    const text = "When faced with an important decision, people often find themselves at a crossroads. In such situations, it is essential to weigh the pros and cons meticulously rather than making a choice on impulse. For instance, selecting a university or moving abroad represents a turning point that can shape one's entire future. While some people act on their gut feeling, others prefer a more analytical approach, listing every possible outcome to avoid future regret.";
-
     // Shadowing Timer Logic
     let timerInterval = null;
     let timerSeconds = 0;
@@ -966,7 +967,7 @@
     function autoHighlightWords() {
       document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
       let currentWordIndex = 0;
-      const totalWords = text.split(' ').length;
+      const totalWords = shadowingText.split(' ').length;
       
       if (paceInterval) clearInterval(paceInterval);
       
@@ -1096,6 +1097,14 @@
     window.onload = () => {
       initShadowing();
     };
+
+  // Word count
+  function updateHw1Count() {
+    const val = document.getElementById('writing-response').value;
+    document.getElementById('hw1WordCount').textContent = (val.trim() ? val.trim().split(/\s+/).length : 0) + ' words';
+  }
+  document.getElementById('writing-response').addEventListener('input', updateHw1Count);
+  setTimeout(updateHw1Count, 100);
   </script>
 </body>
 </html>
