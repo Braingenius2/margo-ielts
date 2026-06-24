@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Margo's Lesson: IELTS Writing Task 1 (Student Room)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: #131a26;
+      --border-color: #243042;
+      --text-main: #f1f5f9;
+      --text-muted: #64748b;
+      --primary: #10b981; /* Emerald Green */
+      --primary-hover: #059669;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #22d3ee;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-purple: #8b5cf6;
+      --glass-bg: rgba(19, 26, 38, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.03);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: 'Outfit', sans-serif; 
+      background-color: var(--bg-dark); 
+      color: var(--text-main); 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      overflow-x: hidden; 
+      background-image: 
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 40%);
+    }
+    
+    header { 
+      background: rgba(9, 13, 22, 0.9); 
+      backdrop-filter: blur(12px); 
+      border-bottom: 1px solid var(--border-color); 
+      padding: 1rem 2rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      height: 65px;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .back-link { 
+      color: var(--text-muted); 
+      text-decoration: none; 
+      font-size: 0.85rem; 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 0.3rem; 
+      transition: color 0.2s ease; 
+      margin-left: 0.5rem;
+    }
+    .back-link:hover { color: var(--text-main); }
+    .badge-exam { 
+      background: rgba(16, 185, 129, 0.15); 
+      border: 1px solid var(--primary); 
+      color: var(--primary); 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-family: 'Fira Code', monospace; 
+      font-size: 0.75rem; 
+      text-transform: uppercase; 
+      font-weight: bold; 
+      letter-spacing: 0.05em; 
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+    }
+    h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.025em; }
+    .lesson-meta { display: flex; gap: 1.5rem; font-size: 0.875rem; color: var(--text-muted); }
+    .meta-item strong { color: var(--text-main); }
+    
+    /* Progress bar */
+    .progress-bar-container {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.01);
+      position: sticky;
+      top: 65px;
+      z-index: 99;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+    }
+    .progress-bar {
+      height: 100%;
+      width: 16.7%;
+      background: linear-gradient(90deg, var(--primary), var(--accent-blue));
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .main-container { display: flex; flex: 1; height: calc(100vh - 69px); }
+    .sidebar { 
+      width: 280px; 
+      border-right: 1px solid var(--border-color); 
+      padding: 1.5rem 1rem; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 0.5rem; 
+      background: rgba(9, 13, 22, 0.45); 
+      overflow-y: auto;
+    }
+    .sidebar-btn { 
+      display: flex; 
+      align-items: center; 
+      gap: 0.75rem; 
+      width: 100%; 
+      padding: 0.75rem 1rem; 
+      background: transparent; 
+      border: 1px solid transparent; 
+      border-radius: 8px; 
+      color: var(--text-muted); 
+      font-size: 0.9rem; 
+      text-align: left; 
+      cursor: pointer; 
+      transition: all 0.2s ease; 
+    }
+    .sidebar-btn:hover { background: rgba(255, 255, 255, 0.02); color: var(--text-main); }
+    .sidebar-btn.active { 
+      background: var(--bg-card); 
+      border-color: var(--border-color); 
+      color: var(--primary); 
+      font-weight: 600; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); 
+    }
+    .sidebar-icon {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .sidebar-num { font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5; }
+    
+    .content-area { flex: 1; padding: 2.5rem; overflow-y: auto; }
+    .slide { display: none; animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; max-width: 1000px; margin: 0 auto; }
+    .slide.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .card { 
+      background: var(--glass-bg); 
+      border: 1px solid var(--glass-border); 
+      border-radius: 12px; 
+      padding: 1.75rem; 
+      margin-bottom: 1.5rem; 
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); 
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      border-color: rgba(16, 185, 129, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 0 15px rgba(16, 185, 129, 0.02);
+    }
+    .card-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 0.5rem; }
+    
+    .shadowing-box { border-left: 4px solid var(--accent-blue); background: rgba(59, 130, 246, 0.01); }
+    .shadowing-text { 
+      font-size: 1.1rem; 
+      line-height: 1.85; 
+      color: var(--text-main); 
+      margin: 1.25rem 0; 
+      background: rgba(0, 0, 0, 0.25); 
+      padding: 1.5rem; 
+      border-radius: 8px; 
+      border: 1px solid rgba(255, 255, 255, 0.02); 
+    }
+    .shadowing-word { display: inline-block; margin-right: 0.25rem; transition: all 0.15s ease; border-bottom: 2px solid transparent; }
+    .shadowing-word.highlighted { background: rgba(16, 185, 129, 0.2); color: #fff; border-radius: 3px; padding: 0 2px; }
+    .shadowing-word-result { display: inline-block; margin-right: 0.25rem; border-bottom: 2px solid transparent; }
+    .word-correct { color: #10b981; border-color: rgba(16, 185, 129, 0.4); font-weight: 500; }
+    .word-incorrect { color: #fb7185; border-color: rgba(251, 113, 133, 0.4); text-decoration: line-through; }
+    
+    .btn { padding: 0.6rem 1.2rem; border-radius: 6px; border: none; font-weight: 600; font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease; font-size: 0.9rem; }
+    .btn-primary { background: var(--primary); color: #070a13; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: rgba(255, 255, 255, 0.03); color: var(--text-main); border: 1px solid var(--border-color); }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.08); }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    
+    .recorder-bar { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); }
+    .rec-btn { padding: 0.45rem 1rem; font-size: 0.8rem; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); color: var(--text-muted); font-family: inherit; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 500; }
+    .rec-btn:hover { background: rgba(255,255,255,0.08); color: var(--text-main); }
+    .rec-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .rec-btn.recording { background: var(--accent-red); color: #fff; border-color: var(--accent-red); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+    .rec-status { font-size: 0.8rem; color: var(--text-muted); margin-left: 0.5rem; }
+    
+    .exam-timer { background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; box-shadow: inset 0 2px 8px rgba(0,0,0,0.5); }
+    .timer-val { font-family: 'Fira Code', monospace; font-size: 3rem; font-weight: bold; color: var(--primary); text-shadow: 0 0 12px rgba(16, 185, 129, 0.2); }
+    .timer-label { font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.5rem; }
+    
+    .chart-container { background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem 1rem; margin: 1rem 0; overflow: visible; position: relative; }
+    .chart-legend { display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    .chart-legend-item { display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; color: var(--text-muted); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+    .chart-grid { display: flex; gap: 0.75rem; justify-content: space-around; align-items: flex-end; min-height: 260px; padding-top: 20px; }
+    .chart-group { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 60px; transition: all 0.25s ease; border: 1px solid transparent; padding: 0.35rem; }
+    .chart-bars { display: flex; gap: 4px; align-items: flex-end; height: 220px; width: 100%; border-bottom: 1px solid var(--border-color); }
+    .chart-bar { flex: 1; min-width: 6px; border-radius: 2px 2px 0 0; position: relative; transition: all 0.2s; cursor: pointer; }
+    .chart-bar:hover { filter: brightness(1.2); transform: scaleY(1.02); }
+    .chart-bar-val { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 0.55rem; color: var(--text-muted); opacity: 0; white-space: nowrap; }
+    .chart-bar:hover .chart-bar-val { opacity: 1; }
+    .chart-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+    
+    .hover-active-row { background: rgba(16, 185, 129, 0.08) !important; border-left: 3px solid var(--primary); }
+    .hover-active-group { background: rgba(255, 255, 255, 0.02); border-radius: 6px; box-shadow: 0 0 12px rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.15) !important; }
+
+    .model-essay { background: rgba(0,0,0,0.3); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 8px; font-size: 1.05rem; line-height: 1.85; }
+    .annotation { color: var(--accent-amber); font-size: 0.85rem; font-weight: 600; margin-left: 0.25rem; vertical-align: super; }
+    .highlight-vocab { color: var(--primary); font-weight: 600; }
+
+    .data-table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: rgba(0,0,0,0.25); border-radius: 6px; overflow: hidden; }
+    .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 0.85rem 1rem; text-align: center; font-size: 0.9rem; }
+    .data-table th { background: rgba(255, 255, 255, 0.03); color: var(--accent-cyan); font-weight: 600; }
+    .data-table td:first-child { text-align: left; font-weight: 600; color: #cbd5e1; }
+    .data-table tbody tr { transition: background-color 0.2s ease; }
+    
+    .correction-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    .correction-table th, .correction-table td { border: 1px solid var(--border-color); padding: 0.75rem; text-align: left; font-size: 0.9rem; }
+    .correction-table th { background: rgba(255, 255, 255, 0.02); font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; }
+
+    /* Controlled Practice styles */
+    .exercise-box {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .exercise-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .reveal-btn {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .reveal-btn:hover {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--primary);
+    }
+    .exercise-ans {
+      display: none;
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: rgba(16, 185, 129, 0.04);
+      border-left: 3px solid var(--primary);
+      border-radius: 4px;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+      animation: fadeIn 0.2s ease;
+    }
+    .exercise-ans.show {
+      display: block;
+    }
+    
+    /* Click to Match */
+    .match-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.88rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+      width: 100%;
+    }
+    .match-card:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--primary);
+    }
+    .match-card.selected {
+      border-color: var(--accent-cyan);
+      background: rgba(34, 211, 238, 0.05);
+      box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
+    }
+    .match-card.matched {
+      cursor: not-allowed;
+      opacity: 0.85;
+    }
+    .match-card.matched-0 { border-color: #3b82f6; background: rgba(59,130,246,0.08); color: #3b82f6; }
+    .match-card.matched-1 { border-color: #f59e0b; background: rgba(245,158,11,0.08); color: #f59e0b; }
+    .match-card.matched-2 { border-color: #8b5cf6; background: rgba(139,92,246,0.08); color: #8b5cf6; }
+    .match-card.matched-3 { border-color: #22d3ee; background: rgba(34,211,238,0.08); color: #22d3ee; }
+    .match-card.matched-4 { border-color: #f43f5e; background: rgba(244,63,94,0.08); color: #f43f5e; }
+    .match-card.incorrect {
+      border-color: var(--accent-red);
+      background: rgba(239, 68, 68, 0.05);
+      animation: shake 0.3s ease;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+    
+    /* Interactive input fields */
+    .exercise-input {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      width: 130px;
+      margin: 0 0.25rem;
+      transition: border-color 0.2s;
+    }
+    .exercise-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .exercise-input.valid {
+      border-color: var(--primary);
+      background: rgba(16, 185, 129, 0.05);
+    }
+    .exercise-input.invalid {
+      border-color: var(--accent-red);
+      background: rgba(239, 68, 68, 0.05);
+    }
+    
+    .check-btn {
+      margin-top: 1rem;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .check-btn:hover {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--primary);
+    }
+    
+    /* Overview Selection Options */
+    .option-card {
+      display: block;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+    .option-card:hover {
+      border-color: var(--accent-blue);
+      background: rgba(255,255,255,0.03);
+    }
+    .option-card.correct {
+      border-color: var(--primary) !important;
+      background: rgba(16, 185, 129, 0.05) !important;
+    }
+    .option-card.incorrect {
+      border-color: var(--accent-red) !important;
+      background: rgba(239, 68, 68, 0.05) !important;
+    }
+    
+    /* Lexical Booster Checklist */
+    .lex-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: all 0.25s ease;
+    }
+    .lex-pill.active {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+      font-weight: 500;
+    }
+    .lex-pill::before {
+      content: '○';
+      font-size: 0.75rem;
+    }
+    .lex-pill.active::before {
+      content: '✓';
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 1rem; height: auto; }
+      .main-container { flex-direction: column; height: auto; }
+      .sidebar { width: 100%; flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border-color); padding: 0.5rem; position: sticky; top: 65px; z-index: 90; background: rgba(9, 13, 22, 0.95); }
+      .sidebar-btn { padding: 0.5rem 0.75rem; white-space: nowrap; width: auto; font-size: 0.8rem; }
+      .sidebar-num { display: none; }
+      .content-area { padding: 1rem; }
+      .progress-bar-container { top: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-area">
+      <div class="badge-exam">IELTS Writing</div>
+      <a href="../index.html" class="back-link">← Portal</a>
+      <h1>Margo: Describing Data & Trends</h1>
+    </div>
+    <div class="lesson-meta">
+      <div class="meta-item">Student: <strong>Margo (B2/7.0+)</strong></div>
+    </div>
+  </header>
+  
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="top-progress-bar"></div>
+  </div>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <button class="sidebar-btn active" onclick="switchSlide(0)">
+        <span class="sidebar-num">01</span>
+        <svg viewBox="0 0 24 24" class="sidebar-icon"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4m-4 0h8"/></svg>
+        Warm-up: Shadowing
+      </button>
+      <button class="sidebar-btn" onclick="switchSlide(1)">
+        <span class="sidebar-num">02</span>
+        <svg viewBox="0 0 24 24" class="sidebar-icon"><path d="m22 7-8.5 8.5-5-5L2 18m20-11h-6m6 0v6"/></svg>
+        Lexical Upgrades
+      </button>
+      <button class="sidebar-btn" onclick="switchSlide(2)">
+        <span class="sidebar-num">03</span>
+        <svg viewBox="0 0 24 24" class="sidebar-icon"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        Controlled Practice
+      </button>
+      <button class="sidebar-btn" onclick="switchSlide(3)">
+        <span class="sidebar-num">04</span>
+        <svg viewBox="0 0 24 24" class="sidebar-icon"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        Task 1 Writing
+      </button>
+      <button class="sidebar-btn" onclick="switchSlide(4)">
+        <span class="sidebar-num">05</span>
+        <svg viewBox="0 0 24 24" class="sidebar-icon"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Model Analysis
+      </button>
+      <button class="sidebar-btn" onclick="switchSlide(5)">
+        <span class="sidebar-num">06</span>
+        <svg viewBox="0 0 24 24" class="sidebar-icon"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14h6M9 18h6M9 10h1"/></svg>
+        Homework
+      </button>
+    </div>
+
+    <div class="content-area">
+      
+      <!-- Slide 1: Shadowing -->
+      <div class="slide active" id="slide-0">
+        <div class="card shadowing-box">
+          <div class="card-title">🔊 Shadowing Pacer: Statistical Trends</div>
+          <p class="text-muted">Focus on stressing verbs of change and maintaining an academic pace.</p>
+          <div id="shadowing-text" class="shadowing-text"></div>
+          
+          <!-- Web Audio Canvas Visualizer -->
+          <canvas id="waveCanvas" width="800" height="90" style="width:100%;height:90px;background:#05070c;border-radius:6px;border:1px solid var(--border-color);margin-bottom:1.25rem;"></canvas>
+          
+          <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="toggleShadowingTimer()" id="btn-timer">▶ Start Timer</button>
+            <div id="shadowing-timer" style="font-family:'Fira Code'; font-size:1.15rem; background:#000; padding:0.4rem 1rem; border-radius:4px; border:1px solid var(--border-color);">00:00</div>
+            <button class="btn btn-secondary" onclick="resetShadowingTimer()">Reset</button>
+            <button class="btn btn-secondary" onclick="autoHighlightWords()">Auto Pacer</button>
+          </div>
+          <div class="pacer-controls" style="margin-top:0.75rem; display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+            <select class="speed-select" id="speedSelect" style="background:#131a26; color:var(--text-main); border:1px solid var(--border-color); padding:0.4rem; border-radius:4px; font-family:inherit;">
+              <option value="500">120 WPM</option>
+              <option value="462">130 WPM</option>
+              <option value="429">140 WPM</option>
+              <option value="400" selected>150 WPM (Recommended)</option>
+              <option value="375">160 WPM</option>
+              <option value="348">175 WPM</option>
+              <option value="320">187 WPM</option>
+              <option value="300">200 WPM</option>
+            </select>
+            <button class="btn btn-secondary listen-btn" onclick="toggleSpeaking()">🔊 Listen Guide</button>
+          </div>
+          <div class="recorder-bar">
+            <button class="rec-btn" id="startRecord">🎤 Record Shadowing</button>
+            <button class="rec-btn" id="stopRecord" disabled>⏹ Stop</button>
+            <button class="rec-btn" id="playRecord" disabled>🎧 Play Rec</button>
+            <span class="rec-status" id="recStatus">Record yourself, then compare with the model</span>
+          </div>
+          
+          <!-- Accuracy grade output card -->
+          <div id="accuracyGradeCard" style="display:none; gap:1.5rem; align-items:center; background:rgba(16, 185, 129, 0.05); border:1px solid rgba(16, 185, 129, 0.15); border-radius:8px; padding:1.25rem; margin-top:1.5rem; animation:fadeIn 0.3s ease-in-out;">
+            <div style="position:relative; width:90px; height:90px; flex-shrink:0;">
+              <svg width="90" height="90" viewBox="0 0 90 90">
+                <circle cx="45" cy="45" r="40" stroke="rgba(255,255,255,0.05)" stroke-width="6" fill="transparent" />
+                <circle id="accuracyGaugeFill" cx="45" cy="45" r="40" stroke="var(--primary)" stroke-width="6" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" style="transform:rotate(-90deg); transform-origin:50% 50%; transition:stroke-dashoffset 0.8s ease;" />
+              </svg>
+              <div id="accuracyGaugeText" style="position:absolute; top:0; left:0; width:90px; height:90px; display:flex; align-items:center; justify-content:center; font-family:'Fira Code'; font-size:1.15rem; font-weight:bold; color:var(--text-main);">0%</div>
+            </div>
+            <div>
+              <h4 id="accuracyGradeTitle" style="font-size:1rem; font-weight:600; color:var(--primary); margin-bottom:0.25rem;">Checking...</h4>
+              <p id="accuracyGradeFeedback" style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <audio id="shadowingAudio" preload="none" style="display:none"></audio>
+
+      <!-- Slide 2: Upgrades -->
+      <div class="slide" id="slide-1">
+        <div class="card">
+          <div class="card-title">📈 Advanced Verbs of Change</div>
+          <table class="correction-table" style="margin-bottom: 1.5rem;">
+            <thead>
+              <tr><th>Trend Type</th><th>Advanced (Band 7-8+)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Dramatic increase</td><td style="color:var(--primary);">skyrocketed, soared, surged, rocketed</td></tr>
+              <tr><td>Gradual increase</td><td style="color:var(--primary);">climbed steadily, edged up, crept up</td></tr>
+              <tr><td>Dramatic decrease</td><td style="color:var(--accent-red);">plummeted, nosedived, plunged, collapsed</td></tr>
+              <tr><td>Gradual decrease</td><td style="color:var(--accent-red);">dwindled, tapered off, declined marginally</td></tr>
+              <tr><td>Stability</td><td style="color:var(--accent-blue);">levelled off, plateaued, remained static</td></tr>
+            </tbody>
+          </table>
+          
+          <div style="background:rgba(255,255,255,0.02); padding:1rem; border-radius:8px; border:1px solid var(--border-color);">
+            <h4 style="color:var(--accent-purple); margin-bottom:0.5rem;">Preposition Review:</h4>
+            <div style="font-size:0.95rem; color:#cbd5e1; line-height:1.6;">
+              • Increased <strong style="color:var(--primary)">from</strong> 10m <strong style="color:var(--primary)">to</strong> 50m (range)<br>
+              • A rise <strong style="color:var(--primary)">of</strong> approximately 40m (net difference)<br>
+              • Peaked <strong style="color:var(--primary)">at</strong> 90% (exact ceiling point)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Controlled Practice (NEW Interactive Version) -->
+      <div class="slide" id="slide-2">
+        <div class="card">
+          <div class="card-title">✍️ Controlled Practice Exercises</div>
+          <p class="text-muted" style="margin-bottom: 1rem;">Complete the exercises using the internet user data set. Check your work dynamically.</p>
+
+          <!-- Exercise 1: Click to Match -->
+          <div class="exercise-box" id="practice-ex1">
+            <div class="exercise-title">
+              1. Verb-of-Change Matching
+              <button class="reveal-btn" onclick="revealExAnswers('practice-ex1')">Reveal Matches</button>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.75rem;">Click a description on the left, then click its corresponding verb upgrade on the right.</p>
+            
+            <div class="matching-container">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
+                <div style="display:flex; flex-direction:column; gap:0.5rem;" id="match-left">
+                  <button class="match-card match-left-btn" data-key="china">China's users went 22M ➔ 989M</button>
+                  <button class="match-card match-left-btn" data-key="uk-slow">UK growth slowed after 2015</button>
+                  <button class="match-card match-left-btn" data-key="india">India's users jumped 5M ➔ 749M</button>
+                  <button class="match-card match-left-btn" data-key="usa">USA growth was steady but moderate</button>
+                  <button class="match-card match-left-btn" data-key="uk-plat">UK remained near 60M (2015-2020)</button>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:0.5rem;" id="match-right">
+                  <button class="match-card match-right-btn" data-val="tapered off">tapered off</button>
+                  <button class="match-card match-right-btn" data-val="plateaued">plateaued</button>
+                  <button class="match-card match-right-btn" data-val="skyrocketed">skyrocketed</button>
+                  <button class="match-card match-right-btn" data-val="climbed steadily">climbed steadily</button>
+                  <button class="match-card match-right-btn" data-val="surged">surged</button>
+                </div>
+              </div>
+              <div style="margin-top:1rem; text-align:right;">
+                <button class="btn btn-secondary" onclick="resetMatchingGame()" style="display:inline-flex;padding:0.35rem 0.75rem;font-size:0.8rem;">Reset Matcher</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exercise 2 -->
+          <div class="exercise-box" id="practice-ex2">
+            <div class="exercise-title">
+              2. Gap-Fill — Adverbs of Degree
+              <button class="reveal-btn" onclick="revealExAnswers('practice-ex2')">Reveal Answers</button>
+            </div>
+            <div style="font-size:0.9rem; line-height: 1.8; color: #e2e8f0;">
+              1. Internet usage in India increased <input type="text" class="exercise-input" data-ans="dramatically|exponentially|significantly|substantially" placeholder="adverb"> between 2010 and 2020 (92M ➔ 749M).<br>
+              2. The UK figure rose only <input type="text" class="exercise-input" data-ans="marginally|slightly|negligibly" placeholder="adverb"> in the final five-year period (60M ➔ 63M).<br>
+              3. China's user base grew <input type="text" class="exercise-input" data-ans="exponentially|substantially|dramatically|markedly" placeholder="adverb">, reaching nearly one billion by 2020.<br>
+              4. Brazil's user base grew <input type="text" class="exercise-input" data-ans="steadily|progressively|moderately|gradually" placeholder="adverb">, rising from 76 million to 165 million after 2010.
+            </div>
+            <button class="check-btn" onclick="checkExAnswers('practice-ex2')">Check Answers</button>
+          </div>
+
+          <!-- Exercise 3 -->
+          <div class="exercise-box" id="practice-ex3">
+            <div class="exercise-title">
+              3. Preposition Drill — From / To / By / At / Of
+              <button class="reveal-btn" onclick="revealExAnswers('practice-ex3')">Reveal Answers</button>
+            </div>
+            <div style="font-size:0.9rem; line-height: 1.8; color: #e2e8f0;">
+              1. China's internet users increased <input type="text" class="exercise-input" data-ans="from" style="width:60px;" placeholder="prep"> 22 million <input type="text" class="exercise-input" data-ans="to" style="width:60px;" placeholder="prep"> 989 million.<br>
+              2. India experienced a rise <input type="text" class="exercise-input" data-ans="of" style="width:60px;" placeholder="prep"> approximately 744 million.<br>
+              3. UK internet usage peaked <input type="text" class="exercise-input" data-ans="at" style="width:60px;" placeholder="prep"> 63 million in 2020.<br>
+              4. Between 2000 and 2005, Brazil's figure rose <input type="text" class="exercise-input" data-ans="by" style="width:60px;" placeholder="prep"> 21 million.
+            </div>
+            <button class="check-btn" onclick="checkExAnswers('practice-ex3')">Check Answers</button>
+          </div>
+
+          <!-- Exercise 4 -->
+          <div class="exercise-box" id="practice-ex4">
+            <div class="exercise-title">
+              4. Tense Correction (Completed Past Data)
+              <button class="reveal-btn" onclick="revealExAnswers('practice-ex4')">Reveal Answers</button>
+            </div>
+            <div style="font-size:0.9rem; line-height: 1.8; color: #e2e8f0;">
+              1. In 2010, the number of users in India <em>increases</em> to 92 million. ➔ Correct verb: <input type="text" class="exercise-input" data-ans="increased" placeholder="verb"><br>
+              2. Between 2000 and 2020, China's internet user base <em>is growing</em> dramatically. ➔ Correct verb: <input type="text" class="exercise-input" data-ans="grew" placeholder="verb"><br>
+              3. By 2005, the USA already <em>has</em> 175 million users. ➔ Correct verb: <input type="text" class="exercise-input" data-ans="had" placeholder="verb">
+            </div>
+            <button class="check-btn" onclick="checkExAnswers('practice-ex4')">Check Answers</button>
+          </div>
+
+          <!-- Exercise 5 -->
+          <div class="exercise-box" id="practice-ex5">
+            <div class="exercise-title">
+              5. 'Actually' Replacement (Academic Discourse)
+              <button class="reveal-btn" onclick="revealExAnswers('practice-ex5')">Reveal Answers</button>
+            </div>
+            <div style="font-size:0.9rem; line-height: 1.8; color: #e2e8f0;">
+              Replace the informal 'actually':<br>
+              1. "<em>Actually</em>, China experienced the largest growth." ➔ Academic starter: <input type="text" class="exercise-input" data-ans="notably|it is worth noting that|significantly" style="width:160px;" placeholder="academic marker"><br>
+              2. "<em>Actually</em>, the UK saw very little change after 2015." ➔ Academic starter: <input type="text" class="exercise-input" data-ans="interestingly|in contrast|however" style="width:160px;" placeholder="academic marker">
+            </div>
+            <button class="check-btn" onclick="checkExAnswers('practice-ex5')">Check Answers</button>
+          </div>
+
+          <!-- Exercise 6 -->
+          <div class="exercise-box" id="practice-ex6">
+            <div class="exercise-title">
+              6. Overview Analysis — Select Band 8.0
+              <button class="reveal-btn" onclick="revealExAnswers('practice-ex6')">Reveal Choice</button>
+            </div>
+            <div class="overview-options">
+              <label class="option-card" id="option-a" onclick="selectOverviewOption('a')">
+                <input type="radio" name="overview-sel" value="a" style="display:none;">
+                <strong>Option A:</strong> "The table shows the number of internet users in five countries. The USA had 95 million in 2000. China had 22 million. India had 5 million."
+              </label>
+              <label class="option-card" id="option-b" onclick="selectOverviewOption('b')">
+                <input type="radio" name="overview-sel" value="b" style="display:none;">
+                <strong>Option B:</strong> "Overall, the most striking feature is the exponential growth in internet users in China and India, which vastly outpaced the more gradual increases seen in the USA, UK, and Brazil. By 2020, China had emerged as the country with the largest number of users, while the UK showed signs of reaching saturation."
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Slide 4: Task 1 Simulation -->
+      <div class="slide" id="slide-3">
+        <div class="card">
+          <div class="card-title">⏱️ IELTS Writing Task 1 Simulation</div>
+          <p style="margin-bottom: 1.25rem; line-height: 1.5; font-size:0.95rem; color:#cbd5e1;">
+            The table and chart below show the number of internet users (in millions) in five countries between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.
+          </p>
+          
+          <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.5rem; align-items: start;">
+            <!-- Left Side: Table & Chart -->
+            <div>
+              <!-- Tabular data -->
+              <table class="data-table">
+                <thead>
+                  <tr><th>Country</th><th>2000</th><th>2005</th><th>2010</th><th>2015</th><th>2020</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-country="USA"><td>USA</td><td>95</td><td>175</td><td>220</td><td>265</td><td>300</td></tr>
+                  <tr data-country="UK"><td>UK</td><td>15</td><td>35</td><td>52</td><td>60</td><td>63</td></tr>
+                  <tr data-country="China"><td>China</td><td>22</td><td>111</td><td>457</td><td>688</td><td>989</td></tr>
+                  <tr data-country="India"><td>India</td><td>5</td><td>21</td><td>92</td><td>302</td><td>749</td></tr>
+                  <tr data-country="Brazil"><td>Brazil</td><td>5</td><td>26</td><td>76</td><td>120</td><td>165</td></tr>
+                </tbody>
+              </table>
+
+              <!-- CSS Bar Chart (Brought back to Student deck Slide 3) -->
+              <div class="chart-container">
+                <div style="font-size:0.85rem; font-weight:600; text-align:center; margin-bottom:0.5rem; color:var(--accent-cyan);">Visual Trend Representation (Internet Users in Millions)</div>
+                <div class="chart-legend">
+                  <span class="chart-legend-item"><span class="legend-dot" style="background:#60a5fa"></span>2000</span>
+                  <span class="chart-legend-item"><span class="legend-dot" style="background:#34d399"></span>2005</span>
+                  <span class="chart-legend-item"><span class="legend-dot" style="background:#fbbf24"></span>2010</span>
+                  <span class="chart-legend-item"><span class="legend-dot" style="background:#fb923c"></span>2015</span>
+                  <span class="chart-legend-item"><span class="legend-dot" style="background:#f87171"></span>2020</span>
+                </div>
+                <div class="chart-grid">
+                  <div class="chart-group" data-country="USA">
+                    <div class="chart-bars">
+                      <div class="chart-bar" style="height:9.6%;background:#60a5fa;"></div>
+                      <div class="chart-bar" style="height:17.5%;background:#34d399;"></div>
+                      <div class="chart-bar" style="height:22.0%;background:#fbbf24;"></div>
+                      <div class="chart-bar" style="height:26.5%;background:#fb923c;"></div>
+                      <div class="chart-bar" style="height:30.0%;background:#f87171;"></div>
+                    </div>
+                    <div class="chart-label">USA</div>
+                  </div>
+                  <div class="chart-group" data-country="UK">
+                    <div class="chart-bars">
+                      <div class="chart-bar" style="height:1.5%;background:#60a5fa;"></div>
+                      <div class="chart-bar" style="height:3.5%;background:#34d399;"></div>
+                      <div class="chart-bar" style="height:5.2%;background:#fbbf24;"></div>
+                      <div class="chart-bar" style="height:6.0%;background:#fb923c;"></div>
+                      <div class="chart-bar" style="height:6.3%;background:#f87171;"></div>
+                    </div>
+                    <div class="chart-label">UK</div>
+                  </div>
+                  <div class="chart-group" data-country="China">
+                    <div class="chart-bars">
+                      <div class="chart-bar" style="height:2.2%;background:#60a5fa;"></div>
+                      <div class="chart-bar" style="height:11.1%;background:#34d399;"></div>
+                      <div class="chart-bar" style="height:45.7%;background:#fbbf24;"></div>
+                      <div class="chart-bar" style="height:68.8%;background:#fb923c;"></div>
+                      <div class="chart-bar" style="height:98.9%;background:#f87171;"></div>
+                    </div>
+                    <div class="chart-label">China</div>
+                  </div>
+                  <div class="chart-group" data-country="India">
+                    <div class="chart-bars">
+                      <div class="chart-bar" style="height:0.5%;background:#60a5fa;"></div>
+                      <div class="chart-bar" style="height:2.1%;background:#34d399;"></div>
+                      <div class="chart-bar" style="height:9.2%;background:#fbbf24;"></div>
+                      <div class="chart-bar" style="height:30.2%;background:#fb923c;"></div>
+                      <div class="chart-bar" style="height:74.9%;background:#f87171;"></div>
+                    </div>
+                    <div class="chart-label">India</div>
+                  </div>
+                  <div class="chart-group" data-country="Brazil">
+                    <div class="chart-bars">
+                      <div class="chart-bar" style="height:0.5%;background:#60a5fa;"></div>
+                      <div class="chart-bar" style="height:2.6%;background:#34d399;"></div>
+                      <div class="chart-bar" style="height:7.6%;background:#fbbf24;"></div>
+                      <div class="chart-bar" style="height:12.0%;background:#fb923c;"></div>
+                      <div class="chart-bar" style="height:16.5%;background:#f87171;"></div>
+                    </div>
+                    <div class="chart-label">Brazil</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right Side: Draft Essay with Real-Time lexical booster scanner -->
+            <div class="card" style="margin-bottom:0; background:rgba(0,0,0,0.15); border:1px solid var(--border-color); display:flex; flex-direction:column; gap:0.75rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:0.95rem; font-weight:600; color:var(--primary);">Essay Draft</div>
+                <div class="word-counter" style="font-size:0.8rem;color:var(--text-muted);font-family:'Fira Code',monospace;">
+                  Words: <span id="wordCount">0</span> / 150
+                </div>
+              </div>
+              <textarea id="writing-area" placeholder="Write your Task 1 report draft here... Target lexical boosters will light up below." style="height:220px;width:100%;background:rgba(0,0,0,0.3);border:1px solid var(--border-color);border-radius:8px;color:var(--text-main);padding:0.75rem 1rem;font-family:inherit;font-size:0.92rem;resize:vertical;line-height:1.65;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--border-color)'"></textarea>
+              
+              <!-- Lexical Booster Tracker -->
+              <div style="border-top:1px solid var(--border-color); padding-top:0.75rem;">
+                <div style="font-size:0.8rem; font-weight:600; color:var(--accent-blue); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.05em;">Lexical Booster Tracker</div>
+                <div style="display:flex; flex-wrap:wrap; gap:0.4rem;" id="lexical-checklist">
+                  <span class="lex-pill" id="lex-pill-skyrocket">skyrocket</span>
+                  <span class="lex-pill" id="lex-pill-soar">soar</span>
+                  <span class="lex-pill" id="lex-pill-surge">surge</span>
+                  <span class="lex-pill" id="lex-pill-plateau">plateau</span>
+                  <span class="lex-pill" id="lex-pill-creep">creep/edge up</span>
+                  <span class="lex-pill" id="lex-pill-taper">taper off</span>
+                  <span class="lex-pill" id="lex-pill-dramatically">dramatically</span>
+                  <span class="lex-pill" id="lex-pill-steadily">steadily</span>
+                  <span class="lex-pill" id="lex-pill-marginally">marginally</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="display:flex; gap:1.5rem; align-items:center; margin-top:1.5rem;">
+            <div class="exam-timer" style="flex:1; margin:0; padding:1rem;">
+              <div class="timer-val" id="writing-time" style="font-size:2.2rem;">20:00</div>
+              <div class="timer-label" style="font-size:0.75rem;">Writing Time Remaining</div>
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="btn btn-primary" onclick="runWritingClock()">▶ Start Timer</button>
+              <button class="btn btn-secondary" onclick="resetWritingClock()">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Floating Chart Tooltip -->
+      <div id="chart-tooltip" style="position:absolute; display:none; background:rgba(9, 13, 22, 0.95); border:1px solid var(--border-color); border-radius:6px; padding:0.5rem 0.75rem; color:#fff; font-size:0.8rem; pointer-events:none; z-index:999; box-shadow:0 10px 25px rgba(0,0,0,0.5); backdrop-filter:blur(8px); min-width:140px; border-left:3px solid var(--primary);"></div>
+      
+      <!-- Slide 5: Model Essay -->
+      <div class="slide" id="slide-4">
+        <div class="card">
+          <div class="card-title">📖 Band 8.0 Model Report</div>
+          <div class="model-essay">
+            <p style="margin-bottom: 1rem;">The table illustrates the number of internet users, measured in millions, across five countries — the USA, UK, China, India, and Brazil — over a twenty-year period from 2000 to 2020.</p>
+            
+            <p style="margin-bottom: 1rem;">Overall, the most striking feature is the <span class="highlight-vocab">exponential surge</span><span class="annotation">[adj+noun]</span> in internet adoption in China and India, which vastly outpaced the more gradual increases observed in the other three nations. By 2020, China had emerged as the country with the largest user base.</p>
+            
+            <p style="margin-bottom: 1rem;">In 2000, China and India had relatively modest numbers of internet users, at 22 million and 5 million respectively. However, both countries experienced dramatic growth over the following two decades. China's figures <span class="highlight-vocab">skyrocketed</span><span class="annotation">[Band 8 verb]</span> to 989 million by 2020, while India's user base <span class="highlight-vocab">soared from</span><span class="annotation">[verb+prep]</span> 5 million to 749 million, representing the most significant proportional increase among the five countries.</p>
+            
+            <p>In contrast, the USA, UK, and Brazil demonstrated more measured growth. The USA climbed steadily from 95 million to 300 million. Brazil showed moderate expansion, rising from 5 million to 165 million. Meanwhile, the UK's growth <span class="highlight-vocab">tapered off</span><span class="annotation">[phrasal verb]</span> after 2015, with the figure <span class="highlight-vocab">edging up marginally</span><span class="annotation">[precision collocation]</span> from 60 million to just 63 million, suggesting that the market had reached saturation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: HOMEWORK -->
+      <div class="slide" id="slide-5">
+        <div class="card">
+          <div class="card-title">📋 Lesson 3 Homework Assignments</div>
+          <p class="text-muted" style="margin-bottom: 1.5rem;">Complete these tasks before our next class.</p>
+
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div style="background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+              <h3 style="font-size: 1.05rem; color: var(--accent-blue); margin-bottom: 0.5rem;">Task 1: Writing Task 1 Report (150+ words)</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6;">
+                Write a full Task 1 report using the data set below.
+              </p>
+              <div style="overflow-x: auto; margin: 0.75rem 0;">
+                <table class="data-table" style="font-size: 0.85rem;">
+                  <thead><tr><th>Country</th><th>2000</th><th>2005</th><th>2010</th><th>2015</th><th>2020</th></tr></thead>
+                  <tbody>
+                    <tr><td>USA</td><td>20.2</td><td>19.5</td><td>17.4</td><td>15.5</td><td>13.0</td></tr>
+                    <tr><td>Germany</td><td>10.1</td><td>9.8</td><td>9.1</td><td>8.9</td><td>7.7</td></tr>
+                    <tr><td>China</td><td>2.7</td><td>4.5</td><td>6.6</td><td>7.5</td><td>7.4</td></tr>
+                    <tr><td>India</td><td>1.0</td><td>1.2</td><td>1.6</td><td>1.8</td><td>1.8</td></tr>
+                    <tr><td>Brazil</td><td>1.9</td><td>1.9</td><td>2.1</td><td>2.3</td><td>2.0</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted);"><strong>Structure Aid:</strong><br>Intro → Overview → Body 1 (declining) → Body 2 (rising/stable)</p>
+              <ul style="padding-left: 1.25rem; font-size: 0.85rem; margin: 0.5rem 0; color: var(--text-muted);">
+                <li>Use at least 4 different verbs of change.</li>
+                <li>Include at least 2 adverbs of degree.</li>
+                <li>Write a clear overview without listing specific numbers.</li>
+              </ul>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+              <h3 style="font-size: 1.05rem; color: var(--accent-purple); margin-bottom: 0.5rem;">Task 2: Vocabulary Journal — Verbs of Change</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6;">
+                Add <strong>6 verbs of change</strong> (2 increase, 2 decrease, 2 stability/fluctuation) with adverb partners and example sentences.
+              </p>
+              <div style="margin-top: 0.75rem; padding: 0.75rem; background: rgba(0,0,0,0.2); border-radius: 6px; font-size: 0.85rem; border: 1px solid var(--border-color);">
+                <strong style="color: var(--accent-amber);">Example:</strong> <em>soar + dramatically</em> — "CO₂ emissions in China soared dramatically from 2.7 to 7.5."
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+              <h3 style="font-size: 1.05rem; color: var(--accent-amber); margin-bottom: 0.5rem;">Task 3: Error Correction Review</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6;">
+                Review the personalized corrections recorded during today's class. For each correction:
+              </p>
+              <ul style="padding-left: 1.25rem; font-size: 0.9rem; margin: 0.5rem 0; color: var(--text-muted);">
+                <li>Write the corrected sentence <strong>3 times</strong> in your notebook to build motor memory.</li>
+                <li>Create <strong>1 new original sentence</strong> applying the grammar/preposition fix.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const totalSlides = 6;
+    
+    function switchSlide(index) {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`slide-${index}`).classList.add('active');
+      document.querySelectorAll('.sidebar-btn')[index].classList.add('active');
+      
+      // Update top progress bar
+      const progressPercent = ((index + 1) / totalSlides) * 100;
+      document.getElementById('top-progress-bar').style.width = `${progressPercent}%`;
+      
+      // Stop guide speaking on slide switch
+      if (speaking) {
+        stopListeningMode();
+      }
+      stopVisualisation();
+    }
+
+    // Shadowing Pacer Text and Timestamps
+    const shadowingText = "Over the past two decades, the global digital landscape has undergone a dramatic transformation. Internet penetration has soared in developing nations, while growth in established markets has largely plateaued. In regions such as South Asia, the number of users has skyrocketed from a negligible figure to hundreds of millions, driven by affordable smartphones and expanding infrastructure. Meanwhile, more mature economies have seen usage rates level off, hovering around saturation point. These contrasting trajectories paint a compelling picture of how technology adoption varies across different stages of economic development.";
+
+    const targetWords = shadowingText.split(/\s+/);
+    const targetWordsClean = targetWords.map(w => w.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""));
+
+    const shadowingTS = [{"word":"Over","start":0.375,"end":0.562},{"word":"the","start":0.562,"end":0.650},{"word":"past","start":0.650,"end":0.988},{"word":"two","start":0.988,"end":1.200},{"word":"decades","start":1.200,"end":2.050},{"word":"the","start":2.050,"end":2.163},{"word":"global","start":2.163,"end":2.638},{"word":"digital","start":2.638,"end":3.050},{"word":"landscape","start":3.050,"end":3.675},{"word":"has","start":3.675,"end":3.875},{"word":"undergone","start":3.875,"end":4.475},{"word":"a","start":4.475,"end":4.550},{"word":"dramatic","start":4.550,"end":5.100},{"word":"transformation","start":5.100,"end":6.463},{"word":"Internet","start":6.463,"end":6.875},{"word":"penetration","start":6.875,"end":7.550},{"word":"has","start":7.550,"end":7.775},{"word":"soared","start":7.775,"end":8.162},{"word":"in","start":8.162,"end":8.250},{"word":"developing","start":8.250,"end":8.800},{"word":"nations","start":8.800,"end":9.750},{"word":"while","start":9.750,"end":9.988},{"word":"growth","start":9.988,"end":10.375},{"word":"in","start":10.375,"end":10.463},{"word":"established","start":10.463,"end":11.100},{"word":"markets","start":11.100,"end":11.550},{"word":"has","start":11.550,"end":11.762},{"word":"largely","start":11.762,"end":12.200},{"word":"plateaued","start":12.200,"end":13.488},{"word":"In","start":13.488,"end":13.650},{"word":"regions","start":13.650,"end":14.075},{"word":"such","start":14.075,"end":14.300},{"word":"as","start":14.300,"end":14.438},{"word":"South","start":14.438,"end":14.762},{"word":"Asia","start":14.762,"end":15.600},{"word":"the","start":15.600,"end":15.700},{"word":"number","start":15.700,"end":15.938},{"word":"of","start":15.938,"end":16.025},{"word":"users","start":16.025,"end":16.387},{"word":"has","start":16.387,"end":16.538},{"word":"skyrocketed","start":16.538,"end":17.300},{"word":"from","start":17.300,"end":17.450},{"word":"a","start":17.450,"end":17.562},{"word":"negligible","start":17.562,"end":18.175},{"word":"figure","start":18.175,"end":18.875},{"word":"to","start":18.875,"end":19.025},{"word":"hundreds","start":19.025,"end":19.462},{"word":"of","start":19.462,"end":19.587},{"word":"millions","start":19.587,"end":20.613},{"word":"driven","start":20.613,"end":20.975},{"word":"by","start":20.975,"end":21.150},{"word":"affordable","start":21.150,"end":21.762},{"word":"smartphones","start":21.762,"end":22.600},{"word":"and","start":22.600,"end":22.712},{"word":"expanding","start":22.712,"end":23.350},{"word":"infrastructure","start":23.350,"end":24.750},{"word":"Meanwhile","start":24.750,"end":25.688},{"word":"more","start":25.688,"end":25.950},{"word":"mature","start":25.950,"end":26.375},{"word":"economies","start":26.375,"end":27.012},{"word":"have","start":27.012,"end":27.188},{"word":"seen","start":27.188,"end":27.512},{"word":"usage","start":27.512,"end":27.938},{"word":"rates","start":27.938,"end":28.300},{"word":"level","start":28.300,"end":28.625},{"word":"off","start":28.625,"end":29.363},{"word":"hovering","start":29.363,"end":29.775},{"word":"around","start":29.775,"end":30.163},{"word":"saturation","start":30.163,"end":30.962},{"word":"point","start":30.962,"end":31.887},{"word":"These","start":32.350,"end":32.650},{"word":"contrasting","start":32.650,"end":33.475},{"word":"trajectories","start":33.475,"end":34.538},{"word":"paint","start":34.538,"end":34.875},{"word":"a","start":34.875,"end":34.975},{"word":"compelling","start":34.975,"end":35.587},{"word":"picture","start":35.587,"end":36.075},{"word":"of","start":36.075,"end":36.175},{"word":"how","start":36.175,"end":36.388},{"word":"technology","start":36.388,"end":37.100},{"word":"adoption","start":37.100,"end":38.087},{"word":"varies","start":38.087,"end":38.600},{"word":"across","start":38.600,"end":39.038},{"word":"different","start":39.038,"end":39.388},{"word":"stages","start":39.388,"end":39.950},{"word":"of","start":39.950,"end":40.112},{"word":"economic","start":40.112,"end":40.725},{"word":"development","start":40.725,"end":41.850}];
+
+    function initShadowing() {
+      const container = document.getElementById('shadowing-text');
+      container.innerHTML = targetWords.map((w, i) => `<span class="shadowing-word" id="word-${i}">${w}</span>`).join(' ');
+    }
+
+    const shadowingAudio = document.getElementById('shadowingAudio');
+    let speaking = false;
+    let audioFallback = false;
+    let guideOscId = null;
+
+    shadowingAudio.ontimeupdate = () => {
+      if (!shadowingTS || !speaking) return;
+      const t = shadowingAudio.currentTime;
+      let lo = 0, hi = shadowingTS.length - 1;
+      while (lo < hi) { 
+        const mid = (lo + hi + 1) >> 1; 
+        if (shadowingTS[mid].start <= t) lo = mid; else hi = mid - 1; 
+      }
+      document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
+      const el = document.getElementById(`word-${lo}`);
+      if (el) { el.classList.add('highlighted'); el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    };
+
+    shadowingAudio.onended = () => { stopListeningMode(); };
+    shadowingAudio.onerror = () => { audioFallback = true; };
+
+    let currentSpeed = 1;
+    document.getElementById('speedSelect').addEventListener('change', function() {
+      currentSpeed = parseFloat(this.value / 400); // normalized speed WPM relative
+      if (speaking && !audioFallback) {
+        shadowingAudio.playbackRate = currentSpeed;
+      }
+    });
+
+    function ttsFallback() {
+      const words = targetWords.join(' ');
+      if (!words.trim()) return;
+      const u = new SpeechSynthesisUtterance(words);
+      u.lang = 'en-US';
+      u.rate = 0.85;
+      u.onstart = () => {
+        speaking = true;
+        document.querySelector('.listen-btn').innerHTML = '<span>■ Stop Guide</span>';
+        startSimulatedWaveform(document.getElementById('waveCanvas'));
+      };
+      u.onend = u.onerror = () => {
+        stopListeningMode();
+      };
+      speechSynthesis.speak(u);
+    }
+
+    function toggleSpeaking() {
+      if (speaking) {
+        stopListeningMode();
+        return;
+      }
+      
+      // Stop recording if active before guide playback
+      stopAllRecording();
+
+      if (!audioFallback) {
+        shadowingAudio.src = 'audio/shadowing.wav?' + Date.now();
+        shadowingAudio.play().then(() => {
+          speaking = true;
+          document.querySelector('.listen-btn').innerHTML = '<span>■ Stop Guide</span>';
+          startSimulatedWaveform(document.getElementById('waveCanvas'));
+        }).catch(() => {
+          audioFallback = true;
+          ttsFallback();
+        });
+      } else {
+        ttsFallback();
+      }
+    }
+
+    function stopListeningMode() {
+      shadowingAudio.pause();
+      shadowingAudio.currentTime = 0;
+      speechSynthesis.cancel();
+      speaking = false;
+      document.querySelector('.listen-btn').innerHTML = '<span>🔊 Listen Guide</span>';
+      document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
+      stopSimulatedWaveform();
+    }
+
+    // ── Simulated Waveform Canvas (Guide Oscilloscope) ──
+    function startSimulatedWaveform(canvas) {
+      stopVisualisation();
+      const ctx = canvas.getContext('2d');
+      const width = canvas.width;
+      const height = canvas.height;
+      let phase = 0;
+      
+      function draw() {
+        guideOscId = requestAnimationFrame(draw);
+        ctx.fillStyle = 'rgba(9, 13, 22, 0.3)';
+        ctx.fillRect(0, 0, width, height);
+        
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#10b981'; // Emerald Green
+        ctx.shadowColor = '#10b981';
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        
+        ctx.moveTo(0, height / 2);
+        for (let x = 0; x < width; x++) {
+          const y = height / 2 + 
+                    Math.sin(x * 0.03 + phase) * 14 * Math.sin(x * 0.004) +
+                    Math.sin(x * 0.07 - phase * 1.3) * 4 * Math.cos(x * 0.008);
+          ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+        phase += 0.12;
+      }
+      draw();
+    }
+
+    function stopSimulatedWaveform() {
+      if (guideOscId) {
+        cancelAnimationFrame(guideOscId);
+        guideOscId = null;
+      }
+    }
+
+    // ── Web Audio Canvas Visualizer (Microphone wave input) ──
+    let activeAudioCtx = null;
+    let activeAnalyser = null;
+    let activeDataArray = null;
+    let canvasAnimId = null;
+
+    function stopVisualisation() {
+      if (canvasAnimId) cancelAnimationFrame(canvasAnimId);
+      if (activeAudioCtx) {
+        if (activeAudioCtx.state !== 'closed') activeAudioCtx.close();
+        activeAudioCtx = null;
+      }
+      activeAnalyser = null;
+      stopSimulatedWaveform();
+    }
+
+    function startMicrophoneVisualisation(stream, canvas) {
+      stopVisualisation();
+      try {
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
+        
+        activeAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const source = activeAudioCtx.createMediaStreamSource(stream);
+        activeAnalyser = activeAudioCtx.createAnalyser();
+        activeAnalyser.fftSize = 128;
+        source.connect(activeAnalyser);
+        
+        const bufferLength = activeAnalyser.frequencyBinCount;
+        activeDataArray = new Uint8Array(bufferLength);
+        
+        function draw() {
+          if (!activeAnalyser) return;
+          canvasAnimId = requestAnimationFrame(draw);
+          activeAnalyser.getByteTimeDomainData(activeDataArray);
+          
+          ctx.fillStyle = 'rgba(9, 13, 22, 0.4)';
+          ctx.fillRect(0, 0, width, height);
+          
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = '#22d3ee'; // Cyan
+          ctx.shadowColor = '#22d3ee';
+          ctx.shadowBlur = 8;
+          ctx.beginPath();
+          
+          const sliceWidth = width / bufferLength;
+          let x = 0;
+          for (let i = 0; i < bufferLength; i++) {
+            const v = activeDataArray[i] / 128.0;
+            const y = (v * height) / 2;
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            x += sliceWidth;
+          }
+          ctx.lineTo(width, height / 2);
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+        }
+        draw();
+      } catch (e) {
+        console.warn('Microphone visualizer failed:', e);
+      }
+    }
+
+    // ── Web Speech API Setup ──
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition = null;
+    if (SpeechRecognition) {
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = false;
+      recognition.lang = 'en-US';
+    }
+
+    // Shadowing Recorder
+    let mediaRecorder = null;
+    let recordedChunks = [];
+    let audioBlobUrl = null;
+    let shadowingSpokenText = '';
+
+    const startRecordBtn = document.getElementById('startRecord');
+    const stopRecordBtn = document.getElementById('stopRecord');
+    const playRecordBtn = document.getElementById('playRecord');
+    const recStatus = document.getElementById('recStatus');
+
+    startRecordBtn.addEventListener('click', async () => {
+      stopListeningMode();
+      
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        
+        // Microphone stream visualization
+        startMicrophoneVisualisation(stream, document.getElementById('waveCanvas'));
+        
+        const getMimeType = () => {
+          if (typeof MediaRecorder === 'undefined') return null;
+          const types = ['audio/webm;codecs=opus','audio/webm','audio/mp4;codecs=mp4a.40.2','audio/mp4'];
+          for (const t of types) if (MediaRecorder.isTypeSupported(t)) return t;
+          return '';
+        };
+        const mimeType = getMimeType();
+        mediaRecorder = new MediaRecorder(stream, mimeType ? { mimeType } : {});
+        recordedChunks = [];
+        shadowingSpokenText = '';
+        
+        mediaRecorder.ondataavailable = (e) => {
+          if (e.data.size > 0) recordedChunks.push(e.data);
+        };
+        
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(recordedChunks, { type: mimeType || 'audio/webm' });
+          if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl);
+          audioBlobUrl = URL.createObjectURL(blob);
+          playRecordBtn.disabled = false;
+          stream.getTracks().forEach(t => t.stop());
+        };
+        
+        // Web Speech Recognition setup
+        if (recognition) {
+          recognition.onresult = (e) => {
+            for (let i = 0; i < e.results.length; ++i) {
+              if (e.results[i].isFinal) shadowingSpokenText += e.results[i][0].transcript + ' ';
+            }
+          };
+          recognition.start();
+        }
+        
+        mediaRecorder.start();
+        startRecordBtn.disabled = true;
+        startRecordBtn.classList.add('recording');
+        stopRecordBtn.disabled = false;
+        playRecordBtn.disabled = true;
+        recStatus.textContent = '🔴 Recording... Read the passage aloud';
+        
+        document.getElementById('accuracyGradeCard').style.display = 'none';
+        initShadowing();
+        
+      } catch(e) {
+        recStatus.textContent = '⚠️ Microphone access denied — allow mic access and try again';
+      }
+    });
+
+    stopRecordBtn.addEventListener('click', () => {
+      if (mediaRecorder && mediaRecorder.state === 'recording') {
+        mediaRecorder.stop();
+        startRecordBtn.disabled = false;
+        startRecordBtn.classList.remove('recording');
+        stopRecordBtn.disabled = true;
+      }
+      if (recognition) {
+        recognition.stop();
+        setTimeout(evaluateShadowingSpeech, 600);
+      } else {
+        recStatus.textContent = '✅ Recording saved. Listen and compare.';
+        stopVisualisation();
+      }
+    });
+
+    playRecordBtn.addEventListener('click', () => {
+      if (audioBlobUrl) {
+        const audio = new Audio(audioBlobUrl);
+        audio.play();
+        recStatus.textContent = '▶️ Playing your recording...';
+        startSimulatedWaveform(document.getElementById('waveCanvas'));
+        audio.onended = () => {
+          recStatus.textContent = '✅ Done — click Listen Guide above to compare';
+          stopSimulatedWaveform();
+        };
+      }
+    });
+
+    function stopAllRecording() {
+      if (mediaRecorder && mediaRecorder.state === 'recording') {
+        mediaRecorder.stop();
+      }
+      if (recognition) {
+        recognition.stop();
+      }
+      startRecordBtn.disabled = false;
+      startRecordBtn.classList.remove('recording');
+      stopRecordBtn.disabled = true;
+    }
+
+    // Longest Common Subsequence Word Alignment
+    function alignSpokenWords(target, spoken) {
+      const m = target.length;
+      const n = spoken.length;
+      const dp = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+      
+      for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+          if (target[i - 1] === spoken[j - 1]) {
+            dp[i][j] = dp[i - 1][j - 1] + 1;
+          } else {
+            dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+          }
+        }
+      }
+      
+      let i = m, j = n;
+      const matches = new Set();
+      while (i > 0 && j > 0) {
+        if (target[i - 1] === spoken[j - 1]) {
+          matches.add(i - 1);
+          i--;
+          j--;
+        } else if (dp[i - 1][j] >= dp[i][j - 1]) {
+          i--;
+        } else {
+          j--;
+        }
+      }
+      return matches;
+    }
+
+    function evaluateShadowingSpeech() {
+      stopVisualisation();
+      
+      if (!shadowingSpokenText.trim()) {
+        recStatus.textContent = '⚠️ Speech recognition did not catch any words. Try speaking closer to the mic.';
+        return;
+      }
+      
+      const cleanSpoken = shadowingSpokenText.toLowerCase()
+                                            .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+                                            .split(/\s+/)
+                                            .filter(Boolean);
+                                            
+      const matches = alignSpokenWords(targetWordsClean, cleanSpoken);
+      
+      const gradedHtml = targetWords.map((word, idx) => {
+        const isMatched = matches.has(idx);
+        const cls = isMatched ? 'word-correct' : 'word-incorrect';
+        return `<span class="shadowing-word-result ${cls}">${word}</span>`;
+      }).join(' ');
+      
+      document.getElementById('shadowing-text').innerHTML = gradedHtml;
+      
+      const accuracy = Math.round((matches.size / targetWords.length) * 100);
+      
+      const gaugeFill = document.getElementById('accuracyGaugeFill');
+      const gaugeText = document.getElementById('accuracyGaugeText');
+      const gradeTitle = document.getElementById('accuracyGradeTitle');
+      const gradeFeedback = document.getElementById('accuracyGradeFeedback');
+      
+      const circumference = 251.2;
+      const offset = circumference - (accuracy / 100) * circumference;
+      
+      gaugeFill.style.strokeDashoffset = offset;
+      gaugeText.textContent = `${accuracy}%`;
+      
+      if (accuracy >= 85) {
+        gradeTitle.textContent = '🏆 Perfect Academic Delivery!';
+        gradeFeedback.textContent = 'Stunning pacing and clear pronunciation. You successfully matched almost all complex verbs of change and statistical targets.';
+      } else if (accuracy >= 65) {
+        gradeTitle.textContent = '👍 Fluent & Professional';
+        gradeFeedback.textContent = 'Good rhythm! Try to focus on repeating the red/crossed-out terms to polish minor syllable skips.';
+      } else {
+        gradeTitle.textContent = '💪 Keep Building Phrasing';
+        gradeFeedback.textContent = 'Good start. Try playing the guide audio again, tracking the content word stress, and re-recording.';
+      }
+      
+      document.getElementById('accuracyGradeCard').style.display = 'flex';
+      recStatus.textContent = `🎯 Evaluation complete. Accuracy: ${accuracy}%`;
+    }
+
+    // Shadowing clock timers
+    let timerInterval = null, timerSeconds = 0;
+    function toggleShadowingTimer() {
+      const btn = document.getElementById('btn-timer');
+      if (timerInterval) {
+        clearInterval(timerInterval); timerInterval = null;
+        btn.innerHTML = '▶ Resume';
+      } else {
+        btn.innerHTML = '⏸ Pause';
+        timerInterval = setInterval(() => {
+          timerSeconds++;
+          const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+          const secs = String(timerSeconds % 60).padStart(2, '0');
+          document.getElementById('shadowing-timer').textContent = `${mins}:${secs}`;
+        }, 1000);
+      }
+    }
+    function resetShadowingTimer() {
+      clearInterval(timerInterval); timerInterval = null; timerSeconds = 0;
+      document.getElementById('shadowing-timer').textContent = '00:00';
+      document.getElementById('btn-timer').innerHTML = '▶ Start Timer';
+      if (paceInterval) { clearInterval(paceInterval); paceInterval = null; }
+      document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
+    }
+
+    let paceInterval = null;
+    let pacerSpeed = 400;
+
+    function playBeep(freq = 800, dur = 150, count = 1) {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        for (let i = 0; i < count; i++) {
+          setTimeout(() => {
+            const osc = audioCtx.createOscillator(); 
+            const gain = audioCtx.createGain();
+            osc.connect(gain); 
+            gain.connect(audioCtx.destination);
+            osc.frequency.value = freq; 
+            osc.type = 'sine';
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur / 1000);
+            osc.start(); 
+            osc.stop(audioCtx.currentTime + dur / 1000);
+          }, i * 200);
+        }
+      } catch(e) {}
+    }
+
+    function autoHighlightWords() {
+      document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
+      let currentWordIndex = 0;
+      const totalWords = targetWords.length;
+      
+      if (paceInterval) clearInterval(paceInterval);
+      
+      const speedValue = parseInt(document.getElementById('speedSelect').value);
+      
+      paceInterval = setInterval(() => {
+        if (currentWordIndex >= totalWords) {
+          clearInterval(paceInterval);
+          return;
+        }
+        document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
+        const wordEl = document.getElementById(`word-${currentWordIndex}`);
+        if (wordEl) {
+          wordEl.classList.add('highlighted');
+          wordEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        currentWordIndex++;
+      }, speedValue);
+    }
+
+    // ── Controlled Practice (Interactive Matcher & Gap Fills) ──
+    const matchPairs = {
+      "china": "skyrocketed",
+      "uk-slow": "tapered off",
+      "india": "surged",
+      "usa": "climbed steadily",
+      "uk-plat": "plateaued"
+    };
+    let selectedLeft = null;
+    
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('match-left-btn')) {
+        if (e.target.disabled) return;
+        document.querySelectorAll('.match-left-btn').forEach(btn => btn.classList.remove('selected'));
+        e.target.classList.add('selected');
+        selectedLeft = e.target;
+      } else if (e.target.classList.contains('match-right-btn')) {
+        if (e.target.disabled) return;
+        if (!selectedLeft) return;
+        
+        const leftKey = selectedLeft.dataset.key;
+        const rightVal = e.target.dataset.val;
+        
+        if (matchPairs[leftKey] === rightVal) {
+          selectedLeft.classList.add('matched');
+          e.target.classList.add('matched');
+          selectedLeft.disabled = true;
+          e.target.disabled = true;
+          selectedLeft.classList.remove('selected');
+          selectedLeft = null;
+          playBeep(600, 100);
+        } else {
+          const l = selectedLeft;
+          const r = e.target;
+          l.classList.add('incorrect');
+          r.classList.add('incorrect');
+          playBeep(300, 150);
+          setTimeout(() => {
+            l.classList.remove('incorrect');
+            r.classList.remove('incorrect');
+          }, 400);
+          selectedLeft.classList.remove('selected');
+          selectedLeft = null;
+        }
+      }
+    });
+
+    function resetMatchingGame() {
+      document.querySelectorAll('.match-card').forEach(btn => {
+        btn.disabled = false;
+        btn.classList.remove('matched', 'selected', 'incorrect', 'matched-0', 'matched-1', 'matched-2', 'matched-3', 'matched-4');
+      });
+      selectedLeft = null;
+    }
+
+    function checkExAnswers(containerId) {
+      const box = document.getElementById(containerId);
+      const inputs = box.querySelectorAll('.exercise-input');
+      let allCorrect = true;
+      
+      inputs.forEach(input => {
+        const val = input.value.trim().toLowerCase();
+        const targets = input.dataset.ans.split('|').map(t => t.trim().toLowerCase());
+        
+        if (targets.includes(val)) {
+          input.classList.add('valid');
+          input.classList.remove('invalid');
+        } else {
+          input.classList.add('invalid');
+          input.classList.remove('valid');
+          allCorrect = false;
+        }
+      });
+      
+      if (allCorrect) {
+        playBeep(700, 120, 2);
+      } else {
+        playBeep(250, 200);
+      }
+    }
+
+    function revealExAnswers(containerId) {
+      const box = document.getElementById(containerId);
+      if (containerId === 'practice-ex1') {
+        const colors = ['matched-0','matched-1','matched-2','matched-3','matched-4'];
+        let i = 0;
+        for (const [key, val] of Object.entries(matchPairs)) {
+          const leftBtn = document.querySelector(`.match-left-btn[data-key="${key}"]`);
+          const rightBtn = document.querySelector(`.match-right-btn[data-val="${val}"]`);
+          if (leftBtn) { leftBtn.classList.add('matched', colors[i]); leftBtn.disabled = true; }
+          if (rightBtn) { rightBtn.classList.add('matched', colors[i]); rightBtn.disabled = true; }
+          i++;
+        }
+        selectedLeft = null;
+      } else if (containerId === 'practice-ex6') {
+        document.getElementById('option-b').classList.add('correct');
+      } else {
+        const inputs = box.querySelectorAll('.exercise-input');
+        inputs.forEach(input => {
+          const firstAns = input.dataset.ans.split('|')[0];
+          input.value = firstAns;
+          input.classList.add('valid');
+          input.classList.remove('invalid');
+        });
+      }
+      playBeep(450, 100);
+    }
+
+    function selectOverviewOption(option) {
+      const optA = document.getElementById('option-a');
+      const optB = document.getElementById('option-b');
+      optA.classList.remove('correct', 'incorrect');
+      optB.classList.remove('correct', 'incorrect');
+      
+      if (option === 'b') {
+        optB.classList.add('correct');
+        playBeep(700, 150);
+      } else {
+        optA.classList.add('incorrect');
+        playBeep(250, 200);
+      }
+    }
+
+    // ── Task 1 Simulation Visual Interactive logic ──
+    const chartData = {
+      USA: [
+        { year: 2000, val: 95 },
+        { year: 2005, val: 175 },
+        { year: 2010, val: 220 },
+        { year: 2015, val: 265 },
+        { year: 2020, val: 300 }
+      ],
+      UK: [
+        { year: 2000, val: 15 },
+        { year: 2005, val: 35 },
+        { year: 2010, val: 52 },
+        { year: 2015, val: 60 },
+        { year: 2020, val: 63 }
+      ],
+      China: [
+        { year: 2000, val: 22 },
+        { year: 2005, val: 111 },
+        { year: 2010, val: 457 },
+        { year: 2015, val: 688 },
+        { year: 2020, val: 989 }
+      ],
+      India: [
+        { year: 2000, val: 5 },
+        { year: 2005, val: 21 },
+        { year: 2010, val: 92 },
+        { year: 2015, val: 302 },
+        { year: 2020, val: 749 }
+      ],
+      Brazil: [
+        { year: 2000, val: 5 },
+        { year: 2005, val: 26 },
+        { year: 2010, val: 76 },
+        { year: 2015, val: 120 },
+        { year: 2020, val: 165 }
+      ]
+    };
+
+    function initChartData() {
+      const groups = document.querySelectorAll('.chart-group');
+      groups.forEach(group => {
+        const country = group.querySelector('.chart-label').textContent.trim();
+        const dataList = chartData[country];
+        const bars = group.querySelectorAll('.chart-bar');
+        bars.forEach((bar, idx) => {
+          const data = dataList[idx];
+          bar.dataset.country = country;
+          bar.dataset.year = data.year;
+          bar.dataset.val = data.val;
+          
+          if (idx === 0) {
+            bar.dataset.pctChange = 'base';
+          } else {
+            const prevVal = dataList[idx - 1].val;
+            const change = ((data.val - prevVal) / prevVal * 100);
+            bar.dataset.pctChange = Math.round(change);
+          }
+        });
+      });
+    }
+
+    // Target written lexicon variations
+    const targetLexicon = {
+      skyrocket: ['skyrocket', 'skyrocketed', 'skyrocketing', 'skyrockets'],
+      soar: ['soar', 'soared', 'soaring', 'soars'],
+      surge: ['surge', 'surged', 'surging', 'surges'],
+      plateau: ['plateau', 'plateaued', 'plateaus', 'plateauing', 'level off', 'levelled off', 'level-off', 'levelled-off'],
+      creep: ['creep up', 'crept up', 'creeping up', 'edge up', 'edged up', 'edging up', 'edged'],
+      taper: ['taper off', 'tapered off', 'tapering off', 'dwindled', 'dwindle', 'declined marginally'],
+      dramatically: ['dramatically', 'dramatic', 'exponentially', 'exponential', 'significantly', 'significant'],
+      steadily: ['steadily', 'steady', 'gradually', 'gradual', 'moderately', 'moderate'],
+      marginally: ['marginally', 'marginal', 'slightly', 'slight', 'negligibly', 'negligible']
+    };
+
+    function scanEssayVocabulary(text) {
+      const lowercaseText = text.toLowerCase();
+      for (const [key, variations] of Object.entries(targetLexicon)) {
+        const isUsed = variations.some(variant => lowercaseText.includes(variant));
+        const pill = document.getElementById(`lex-pill-${key}`);
+        if (pill) {
+          if (isUsed) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        }
+      }
+    }
+
+    // ── Table and Chart Visual Bindings ──
+    document.addEventListener('DOMContentLoaded', () => {
+      initShadowing();
+      initChartData();
+      
+      const rows = document.querySelectorAll('.data-table tbody tr');
+      const groups = document.querySelectorAll('.chart-group');
+      const bars = document.querySelectorAll('.chart-bar');
+      const tooltip = document.getElementById('chart-tooltip');
+      const writingArea = document.getElementById('writing-area');
+      const counter = document.getElementById('wordCount');
+      
+      // Mutual Hover
+      rows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+          const country = row.dataset.country;
+          row.classList.add('hover-active-row');
+          const g = document.querySelector(`.chart-group[data-country="${country}"]`);
+          if (g) g.classList.add('hover-active-group');
+        });
+        row.addEventListener('mouseleave', () => {
+          const country = row.dataset.country;
+          row.classList.remove('hover-active-row');
+          const g = document.querySelector(`.chart-group[data-country="${country}"]`);
+          if (g) g.classList.remove('hover-active-group');
+        });
+      });
+      
+      groups.forEach(group => {
+        group.addEventListener('mouseenter', () => {
+          const country = group.dataset.country;
+          group.classList.add('hover-active-group');
+          const r = document.querySelector(`.data-table tbody tr[data-country="${country}"]`);
+          if (r) r.classList.add('hover-active-row');
+        });
+        group.addEventListener('mouseleave', () => {
+          const country = group.dataset.country;
+          group.classList.remove('hover-active-group');
+          const r = document.querySelector(`.data-table tbody tr[data-country="${country}"]`);
+          if (r) r.classList.remove('hover-active-row');
+        });
+      });
+
+      // Individual bar tooltips
+      bars.forEach(bar => {
+        bar.addEventListener('mouseenter', (e) => {
+          const val = bar.dataset.val;
+          const year = bar.dataset.year;
+          const country = bar.dataset.country;
+          const pct = bar.dataset.pctChange;
+          
+          let pctStr = '';
+          if (pct === 'base') {
+            pctStr = '<span style="color:var(--text-muted);">Base Year</span>';
+          } else {
+            const p = parseInt(pct);
+            const color = p >= 0 ? 'var(--primary)' : 'var(--accent-red)';
+            const sign = p >= 0 ? '+' : '';
+            pctStr = `<span style="color:${color};font-weight:bold;">${sign}${p}%</span> change`;
+          }
+          
+          tooltip.innerHTML = `
+            <div style="font-weight:bold;margin-bottom:0.25rem;color:var(--accent-cyan);">${country} (${year})</div>
+            <div style="margin-bottom:0.2rem;">Users: <strong style="color:#fff;">${val} million</strong></div>
+            <div style="font-size:0.75rem;">${pctStr}</div>
+          `;
+          tooltip.style.display = 'block';
+        });
+        
+        bar.addEventListener('mousemove', (e) => {
+          tooltip.style.top = (e.pageY - tooltip.offsetHeight - 10) + 'px';
+          tooltip.style.left = (e.pageX + 10) + 'px';
+        });
+        
+        bar.addEventListener('mouseleave', () => {
+          tooltip.style.display = 'none';
+        });
+      });
+
+      // LocalStorage persistence & Real-time scanner for public writing area
+      if (writingArea) {
+        writingArea.value = localStorage.getItem('margo_writing_lesson_3') || '';
+        const words = writingArea.value.trim() ? writingArea.value.trim().split(/\s+/).length : 0;
+        if (counter) counter.textContent = words;
+        scanEssayVocabulary(writingArea.value);
+
+        writingArea.addEventListener('input', function() {
+          localStorage.setItem('margo_writing_lesson_3', this.value);
+          const text = this.value.trim();
+          const wordCount = text ? text.split(/\s+/).length : 0;
+          if (counter) counter.textContent = wordCount;
+          scanEssayVocabulary(this.value);
+        });
+      }
+    });
+
+    // ── Timer clock for essay draft ──
+    let writeInterval = null, writeSeconds = 1200;
+    function runWritingClock() {
+      resetWritingClock();
+      playBeep(400, 100);
+      const val = document.getElementById('writing-time');
+      writeInterval = setInterval(() => {
+        writeSeconds--;
+        const mins = String(Math.floor(writeSeconds / 60)).padStart(2, '0');
+        const secs = String(writeSeconds % 60).padStart(2, '0');
+        val.textContent = `${mins}:${secs}`;
+        if (writeSeconds <= 300) val.style.color = 'var(--accent-red)';
+        if (writeSeconds <= 0) { 
+          clearInterval(writeInterval); 
+          val.textContent = "Time's up!"; 
+          playBeep(800, 200, 3); 
+        }
+      }, 1000);
+    }
+    function resetWritingClock() {
+      if (writeInterval) clearInterval(writeInterval);
+      writeSeconds = 1200;
+      document.getElementById('writing-time').textContent = "20:00";
+      document.getElementById('writing-time').style.color = 'var(--primary)';
+    }
+
+  </script>
+</body>
+</html>

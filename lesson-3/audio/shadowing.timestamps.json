@@ -1,0 +1,442 @@
+[
+  {
+    "word": "Over",
+    "start": 0.25,
+    "end": 0.438
+  },
+  {
+    "word": "the",
+    "start": 0.438,
+    "end": 0.525
+  },
+  {
+    "word": "past",
+    "start": 0.525,
+    "end": 0.85
+  },
+  {
+    "word": "two",
+    "start": 0.85,
+    "end": 1.025
+  },
+  {
+    "word": "decades",
+    "start": 1.025,
+    "end": 1.85
+  },
+  {
+    "word": "the",
+    "start": 1.85,
+    "end": 1.95
+  },
+  {
+    "word": "global",
+    "start": 1.95,
+    "end": 2.325
+  },
+  {
+    "word": "digital",
+    "start": 2.325,
+    "end": 2.725
+  },
+  {
+    "word": "landscape",
+    "start": 2.725,
+    "end": 3.312
+  },
+  {
+    "word": "has",
+    "start": 3.312,
+    "end": 3.45
+  },
+  {
+    "word": "undergone",
+    "start": 3.45,
+    "end": 3.913
+  },
+  {
+    "word": "a",
+    "start": 3.913,
+    "end": 3.975
+  },
+  {
+    "word": "dramatic",
+    "start": 3.975,
+    "end": 4.5
+  },
+  {
+    "word": "transformation",
+    "start": 4.5,
+    "end": 5.812
+  },
+  {
+    "word": "Internet",
+    "start": 5.812,
+    "end": 6.175
+  },
+  {
+    "word": "penetration",
+    "start": 6.175,
+    "end": 6.75
+  },
+  {
+    "word": "has",
+    "start": 6.75,
+    "end": 6.938
+  },
+  {
+    "word": "soared",
+    "start": 6.938,
+    "end": 7.287
+  },
+  {
+    "word": "in",
+    "start": 7.287,
+    "end": 7.362
+  },
+  {
+    "word": "developing",
+    "start": 7.362,
+    "end": 7.85
+  },
+  {
+    "word": "nations",
+    "start": 7.85,
+    "end": 8.65
+  },
+  {
+    "word": "while",
+    "start": 8.65,
+    "end": 8.85
+  },
+  {
+    "word": "growth",
+    "start": 8.85,
+    "end": 9.188
+  },
+  {
+    "word": "in",
+    "start": 9.188,
+    "end": 9.262
+  },
+  {
+    "word": "established",
+    "start": 9.262,
+    "end": 9.85
+  },
+  {
+    "word": "markets",
+    "start": 9.85,
+    "end": 10.262
+  },
+  {
+    "word": "has",
+    "start": 10.262,
+    "end": 10.463
+  },
+  {
+    "word": "largely",
+    "start": 10.463,
+    "end": 10.9
+  },
+  {
+    "word": "plateaued",
+    "start": 10.9,
+    "end": 12.137
+  },
+  {
+    "word": "In",
+    "start": 12.137,
+    "end": 12.275
+  },
+  {
+    "word": "regions",
+    "start": 12.275,
+    "end": 12.65
+  },
+  {
+    "word": "such",
+    "start": 12.65,
+    "end": 12.875
+  },
+  {
+    "word": "as",
+    "start": 12.875,
+    "end": 13.0
+  },
+  {
+    "word": "South",
+    "start": 13.0,
+    "end": 13.3
+  },
+  {
+    "word": "Asia",
+    "start": 13.3,
+    "end": 13.95
+  },
+  {
+    "word": "the",
+    "start": 13.95,
+    "end": 14.05
+  },
+  {
+    "word": "number",
+    "start": 14.05,
+    "end": 14.262
+  },
+  {
+    "word": "of",
+    "start": 14.262,
+    "end": 14.35
+  },
+  {
+    "word": "users",
+    "start": 14.35,
+    "end": 14.688
+  },
+  {
+    "word": "has",
+    "start": 14.688,
+    "end": 14.838
+  },
+  {
+    "word": "skyrocketed",
+    "start": 14.838,
+    "end": 15.475
+  },
+  {
+    "word": "from",
+    "start": 15.475,
+    "end": 15.613
+  },
+  {
+    "word": "a",
+    "start": 15.613,
+    "end": 15.7
+  },
+  {
+    "word": "negligible",
+    "start": 15.7,
+    "end": 16.288
+  },
+  {
+    "word": "figure",
+    "start": 16.288,
+    "end": 16.812
+  },
+  {
+    "word": "to",
+    "start": 16.812,
+    "end": 16.95
+  },
+  {
+    "word": "hundreds",
+    "start": 16.95,
+    "end": 17.363
+  },
+  {
+    "word": "of",
+    "start": 17.363,
+    "end": 17.45
+  },
+  {
+    "word": "millions",
+    "start": 17.45,
+    "end": 18.275
+  },
+  {
+    "word": "driven",
+    "start": 18.275,
+    "end": 18.6
+  },
+  {
+    "word": "by",
+    "start": 18.6,
+    "end": 18.775
+  },
+  {
+    "word": "affordable",
+    "start": 18.775,
+    "end": 19.337
+  },
+  {
+    "word": "smartphones",
+    "start": 19.337,
+    "end": 20.075
+  },
+  {
+    "word": "and",
+    "start": 20.075,
+    "end": 20.188
+  },
+  {
+    "word": "expanding",
+    "start": 20.188,
+    "end": 20.788
+  },
+  {
+    "word": "infrastructure",
+    "start": 20.788,
+    "end": 22.062
+  },
+  {
+    "word": "Meanwhile",
+    "start": 22.062,
+    "end": 22.625
+  },
+  {
+    "word": "more",
+    "start": 22.625,
+    "end": 22.812
+  },
+  {
+    "word": "mature",
+    "start": 22.812,
+    "end": 23.15
+  },
+  {
+    "word": "economies",
+    "start": 23.15,
+    "end": 23.712
+  },
+  {
+    "word": "have",
+    "start": 23.712,
+    "end": 23.85
+  },
+  {
+    "word": "seen",
+    "start": 23.85,
+    "end": 24.1
+  },
+  {
+    "word": "usage",
+    "start": 24.1,
+    "end": 24.475
+  },
+  {
+    "word": "rates",
+    "start": 24.475,
+    "end": 24.8
+  },
+  {
+    "word": "level",
+    "start": 24.8,
+    "end": 25.1
+  },
+  {
+    "word": "off",
+    "start": 25.1,
+    "end": 25.65
+  },
+  {
+    "word": "hovering",
+    "start": 25.65,
+    "end": 26.025
+  },
+  {
+    "word": "around",
+    "start": 26.025,
+    "end": 26.387
+  },
+  {
+    "word": "saturation",
+    "start": 26.387,
+    "end": 27.15
+  },
+  {
+    "word": "point",
+    "start": 27.15,
+    "end": 28.113
+  },
+  {
+    "word": "These",
+    "start": 28.45,
+    "end": 28.7
+  },
+  {
+    "word": "contrasting",
+    "start": 28.7,
+    "end": 29.375
+  },
+  {
+    "word": "trajectories",
+    "start": 29.375,
+    "end": 30.363
+  },
+  {
+    "word": "paint",
+    "start": 30.363,
+    "end": 30.613
+  },
+  {
+    "word": "a",
+    "start": 30.613,
+    "end": 30.675
+  },
+  {
+    "word": "compelling",
+    "start": 30.675,
+    "end": 31.238
+  },
+  {
+    "word": "picture",
+    "start": 31.238,
+    "end": 31.675
+  },
+  {
+    "word": "of",
+    "start": 31.675,
+    "end": 31.775
+  },
+  {
+    "word": "how",
+    "start": 31.775,
+    "end": 31.975
+  },
+  {
+    "word": "technology",
+    "start": 31.975,
+    "end": 32.625
+  },
+  {
+    "word": "adoption",
+    "start": 32.625,
+    "end": 33.263
+  },
+  {
+    "word": "varies",
+    "start": 33.263,
+    "end": 33.7
+  },
+  {
+    "word": "across",
+    "start": 33.7,
+    "end": 34.138
+  },
+  {
+    "word": "different",
+    "start": 34.138,
+    "end": 34.475
+  },
+  {
+    "word": "stages",
+    "start": 34.475,
+    "end": 34.975
+  },
+  {
+    "word": "of",
+    "start": 34.975,
+    "end": 35.075
+  },
+  {
+    "word": "economic",
+    "start": 35.075,
+    "end": 35.65
+  },
+  {
+    "word": "development",
+    "start": 35.65,
+    "end": 36.875
+  }
+]
