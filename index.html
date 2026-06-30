@@ -524,6 +524,66 @@
                 <span class="locked-badge">Locked</span>
               </a>
 
+              <!-- Lesson 10 -->
+              <a class="lesson-item disabled">
+                <div class="lesson-info">
+                  <span class="lesson-number">LESSON 10</span>
+                  <span class="lesson-name">Writing: Opinion Essay Workshop</span>
+                  <span class="lesson-date">Class Date: July 15, 2026</span>
+                </div>
+                <span class="locked-badge">Locked</span>
+              </a>
+
+              <!-- Lesson 11 -->
+              <a class="lesson-item disabled">
+                <div class="lesson-info">
+                  <span class="lesson-number">LESSON 11</span>
+                  <span class="lesson-name">Speaking: Future &amp; Ambitions</span>
+                  <span class="lesson-date">Class Date: July 17, 2026</span>
+                </div>
+                <span class="locked-badge">Locked</span>
+              </a>
+
+              <!-- Lesson 12 -->
+              <a class="lesson-item disabled">
+                <div class="lesson-info">
+                  <span class="lesson-number">LESSON 12</span>
+                  <span class="lesson-name">Reading: Headings &amp; TFNG</span>
+                  <span class="lesson-date">Class Date: July 20, 2026</span>
+                </div>
+                <span class="locked-badge">Locked</span>
+              </a>
+
+              <!-- Lesson 13 -->
+              <a class="lesson-item disabled">
+                <div class="lesson-info">
+                  <span class="lesson-number">LESSON 13</span>
+                  <span class="lesson-name">Vocabulary: AWL &amp; Collocations</span>
+                  <span class="lesson-date">Class Date: July 22, 2026</span>
+                </div>
+                <span class="locked-badge">Locked</span>
+              </a>
+
+              <!-- Lesson 14 -->
+              <a class="lesson-item disabled">
+                <div class="lesson-info">
+                  <span class="lesson-number">LESSON 14</span>
+                  <span class="lesson-name">Speaking: Places &amp; Travel</span>
+                  <span class="lesson-date">Class Date: July 24, 2026</span>
+                </div>
+                <span class="locked-badge">Locked</span>
+              </a>
+
+              <!-- Lesson 15 -->
+              <a class="lesson-item disabled">
+                <div class="lesson-info">
+                  <span class="lesson-number">LESSON 15</span>
+                  <span class="lesson-name">Full Mock Writing: Task 1 &amp; Task 2</span>
+                  <span class="lesson-date">Class Date: July 27, 2026</span>
+                </div>
+                <span class="locked-badge">Locked</span>
+              </a>
+
             </div>
           </div>
         </div>
@@ -589,36 +649,11 @@
         </div>
       </div>
 
-      <!-- Current Homework -->
-      <div class="card">
-        <div class="card-title">Homework Assignments — Lesson 6</div>
-        <div class="hw-list">
-          <div class="hw-item">
-            <input type="checkbox" class="hw-checkbox" data-hw="l6-rewrite" id="hw-l6-rewrite">
-            <label for="hw-l6-rewrite" style="cursor:pointer;"><strong>Task 1: Paragraph Rewrite — Apply Grammar Structures</strong></label>
-            <div style="margin-top:0.5rem;font-size:0.88rem;color:var(--text-muted);">
-              Take your most recent essay. Rewrite <strong style="color:var(--text-main);">3 consecutive sentences</strong> to include: one subordinate clause, one conditional (mixed if possible), and one participle clause.
-            </div>
-          </div>
-          <div class="hw-item">
-            <input type="checkbox" class="hw-checkbox" data-hw="l6-transform" id="hw-l6-transform">
-            <label for="hw-l6-transform" style="cursor:pointer;"><strong>Task 2: Sentence Transformation — 5 Pairs → 5 Complex Sentences</strong></label>
-            <div style="margin-top:0.5rem;font-size:0.88rem;color:var(--text-muted);">
-              Transform each pair: (1) "Technology is advancing. Jobs will be automated." → Participle clause. (2) "Govt didn't regulate social media. Kids are at risk." → Mixed conditional. (3) "Education is important. It helps people adapt." → Relative clause.
-            </div>
-          </div>
-          <div class="hw-item">
-            <input type="checkbox" class="hw-checkbox" data-hw="l6-audit" id="hw-l6-audit">
-            <label for="hw-l6-audit" style="cursor:pointer;"><strong>Task 3: Self-Editing Audit — Count Sentence Types</strong></label>
-            <div style="margin-top:0.5rem;font-size:0.88rem;color:var(--text-muted);">
-              Read your last essay. Count simple vs compound vs complex sentences. Target: <strong style="color:var(--primary);">≥ 40% complex sentences</strong> in your next essay.
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:1rem; padding:0.75rem 1rem; background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.15); border-radius:8px; font-size:0.85rem;">
-          <strong style="color:var(--primary);">Upcoming — Lesson 7 (Reading):</strong>
-          <span style="color:var(--text-muted);"> Topic: <strong style="color:var(--text-main);">Skimming, Scanning &amp; Keyword Matching</strong> — Cambridge IELTS 19, Test 1 passage. Build speed and accuracy for the Reading section.</span>
-        </div>
+      <!-- Current Homework (auto-synced) -->
+      <div class="card" id="homeworkCard">
+        <div class="card-title" id="homeworkTitle">Homework Assignments</div>
+        <div class="hw-list" id="homeworkList"></div>
+        <div id="homeworkNext" style="margin-top:1rem; padding:0.75rem 1rem; background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.15); border-radius:8px; font-size:0.85rem; display:none;"></div>
       </div>
 
     </div>
@@ -661,13 +696,122 @@
   </div>
 
 <script>
+// Homework data per lesson
+const HOMEWORK_DATA = {
+  1: { tasks: [
+    { title: 'Vocabulary Journal — 10 Advanced Collocations', detail: 'Create a table with 10 "bad word → good word" pairs from today\'s lesson. Write one original sentence for each pair.', hw: 'l1-vocab' },
+    { title: 'Speaking Practice — Record Part 2 Answer', detail: 'Record a 2-minute answer to: "Describe a time you had to make a difficult decision." Use at least 5 advanced collocations.', hw: 'l1-speaking' },
+    { title: 'Error Review — Correction Drill', detail: 'Review your personalized corrections from today\'s class. Write each corrected sentence 3 times.', hw: 'l1-errors' }
+  ], next: 'Lesson 2 — Speaking Parts 2 & 3: Describing Places' },
+  2: { tasks: [
+    { title: 'Vocabulary Journal — Descriptive Language', detail: 'Add 8 place-description collocations (bustling, picturesque, sprawling, etc.) with example sentences.', hw: 'l2-vocab' },
+    { title: 'Speaking Practice — Part 2 Cue Card', detail: 'Record a 2-minute answer to: "Describe a memorable place you have visited." Use sensory language (see, hear, smell, feel).', hw: 'l2-speaking' },
+    { title: 'Error Review — Correction Drill', detail: 'Review your personalized corrections. Write each corrected sentence 3 times + 1 new original sentence.', hw: 'l2-errors' }
+  ], next: 'Lesson 3 — Writing Task 1: Describing Data & Trends' },
+  3: { tasks: [
+    { title: 'Writing Task 1 Report (150+ words)', detail: 'Write a full Task 1 report using the provided data set. Use at least 4 verbs of change, 2 adverbs of degree, and a clear overview.', hw: 'l3-task1' },
+    { title: 'Vocabulary Journal — Verbs of Change', detail: 'Add 6 verbs of change (2 increase, 2 decrease, 2 stability/fluctuation) with adverb partners and example sentences.', hw: 'l3-vocab' },
+    { title: 'Error Correction Review', detail: 'Review personalized corrections. Write each corrected sentence 3 times + 1 new original sentence applying the fix.', hw: 'l3-errors' }
+  ], next: 'Lesson 4 — Writing Task 2: Advantages & Disadvantages' },
+  4: { tasks: [
+    { title: 'Writing Task 2 Outline — Pros & Cons Essay', detail: 'Write a full outline for: "Some people believe that technology has made our lives more complicated. To what extent do you agree or disagree?"', hw: 'l4-outline' },
+    { title: 'Cohesion Exercise — Linkers Review', detail: 'Write 8 sentences using different discourse markers (however, moreover, nevertheless, consequently, on the other hand, in contrast, as a result, furthermore).', hw: 'l4-linkers' },
+    { title: 'Error Review — Correction Drill', detail: 'Review corrections from today\'s Live Board. Write each 3 times.', hw: 'l4-errors' }
+  ], next: 'Lesson 5 — Speaking Mock: Technology & Digital Minimalism' },
+  5: { tasks: [
+    { title: 'Speaking Practice — Part 1 Questions', detail: 'Record yourself answering 3 Part 1 questions about technology. Use at least 2 Band 7+ collocations per answer.', hw: 'l5-part1' },
+    { title: 'Digital Diary — 24-Hour Audit', detail: 'Track your phone usage for one day. Write 5 sentences describing your habits using present perfect and frequency adverbs.', hw: 'l5-diary' },
+    { title: 'Error Review — Correction Drill', detail: 'Review personalized corrections. Write each 3 times.', hw: 'l5-errors' }
+  ], next: 'Lesson 6 — Grammar for Band 7+: Subordination, Conditionals & Participles' },
+  6: { tasks: [
+    { title: 'Paragraph Rewrite — Apply Grammar Structures', detail: 'Take your most recent essay. Rewrite 3 consecutive sentences to include: one subordinate clause, one conditional (mixed if possible), and one participle clause.', hw: 'l6-rewrite' },
+    { title: 'Sentence Transformation — 5 Pairs', detail: 'Transform 5 sentence pairs into complex sentences using: participle clauses, mixed conditionals, and relative clauses.', hw: 'l6-transform' },
+    { title: 'Self-Editing Audit — Count Sentence Types', detail: 'Read your last essay. Count simple vs compound vs complex sentences. Target: ≥ 40% complex sentences.', hw: 'l6-audit' }
+  ], next: 'Lesson 7 — Reading: Skimming, Scanning & Keyword Matching' },
+  7: { tasks: [
+    { title: 'Cambridge Practice — Skimming & Scanning', detail: 'Complete one full IELTS Reading passage using only skimming and scanning techniques. Time yourself: max 15 minutes.', hw: 'l7-reading' },
+    { title: 'TFNG Strategy Sheet', detail: 'Write 5 True/False/Not Given questions based on a news article. Include answer key with explanations for each.', hw: 'l7-tfng' },
+    { title: 'Error Review — Correction Drill', detail: 'Review corrections from today\'s Live Board.', hw: 'l7-errors' }
+  ], next: 'Lesson 8 — Speaking: People & Problem-Solving' },
+  8: { tasks: [
+    { title: 'Advice Panel — Record Your Answer', detail: 'Record yourself giving advice for 2 problems from today\'s game. Aim for 60 seconds each. Use at least 3 collocations.', hw: 'l8-advice' },
+    { title: 'Collocation Review — Problem-Solving', detail: 'Write 8 sentences using today\'s collocations (find a solution, overcome an obstacle, think outside the box, etc.).', hw: 'l8-colloc' },
+    { title: 'Part 2 Practice — Describe a Problem', detail: 'Record a 2-minute answer to: "Describe a difficult problem you solved at work or school."', hw: 'l8-part2' }
+  ], next: 'Lesson 9 — Listening: Section 3-4 Academic Discussions' },
+  9: { tasks: [
+    { title: 'TED Talk Notes', detail: 'Watch a 10-minute TED Talk. Take notes using the Before→During→After model. Bring your notes to the next class.', hw: 'l9-ted' },
+    { title: 'Signpost Language Collection', detail: 'Find 10 signpost phrases from academic lectures (YouTube or podcasts). Categorise them by function.', hw: 'l9-signpost' },
+    { title: 'Prediction Practice', detail: 'Find 5 IELTS Listening Part 4 questions. Predict answer types (noun/verb/number/date) before listening.', hw: 'l9-prediction' }
+  ], next: 'Lesson 10 — Writing: Opinion Essay Workshop' },
+  10: { tasks: [
+    { title: 'Full Opinion Essay (250+ words)', detail: 'Write: "Some people believe that unpaid community service should be a compulsory part of high school programmes. To what extent do you agree or disagree?"', hw: 'l10-essay' },
+    { title: 'Thesis Statement Practice', detail: 'Write 3 thesis statements for 3 different IELTS prompts. Each must include your position + 2 supporting reasons.', hw: 'l10-thesis' },
+    { title: 'Cohesion Audit', detail: 'Highlight all discourse markers in your essay. Ensure you used at least 6 different ones across introduction, body, and conclusion.', hw: 'l10-cohesion' }
+  ], next: 'Lesson 11 — Speaking: Future & Ambitions' },
+  11: { tasks: [
+    { title: 'Speaking Part 1 — Future Plans', detail: 'Record yourself answering 3 Part 1 questions about future plans. Use a mix of future forms (will, going to, present continuous, might).', hw: 'l11-future' },
+    { title: 'Grammar Flip Cards — Create Your Own', detail: 'Write 5 of your own "future forms" fill-in-the-blank sentences. Test yourself.', hw: 'l11-grammar' },
+    { title: 'Career Collocations — 8 Sentences', detail: 'Write 8 sentences using today\'s career collocations (pursue a career, climb the ladder, land a job, etc.).', hw: 'l11-colloc' }
+  ], next: 'Lesson 12 — Reading: Headings & TFNG' },
+  12: { tasks: [
+    { title: 'Cambridge Practice — Headings', detail: 'Complete one full IELTS Reading passage with paragraph headings. Time: 15 minutes.', hw: 'l12-headings' },
+    { title: 'TFNG — Write Your Own', detail: 'Write 6 TFNG questions based on a news article. Include explanations.', hw: 'l12-tfng' },
+    { title: 'Time Management Log', detail: 'Record how long you spend on each passage. Aim for 20 min per passage.', hw: 'l12-time' }
+  ], next: 'Lesson 13 — Vocabulary: AWL & Collocations' },
+  13: { tasks: [
+    { title: 'AWL Flashcards — 12 Words', detail: 'Create flashcards for today\'s 12 AWL words. Include: definition, collocations, and one example sentence each.', hw: 'l13-awl' },
+    { title: 'Vocabulary Auction Rewrite', detail: 'Take 4 of the Band 6 sentences from today\'s auction and rewrite them at Band 8 level.', hw: 'l13-auction' },
+    { title: 'Timed Speaking — Collocation Focus', detail: 'Record a 1-minute answer to a random IELTS Part 1 question. Try to use 3 target collocations.', hw: 'l13-speaking' }
+  ], next: 'Lesson 14 — Speaking: Places & Travel' },
+  14: { tasks: [
+    { title: 'Sensory Description — Your City', detail: 'Write a 200-word description of your neighbourhood using SEE/HEAR/SMELL/FEEL sensory language.', hw: 'l14-sensory' },
+    { title: 'Band 7+ Upgrade Table', detail: 'Take 5 of your own past travel descriptions. Upgrade each one from Band 6 to Band 7+ level.', hw: 'l14-upgrade' },
+    { title: 'Part 2 Practice — Describe a Place', detail: 'Record a 2-minute answer to: "Describe a place you would like to visit." Use at least 5 descriptive collocations.', hw: 'l14-part2' }
+  ], next: 'Lesson 15 — Full Mock Writing: Task 1 & 2' },
+  15: { tasks: [
+    { title: 'Mock Task 1 Revision', detail: 'Revise your Task 1 report. Check: overview without numbers, 4+ verbs of change, 2+ adverbs of degree.', hw: 'l15-task1' },
+    { title: 'Mock Task 2 Revision', detail: 'Revise your Task 2 essay. Check: clear position, paragraph structure, 6+ discourse markers, 250+ words.', hw: 'l15-task2' },
+    { title: 'Error Analysis — All Past Corrections', detail: 'Review all corrections from your Live Board across all lessons. Identify your top 3 recurring error types.', hw: 'l15-errors' }
+  ], next: 'Next lesson coming soon' }
+};
+
+function syncHomework() {
+  const items = document.querySelectorAll('.lesson-item');
+  let currentNum = 0, upcoming = '';
+  items.forEach(item => {
+    const isDisabled = item.classList.contains('disabled');
+    const numText = item.querySelector('.lesson-number');
+    if (!numText) return;
+    const num = parseInt(numText.textContent.replace('LESSON ', ''));
+    if (!isDisabled) currentNum = Math.max(currentNum, num);
+  });
+  const data = HOMEWORK_DATA[currentNum];
+  if (!data) return;
+  document.getElementById('homeworkTitle').textContent = `Homework Assignments — Lesson ${currentNum}`;
+  const list = document.getElementById('homeworkList');
+  list.innerHTML = data.tasks.map(t => `
+    <div class="hw-item">
+      <input type="checkbox" class="hw-checkbox" data-hw="${t.hw}" id="hw-${t.hw}">
+      <label for="hw-${t.hw}" style="cursor:pointer;"><strong>${t.title}</strong></label>
+      <div style="margin-top:0.5rem;font-size:0.88rem;color:var(--text-muted);">${t.detail}</div>
+    </div>
+  `).join('');
+  const nextEl = document.getElementById('homeworkNext');
+  if (currentNum < 15) {
+    nextEl.style.display = 'block';
+    nextEl.innerHTML = `<strong style="color:var(--primary);">Upcoming — ${data.next}:</strong><span style="color:var(--text-muted);"> Prepare for the next class by reviewing the previous lesson's materials.</span>`;
+  } else {
+    nextEl.style.display = 'none';
+  }
+  // Restore checkbox states
   document.querySelectorAll('.hw-checkbox').forEach(cb => {
     const key = 'margo_hw_' + cb.dataset.hw;
     cb.checked = localStorage.getItem(key) === 'true';
-    cb.addEventListener('change', () => {
-      localStorage.setItem(key, cb.checked);
-    });
+    cb.addEventListener('change', () => { localStorage.setItem(key, cb.checked); });
   });
+}
+
+syncHomework();
 </script>
 </body>
 </html>
