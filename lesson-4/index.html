@@ -917,7 +917,7 @@
         stream.getTracks().forEach(t => t.stop());
       };
       if (recognition) {
-        recognition.onresult = e => { for (let i = 0; i < e.results.length; i++) if (e.results[i].isFinal) shadowingSpokenText += e.results[i][0].transcript + ' '; };
+        recognition.onresult = e => { for (let i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) shadowingSpokenText += e.results[i][0].transcript + ' '; };
         recognition.start();
       }
       mediaRecorder.start();
