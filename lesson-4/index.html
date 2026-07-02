@@ -16,6 +16,7 @@
       --text-main: #f1f5f9;
       --text-muted: #64748b;
       --primary: #10b981;
+      --primary-dim: rgba(16,185,129,0.12);
       --primary-hover: #059669;
       --accent-blue: #3b82f6;
       --accent-cyan: #22d3ee;
@@ -65,6 +66,8 @@
       letter-spacing: 0.06em;
       box-shadow: 0 0 10px rgba(16,185,129,0.12);
     }
+    .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.3rem; transition: color 0.2s ease; }
+    .back-link:hover { color: var(--text-main); }
     h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
     .lesson-meta { display: flex; gap: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
     .meta-item strong { color: var(--text-main); }
@@ -191,6 +194,7 @@
   <header>
     <div class="logo-area">
       <div class="badge-exam">IELTS Writing</div>
+      <a href="../index.html" class="back-link">← Portal</a>
       <h1>Lesson 4 — Advantages & Disadvantages Essay</h1>
     </div>
     <div class="lesson-meta">
