@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Margo — IELTS Writing Task 2: Advantages & Disadvantages</title>
+  <meta name="description" content="Interactive IELTS Writing Task 2 lesson on driverless vehicles — essay outline builder, cohesion scanner, and annotated model essay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: #131a26;
+      --border-color: #243042;
+      --text-main: #f1f5f9;
+      --text-muted: #64748b;
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #22d3ee;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-purple: #8b5cf6;
+      --glass-bg: rgba(19, 26, 38, 0.75);
+      --glass-border: rgba(255,255,255,0.03);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 80% 10%, rgba(16,185,129,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 10% 85%, rgba(59,130,246,0.04) 0%, transparent 40%);
+    }
+    header {
+      background: rgba(9,13,22,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 65px;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .badge-exam {
+      background: rgba(16,185,129,0.15);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      box-shadow: 0 0 10px rgba(16,185,129,0.12);
+    }
+    h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+    .lesson-meta { display: flex; gap: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+    .meta-item strong { color: var(--text-main); }
+    .progress-bar-container { width: 100%; height: 3px; background: rgba(255,255,255,0.02); position: sticky; top: 65px; z-index: 99; }
+    .progress-bar { height: 100%; width: 16.67%; background: linear-gradient(90deg, var(--primary), var(--accent-blue)); box-shadow: 0 0 12px rgba(16,185,129,0.4); transition: width 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .main-container { display: flex; flex: 1; height: calc(100vh - 68px); }
+    .sidebar { width: 270px; border-right: 1px solid var(--border-color); padding: 1.5rem 0.875rem; display: flex; flex-direction: column; gap: 0.375rem; background: rgba(9,13,22,0.45); overflow-y: auto; }
+    .sidebar-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 0.5rem 0.75rem 0.25rem; font-family: 'Fira Code', monospace; }
+    .sidebar-btn { display: flex; align-items: center; gap: 0.75rem; width: 100%; padding: 0.7rem 0.875rem; background: transparent; border: 1px solid transparent; border-radius: 8px; color: var(--text-muted); font-size: 0.875rem; text-align: left; cursor: pointer; transition: all 0.2s ease; font-family: 'Outfit', sans-serif; }
+    .sidebar-btn:hover { background: rgba(255,255,255,0.02); color: var(--text-main); }
+    .sidebar-btn.active { background: var(--bg-card); border-color: var(--border-color); color: var(--primary); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+    .sidebar-num { font-family: 'Fira Code', monospace; font-size: 0.75rem; opacity: 0.45; min-width: 20px; }
+    .content-area { flex: 1; padding: 2.5rem; overflow-y: auto; }
+    .slide { display: none; animation: fadeIn 0.35s cubic-bezier(0.16,1,0.3,1) forwards; max-width: 1000px; margin: 0 auto; }
+    .slide.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px; padding: 1.75rem; margin-bottom: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: border-color 0.3s, box-shadow 0.3s; }
+    .card:hover { border-color: rgba(16,185,129,0.12); }
+    .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.625rem; }
+    .shadowing-box { border-left: 4px solid var(--accent-blue); background: rgba(59,130,246,0.02); }
+    .shadowing-text { font-size: 1.05rem; line-height: 1.9; margin: 1.25rem 0; background: rgba(0,0,0,0.25); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.02); }
+    .shadowing-word { display: inline-block; margin-right: 0.25rem; transition: all 0.12s ease; }
+    .shadowing-word.highlighted { background: rgba(16,185,129,0.18); color: #fff; border-radius: 3px; padding: 0 2px; }
+    .shadowing-word-result { display: inline-block; margin-right: 0.25rem; }
+    .word-correct { color: #10b981; font-weight: 500; }
+    .word-incorrect { color: #fb7185; text-decoration: line-through; }
+    .btn { padding: 0.55rem 1.1rem; border-radius: 6px; border: none; font-weight: 600; font-family: 'Outfit', sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s ease; font-size: 0.875rem; }
+    .btn-primary { background: var(--primary); color: #070a13; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: rgba(255,255,255,0.04); color: var(--text-main); border: 1px solid var(--border-color); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .recorder-bar { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); }
+    .rec-btn { padding: 0.4rem 0.9rem; font-size: 0.78rem; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); color: var(--text-muted); font-family: 'Outfit', sans-serif; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 500; }
+    .rec-btn:hover { background: rgba(255,255,255,0.08); color: var(--text-main); }
+    .rec-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .rec-btn.recording { background: var(--accent-red); color: #fff; border-color: var(--accent-red); }
+    .rec-status { font-size: 0.78rem; color: var(--text-muted); }
+    .accuracy-card { display: none; align-items: center; gap: 1.5rem; background: rgba(16,185,129,0.04); border: 1px solid rgba(16,185,129,0.15); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1rem; }
+    .gauge-wrap { position: relative; width: 90px; height: 90px; flex-shrink: 0; }
+    .gauge-svg { width: 90px; height: 90px; transform: rotate(-90deg); }
+    .gauge-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
+    .gauge-fill { fill: none; stroke: var(--primary); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 220; stroke-dashoffset: 220; transition: stroke-dashoffset 0.9s cubic-bezier(0.4,0,0.2,1); }
+    .gauge-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Fira Code', monospace; font-size: 1.1rem; font-weight: bold; color: var(--primary); }
+    .accuracy-info h3 { font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem; }
+    .accuracy-info p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+    .wave-canvas-wrap { margin: 0.75rem 0; background: rgba(0,0,0,0.35); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.03); }
+    canvas { display: block; width: 100%; height: 60px; }
+    .prompt-box { background: rgba(0,0,0,0.3); border: 2px solid var(--accent-amber); border-radius: 8px; padding: 1.25rem; margin: 1rem 0; font-size: 1rem; line-height: 1.65; }
+    .outline-builder { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+    .outline-slot { background: rgba(0,0,0,0.25); border: 1.5px dashed rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem; min-height: 100px; transition: all 0.25s ease; position: relative; }
+    .outline-slot.filled { border-style: solid; border-color: var(--primary); background: rgba(16,185,129,0.05); }
+    .outline-slot h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem; font-family: 'Fira Code', monospace; }
+    .outline-slot.filled h4 { color: var(--primary); }
+    .outline-content { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+    .outline-slot.filled .outline-content { color: var(--text-main); }
+    .outline-clear { position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.8rem; padding: 2px 5px; border-radius: 4px; display: none; }
+    .outline-slot.filled .outline-clear { display: block; }
+    .outline-clear:hover { background: rgba(239,68,68,0.15); color: var(--accent-red); }
+    .idea-pool { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+    .idea-chip { padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; cursor: pointer; border: 1px solid var(--border-color); background: rgba(255,255,255,0.03); color: #94a3b8; transition: all 0.2s ease; user-select: none; }
+    .idea-chip:hover { background: rgba(16,185,129,0.1); border-color: var(--primary); color: var(--text-main); }
+    .idea-chip.used { opacity: 0.3; pointer-events: none; text-decoration: line-through; }
+    .scanner-layout { display: flex; gap: 1rem; align-items: flex-start; }
+    .essay-area-wrap { flex: 1; }
+    .essay-textarea { width: 100%; min-height: 220px; background: rgba(0,0,0,0.35); border: 1.5px solid var(--border-color); border-radius: 8px; color: var(--text-main); padding: 1rem; font-family: 'Outfit', sans-serif; font-size: 0.95rem; line-height: 1.65; resize: vertical; }
+    .essay-textarea:focus { outline: none; border-color: var(--primary); }
+    .essay-stats { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem; display: flex; gap: 1rem; }
+    .cohesion-panel { width: 230px; flex-shrink: 0; }
+    .cohesion-group { margin-bottom: 1rem; }
+    .cohesion-group-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem; font-family: 'Fira Code', monospace; }
+    .cohesion-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.6rem; border-radius: 6px; font-size: 0.8rem; border: 1px solid transparent; background: rgba(255,255,255,0.02); margin-bottom: 0.35rem; transition: all 0.3s ease; color: var(--text-muted); }
+    .cohesion-pill.active { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.35); color: var(--primary); font-weight: 600; }
+    .cohesion-pill.active::before { content: '✓'; font-size: 0.7rem; font-weight: bold; }
+    .cohesion-pill:not(.active)::before { content: '○'; font-size: 0.7rem; }
+    .cohesion-score { text-align: center; background: rgba(0,0,0,0.3); border-radius: 8px; padding: 0.75rem; margin-top: 0.5rem; }
+    .cohesion-score-num { font-family: 'Fira Code', monospace; font-size: 1.6rem; font-weight: bold; color: var(--primary); }
+    .cohesion-score-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .model-essay { background: rgba(0,0,0,0.3); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 8px; font-size: 0.98rem; line-height: 1.85; position: relative; }
+    .model-essay p { margin-bottom: 1rem; }
+    .model-essay p:last-child { margin-bottom: 0; }
+    .anno-trigger { color: var(--accent-amber); font-size: 0.72rem; font-weight: 700; vertical-align: super; cursor: pointer; font-family: 'Fira Code', monospace; border: 1px solid rgba(245,158,11,0.3); border-radius: 3px; padding: 0 3px; margin-left: 2px; transition: all 0.15s; }
+    .anno-trigger:hover { background: rgba(245,158,11,0.15); border-color: var(--accent-amber); }
+    .anno-tooltip { display: none; position: absolute; background: #1e2d42; border: 1px solid var(--accent-amber); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.82rem; color: #f1f5f9; z-index: 200; max-width: 280px; line-height: 1.5; box-shadow: 0 8px 24px rgba(0,0,0,0.5); pointer-events: none; }
+    .anno-tooltip.visible { display: block; }
+    .highlight-vocab { color: var(--primary); font-weight: 600; }
+    .highlight-concession { color: var(--accent-purple); font-weight: 600; }
+    .highlight-opinion { color: var(--accent-blue); font-weight: 600; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 0.75rem 1rem; text-align: left; }
+    .data-table th { background: rgba(255,255,255,0.02); color: var(--text-muted); font-size: 0.82rem; text-transform: uppercase; }
+    .correction-table { width: 100%; border-collapse: collapse; }
+    .correction-table th, .correction-table td { border: 1px solid var(--border-color); padding: 0.75rem; text-align: left; font-size: 0.9rem; }
+    .correction-table th { background: rgba(255,255,255,0.02); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+    .exam-timer { background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1rem 0; }
+    .timer-val { font-family: 'Fira Code', monospace; font-size: 3rem; font-weight: bold; color: var(--primary); }
+    .timer-label { font-size: 0.82rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.06em; margin-top: 0.5rem; }
+    .info-box { border-radius: 8px; padding: 1rem 1.25rem; font-size: 0.88rem; line-height: 1.6; margin: 0.75rem 0; }
+    .info-box.blue { background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); }
+    .info-box.amber { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2); }
+    .info-box.red { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); }
+    .info-box.green { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.2); }
+    .info-box h4 { margin-bottom: 0.35rem; }
+    .info-box.blue h4 { color: var(--accent-blue); }
+    .info-box.amber h4 { color: var(--accent-amber); }
+    .info-box.red h4 { color: var(--accent-red); }
+    .info-box.green h4 { color: var(--primary); }
+    .pacer-controls { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
+    .speed-select { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 0.4rem 0.7rem; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; cursor: pointer; }
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 0.75rem 1rem; height: auto; }
+      .main-container { flex-direction: column; height: auto; }
+      .sidebar { width: 100%; flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border-color); padding: 0.5rem; position: sticky; top: 65px; z-index: 90; background: rgba(9,13,22,0.95); }
+      .sidebar-btn { padding: 0.5rem 0.75rem; white-space: nowrap; width: auto; font-size: 0.8rem; }
+      .sidebar-num, .sidebar-label { display: none; }
+      .content-area { padding: 1rem; }
+      .outline-builder { grid-template-columns: 1fr; }
+      .scanner-layout { flex-direction: column; }
+      .cohesion-panel { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-area">
+      <div class="badge-exam">IELTS Writing</div>
+      <h1>Lesson 4 — Advantages & Disadvantages Essay</h1>
+    </div>
+    <div class="lesson-meta">
+      <div class="meta-item">Student: <strong>Margo</strong></div>
+      <div class="meta-item">Task: <strong>Writing Task 2</strong></div>
+    </div>
+  </header>
+  <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <div class="sidebar-label">Slides</div>
+      <button class="sidebar-btn active" onclick="switchSlide(0)"><span class="sidebar-num">01</span> Warm-up: Shadowing</button>
+      <button class="sidebar-btn" onclick="switchSlide(1)"><span class="sidebar-num">02</span> Task Analysis</button>
+      <button class="sidebar-btn" onclick="switchSlide(2)"><span class="sidebar-num">03</span> Outline Builder</button>
+      <button class="sidebar-btn" onclick="switchSlide(3)"><span class="sidebar-num">04</span> Writing Lab</button>
+      <button class="sidebar-btn" onclick="switchSlide(4)"><span class="sidebar-num">05</span> Model Essay</button>
+      <button class="sidebar-btn" onclick="switchSlide(5)"><span class="sidebar-num">06</span> Homework</button>
+    </div>
+
+    <div class="content-area">
+
+      <!-- SLIDE 1: SHADOWING -->
+      <div class="slide active" id="slide-0">
+        <div class="card shadowing-box">
+          <div class="card-title">🔊 Shadowing Pacer — Autonomous Vehicles</div>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">Shadow aloud with correct stress and academic intonation. Record and compare.</p>
+          <div id="shadowing-text" class="shadowing-text"></div>
+          <div class="wave-canvas-wrap"><canvas id="waveCanvas" width="800" height="60"></canvas></div>
+          <div style="display:flex; align-items:center; gap:12px; margin:0.5rem 0;">
+            <span style="font-size:13px;color:var(--text-muted);">Speed:</span>
+            <button class="speed-btn" onclick="changeSpeed(0.75)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--border-color);color:var(--text-muted);border:1px solid transparent;cursor:pointer;font-family:'Fira Code',monospace;">0.75×</button>
+            <button class="speed-btn active" onclick="changeSpeed(1.0)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--primary-dim);color:var(--primary);border:1px solid rgba(16,185,129,0.4);cursor:pointer;font-family:'Fira Code',monospace;">1.0×</button>
+            <button class="speed-btn" onclick="changeSpeed(1.25)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--border-color);color:var(--text-muted);border:1px solid transparent;cursor:pointer;font-family:'Fira Code',monospace;">1.25×</button>
+            <span id="shadowing-timer" style="font-family:'Fira Code'; font-size:1.1rem; background:rgba(0,0,0,0.4); padding:0.35rem 0.875rem; border-radius:4px; border:1px solid var(--border-color); margin-left:auto;">00:00</span>
+          </div>
+          <div style="display:flex; gap:0.5rem; margin-bottom:12px;">
+            <button class="btn btn-secondary listen-btn" onclick="toggleSpeaking()">🔊 Listen Guide</button>
+          </div>
+          <div class="recorder-bar">
+            <button class="rec-btn" id="startRecord">🎤 Record Shadowing</button>
+            <button class="rec-btn" id="stopRecord" disabled>⏹ Stop</button>
+            <button class="rec-btn" id="playRecord" disabled>🎧 Play Back</button>
+            <button class="rec-btn" id="resetShadowingBtn">↺ Reset</button>
+            <span class="rec-status" id="recStatus">Record yourself shadowing, then compare with the model</span>
+          </div>
+        </div>
+        <div class="accuracy-card" id="accuracyGradeCard">
+          <div class="gauge-wrap">
+            <svg class="gauge-svg" viewBox="0 0 90 90">
+              <circle class="gauge-track" cx="45" cy="45" r="35"/>
+              <circle class="gauge-fill" id="accuracyGaugeFill" cx="45" cy="45" r="35"/>
+            </svg>
+            <div class="gauge-text" id="accuracyGaugeText">0%</div>
+          </div>
+          <div class="accuracy-info">
+            <h3 id="accuracyGradeTitle">Evaluating…</h3>
+            <p id="accuracyGradeFeedback">Processing your shadowing accuracy against the model text.</p>
+          </div>
+        </div>
+        <div id="browserNotice" class="info-box amber" style="display:none; margin-top:1rem;">
+          <h4>Browser Notice</h4>
+          <p>Live accuracy scoring requires Chrome or Edge. Your recording has been saved for manual comparison.</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: TASK ANALYSIS -->
+      <div class="slide" id="slide-1">
+        <div class="card">
+          <div class="card-title">📝 Real IELTS Prompt — Cambridge 16, Test 4</div>
+          <div class="prompt-box">
+            <em>"In the future, driverless vehicles will be used to transport people and goods. Some people believe that the advantages of driverless vehicles outweigh the disadvantages. <strong>To what extent do you agree or disagree?</strong>"</em>
+          </div>
+          <h4 style="color:var(--accent-amber); margin-bottom:0.75rem;">Prompt Deconstruction</h4>
+          <table class="data-table">
+            <thead><tr><th>Component</th><th>Analysis</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Topic</strong></td><td>Driverless vehicles used for transport of people and goods</td></tr>
+              <tr><td><strong>Task Type</strong></td><td>Advantages/Disadvantages — "Do the advantages outweigh the disadvantages?"</td></tr>
+              <tr><td><strong>Key Verbs</strong></td><td><em>outweigh, agree, disagree</em></td></tr>
+              <tr><td><strong>Scope</strong></td><td>Present AND future implications</td></tr>
+              <tr><td><strong>Requirement</strong></td><td>Take a clear position (agree / disagree / partially agree)</td></tr>
+            </tbody>
+          </table>
+          <div class="info-box red">
+            <h4>⚠️ Common Pitfall</h4>
+            <p>Do NOT write about <em>whether driverless vehicles will exist</em>. The debate is whether <strong>advantages outweigh disadvantages</strong>. The first sentence is context, not the debate question.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">🔤 Error Recycling — Lessons 1–3</div>
+          <table class="correction-table">
+            <thead><tr><th>Error Type</th><th style="color:#fb7185;">❌ Pattern</th><th style="color:#10b981;">✅ Correction</th></tr></thead>
+            <tbody>
+              <tr><td>Discourse marker overuse</td><td><em>"Actually, driverless cars are safer."</em></td><td><em>"Indeed…" / "In fact…" / "Research indicates…"</em></td></tr>
+              <tr><td>Tense shift</td><td><em>"Driverless cars will be safe. It reduces accidents."</em></td><td><em>"…They <strong>will</strong> reduce accidents."</em></td></tr>
+              <tr><td>Article omission</td><td><em>"The technology has potential to improve…"</em></td><td><em>"…has <strong>the</strong> potential to…"</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: OUTLINE BUILDER -->
+      <div class="slide" id="slide-2">
+        <div class="card">
+          <div class="card-title">📐 Interactive Essay Outline Builder</div>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">Click an idea chip to place it into the correct paragraph slot. Build your Band 7+ outline before writing.</p>
+          <div class="idea-pool" id="ideaPool">
+            <span class="idea-chip" data-target="intro" data-text="Paraphrase: The prospect of autonomous transportation…" onclick="placeIdea(this)">Paraphrase prompt</span>
+            <span class="idea-chip" data-target="intro" data-text="Position: I largely agree that advantages outweigh disadvantages because…" onclick="placeIdea(this)">State clear position</span>
+            <span class="idea-chip" data-target="body1" data-text="Safety: Human error causes 94% of accidents → removing the driver saves lives" onclick="placeIdea(this)">Safety — human error</span>
+            <span class="idea-chip" data-target="body1" data-text="Efficiency: Self-driving vehicles communicate to optimise traffic flow, reduce congestion" onclick="placeIdea(this)">Efficiency — traffic flow</span>
+            <span class="idea-chip" data-target="body1" data-text="Accessibility: Greater mobility for elderly, disabled, and non-drivers" onclick="placeIdea(this)">Accessibility</span>
+            <span class="idea-chip" data-target="body2" data-text="Counter 1: Job displacement for drivers and delivery workers" onclick="placeIdea(this)">Job displacement</span>
+            <span class="idea-chip" data-target="body2" data-text="Rebuttal: New employment categories emerge — fleet supervisors, remote operators" onclick="placeIdea(this)">Rebuttal: new jobs</span>
+            <span class="idea-chip" data-target="body2" data-text="Counter 2: Cybersecurity risks — hacking and system failure" onclick="placeIdea(this)">Cybersecurity risk</span>
+            <span class="idea-chip" data-target="body2" data-text="Rebuttal: Technology matures; aviation autopilot precedent proves safety improves" onclick="placeIdea(this)">Rebuttal: aviation analogy</span>
+            <span class="idea-chip" data-target="conclusion" data-text="Safety and efficiency gains outweigh manageable drawbacks" onclick="placeIdea(this)">Restate: benefits outweigh</span>
+            <span class="idea-chip" data-target="conclusion" data-text="Key lies in managing the transition thoughtfully, not resisting progress" onclick="placeIdea(this)">Final thought</span>
+          </div>
+          <div class="outline-builder">
+            <div class="outline-slot" id="slot-intro"><h4>Introduction</h4><div class="outline-content" id="content-intro">Drop idea chips here…</div><button class="outline-clear" onclick="clearSlot('intro')">✕</button></div>
+            <div class="outline-slot" id="slot-body1"><h4>Body 1 — Advantages</h4><div class="outline-content" id="content-body1">Drop idea chips here…</div><button class="outline-clear" onclick="clearSlot('body1')">✕</button></div>
+            <div class="outline-slot" id="slot-body2"><h4>Body 2 — Disadvantages + Rebuttal</h4><div class="outline-content" id="content-body2">Drop idea chips here…</div><button class="outline-clear" onclick="clearSlot('body2')">✕</button></div>
+            <div class="outline-slot" id="slot-conclusion"><h4>Conclusion</h4><div class="outline-content" id="content-conclusion">Drop idea chips here…</div><button class="outline-clear" onclick="clearSlot('conclusion')">✕</button></div>
+          </div>
+          <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
+            <button class="btn btn-secondary" onclick="resetOutline()">↺ Reset Outline</button>
+            <button class="btn btn-secondary" onclick="showModelOutline()">💡 Show Model Outline</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">💬 Cohesive Devices Bank</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div><p style="font-size:0.75rem; color:var(--primary); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem; font-family:'Fira Code';">Advantages</p><ul style="padding-left:1.1rem; font-size:0.88rem; color:#94a3b8; line-height:2;"><li><em>One compelling argument in favour of… is that…</em></li><li><em>A key benefit lies in…</em></li><li><em>Proponents point out that…</em></li></ul></div>
+            <div><p style="font-size:0.75rem; color:var(--accent-red); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem; font-family:'Fira Code';">Counter-arguments</p><ul style="padding-left:1.1rem; font-size:0.88rem; color:#94a3b8; line-height:2;"><li><em>That said, there are legitimate concerns regarding…</em></li><li><em>Critics contend that…</em></li><li><em>Opponents argue that…</em></li></ul></div>
+            <div><p style="font-size:0.75rem; color:var(--accent-purple); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem; font-family:'Fira Code';">Rebuttal</p><ul style="padding-left:1.1rem; font-size:0.88rem; color:#94a3b8; line-height:2;"><li><em>Nevertheless, this concern can be mitigated by…</em></li><li><em>While this is a valid point, it fails to account for…</em></li><li><em>This drawback is overshadowed by the fact that…</em></li></ul></div>
+            <div><p style="font-size:0.75rem; color:var(--accent-blue); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem; font-family:'Fira Code';">"Outweigh" Language</p><ul style="padding-left:1.1rem; font-size:0.88rem; color:#94a3b8; line-height:2;"><li><em>…outweigh the drawbacks</em></li><li><em>…tip the balance in favour of…</em></li><li><em>On balance, the benefits are more significant than…</em></li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: WRITING LAB -->
+      <div class="slide" id="slide-3">
+        <div class="card">
+          <div class="card-title">✍️ Writing Lab — Real-Time Cohesion Scanner</div>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Write your essay below. The scanner will detect cohesive devices and vocabulary in real time.</p>
+          <div class="exam-timer">
+            <div class="timer-val" id="writing-time">20:00</div>
+            <div class="timer-label">Writing Time Remaining</div>
+            <div style="display:flex; gap:0.5rem; justify-content:center; margin-top:0.75rem;">
+              <button class="btn btn-primary" onclick="runWritingClock()">▶ Start Clock</button>
+              <button class="btn btn-secondary" onclick="resetWritingClock()">↺ Reset</button>
+            </div>
+          </div>
+          <div class="scanner-layout">
+            <div class="essay-area-wrap">
+              <textarea id="essayArea" class="essay-textarea" placeholder="Write your IELTS Task 2 response here…"></textarea>
+              <div class="essay-stats">
+                <span>Words: <strong id="wordCount">0</strong></span>
+                <span>Target: <strong style="color:var(--accent-amber);">250–300 words</strong></span>
+                <span id="wordStatus" style="color:var(--text-muted);"></span>
+              </div>
+            </div>
+            <div class="cohesion-panel">
+              <div class="cohesion-score"><div class="cohesion-score-num" id="cohesionScore">0/12</div><div class="cohesion-score-label">Cohesive Devices Detected</div></div>
+              <div style="margin-top:1rem;">
+                <div class="cohesion-group"><div class="cohesion-group-title">Opinion / Position</div><div class="cohesion-pill" id="cp-largely-agree">largely agree</div><div class="cohesion-pill" id="cp-i-maintain">I maintain / I believe</div><div class="cohesion-pill" id="cp-in-my-view">in my view / in my opinion</div></div>
+                <div class="cohesion-group"><div class="cohesion-group-title">Advantages</div><div class="cohesion-pill" id="cp-compelling">compelling argument / key benefit</div><div class="cohesion-pill" id="cp-furthermore">furthermore / moreover</div><div class="cohesion-pill" id="cp-proponents">proponents / advocates</div></div>
+                <div class="cohesion-group"><div class="cohesion-group-title">Counter-argument</div><div class="cohesion-pill" id="cp-that-said">that said / however / nevertheless</div><div class="cohesion-pill" id="cp-legitimate">legitimate concerns / valid point</div><div class="cohesion-pill" id="cp-critics">critics contend / opponents argue</div></div>
+                <div class="cohesion-group"><div class="cohesion-group-title">Outweigh Language</div><div class="cohesion-pill" id="cp-outweigh">outweigh / surpass</div><div class="cohesion-pill" id="cp-on-balance">on balance / tip the balance</div><div class="cohesion-pill" id="cp-in-conclusion">in conclusion / to conclude</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: MODEL ESSAY -->
+      <div class="slide" id="slide-4">
+        <div class="card">
+          <div class="card-title">📖 Band 8.0 Model Essay — Hover Annotations</div>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Hover over the <span class="anno-trigger" style="pointer-events:none;">tags</span> to reveal why each technique earns Band 8.0 marks.</p>
+          <div class="model-essay" id="modelEssay">
+            <p><span class="highlight-opinion">The prospect of autonomous vehicles transporting both people and goods has sparked considerable debate.</span><span class="anno-trigger" data-anno="paraphrase">paraphrase</span> <span class="highlight-opinion">While some express reservations about this technological shift, I largely agree that the advantages of driverless vehicles will outweigh the disadvantages</span><span class="anno-trigger" data-anno="position">position</span>, primarily due to significant improvements in road safety and transportation efficiency.</p>
+            <p><span class="highlight-vocab">One of the most compelling arguments in favour of</span><span class="anno-trigger" data-anno="adv-intro">adv+intro</span> autonomous vehicles is their potential to dramatically reduce road accidents. Since human error is responsible for approximately 94% of traffic collisions, removing the driver from the equation could save countless lives. <span class="highlight-vocab">Furthermore</span><span class="anno-trigger" data-anno="furthermore">cohesion</span>, self-driving vehicles can communicate with one another to <span class="highlight-vocab">optimise traffic flow</span><span class="anno-trigger" data-anno="collocation">collocation</span>, reduce congestion, and lower fuel consumption.</p>
+            <p><span class="highlight-concession">That said, there are legitimate concerns about</span><span class="anno-trigger" data-anno="concession">concession</span> widespread job displacement, particularly for professional drivers and delivery workers. This is an <span class="highlight-vocab">undeniable short-term cost</span><span class="anno-trigger" data-anno="hedging">hedging</span> of the transition. <span class="highlight-concession">Nevertheless</span><span class="anno-trigger" data-anno="rebuttal">rebuttal</span>, history suggests that technological revolutions create new employment categories — such as fleet supervisors and remote-operations engineers — that offset many of the jobs lost.</p>
+            <p><span class="highlight-opinion">In conclusion</span><span class="anno-trigger" data-anno="conclusion-marker">conclusion</span>, while the transition to driverless vehicles will undoubtedly present challenges, I maintain that the benefits — particularly in safety and efficiency — <span class="highlight-vocab">outweigh the drawbacks</span><span class="anno-trigger" data-anno="outweigh">outweigh lang</span>. The key lies in managing the transition thoughtfully rather than resisting progress itself.</p>
+          </div>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem; font-size:0.8rem; color:var(--text-muted);">
+            <span><span style="color:var(--primary); font-weight:600;">■</span> Band 7+ vocabulary</span>
+            <span><span style="color:var(--accent-purple); font-weight:600;">■</span> Concession / rebuttal</span>
+            <span><span style="color:var(--accent-blue); font-weight:600;">■</span> Opinion / position language</span>
+          </div>
+        </div>
+        <div class="anno-tooltip" id="annoTooltip"></div>
+      </div>
+
+      <!-- SLIDE 6: HOMEWORK -->
+      <div class="slide" id="slide-5">
+        <div class="card">
+          <div class="card-title">📋 Lesson 4 Homework</div>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem;">Complete before our next class.</p>
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div style="background:rgba(59,130,246,0.04); border:1px solid rgba(59,130,246,0.2); border-radius:10px; padding:1.25rem;">
+              <h3 style="font-size:1rem; color:var(--accent-blue); margin-bottom:0.5rem;">Task 1 — Full Essay (250–300 words)</h3>
+              <div class="prompt-box" style="font-size:0.88rem; margin:0.5rem 0 0.75rem;"><em>"Some people believe that artificial intelligence will create more opportunities than problems for society. To what extent do you agree or disagree?"</em></div>
+              <p style="font-size:0.82rem; color:var(--text-muted);">✅ Paraphrase &nbsp;✅ State position &nbsp;✅ Body 1: two advantages &nbsp;✅ Body 2: counter + rebuttal &nbsp;✅ Conclusion &nbsp;✅ ≥3 cohesive devices</p>
+            </div>
+            <div style="background:rgba(139,92,246,0.04); border:1px solid rgba(139,92,246,0.2); border-radius:10px; padding:1.25rem;">
+              <h3 style="font-size:1rem; color:var(--accent-purple); margin-bottom:0.5rem;">Task 2 — Vocabulary Journal (8 collocations)</h3>
+              <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem; margin-top:0.5rem; font-size:0.82rem;">
+                <div style="background:rgba(0,0,0,0.2); border-radius:6px; padding:0.75rem;"><strong style="color:var(--accent-blue);">Safety</strong><br><em>eliminate human error<br>reduce accident rates<br>enhance road safety</em></div>
+                <div style="background:rgba(0,0,0,0.2); border-radius:6px; padding:0.75rem;"><strong style="color:var(--primary);">Efficiency</strong><br><em>optimise traffic flow<br>reduce congestion<br>lower fuel consumption</em></div>
+                <div style="background:rgba(0,0,0,0.2); border-radius:6px; padding:0.75rem;"><strong style="color:var(--accent-amber);">Counter-arg</strong><br><em>mitigate concerns<br>address challenges<br>legitimate reservations</em></div>
+              </div>
+            </div>
+            <div style="background:rgba(245,158,11,0.04); border:1px solid rgba(245,158,11,0.2); border-radius:10px; padding:1.25rem;">
+              <h3 style="font-size:1rem; color:var(--accent-amber); margin-bottom:0.5rem;">Task 3 — Self-Editing</h3>
+              <p style="font-size:0.92rem; line-height:1.6;">Re-read your essay. Highlight and improve:</p>
+              <ul style="padding-left:1.1rem; font-size:0.88rem; margin-top:0.5rem; line-height:2;"><li>Your thesis statement — does it take a clear position?</li><li>One sentence needing a stronger cohesive device</li><li>One claim needing more specific evidence</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <audio id="shadowingAudio" preload="none" style="display:none"></audio>
+
+  <script>
+  const TOTAL_SLIDES = 6;
+  function switchSlide(index) {
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(`slide-${index}`).classList.add('active');
+    document.querySelectorAll('.sidebar-btn')[index].classList.add('active');
+    document.getElementById('progressBar').style.width = `${((index + 1) / TOTAL_SLIDES) * 100}%`;
+  }
+
+  const shadowingText = "Autonomous vehicle technology has advanced at an extraordinary pace over the past decade. Proponents argue that self-driving cars will dramatically reduce road accidents, eliminate traffic congestion, and revolutionise urban mobility. However, significant concerns remain regarding job displacement, cybersecurity vulnerabilities, and the ethical implications of algorithmic decision-making. Whether the benefits ultimately surpass the drawbacks depends largely on how effectively regulators and manufacturers address these challenges.";
+  const targetWords = shadowingText.split(' ');
+  const targetWordsClean = targetWords.map(w => w.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""));
+  function initShadowing() { const c = document.getElementById('shadowing-text'); c.innerHTML = targetWords.map((w,i) => `<span class="shadowing-word" id="word-${i}">${w}</span>`).join(' '); }
+
+  const shadowingTS = [{"word":"Autonomous","start":0.425,"end":1.012},{"word":"vehicle","start":1.012,"end":1.400},{"word":"technology","start":1.400,"end":2.300},{"word":"has","start":2.300,"end":2.475},{"word":"advanced","start":2.475,"end":3.062},{"word":"at","start":3.062,"end":3.163},{"word":"an","start":3.163,"end":3.275},{"word":"extraordinary","start":3.275,"end":4.112},{"word":"pace","start":4.112,"end":4.550},{"word":"over","start":4.550,"end":4.763},{"word":"the","start":4.763,"end":4.850},{"word":"past","start":4.850,"end":5.225},{"word":"decade","start":5.225,"end":6.362},{"word":"Proponents","start":6.362,"end":6.987},{"word":"argue","start":6.987,"end":7.400},{"word":"that","start":7.400,"end":7.625},{"word":"self-driving","start":7.625,"end":8.387},{"word":"cars","start":8.387,"end":8.875},{"word":"will","start":8.875,"end":9.025},{"word":"dramatically","start":9.025,"end":9.800},{"word":"reduce","start":9.800,"end":10.325},{"word":"road","start":10.325,"end":10.713},{"word":"accidents","start":10.713,"end":11.812},{"word":"eliminate","start":11.812,"end":12.425},{"word":"traffic","start":12.425,"end":12.850},{"word":"congestion","start":12.850,"end":13.963},{"word":"and","start":13.963,"end":14.100},{"word":"revolutionise","start":14.100,"end":14.963},{"word":"urban","start":14.963,"end":15.300},{"word":"mobility","start":15.300,"end":16.637},{"word":"However","start":16.637,"end":17.538},{"word":"significant","start":17.538,"end":18.150},{"word":"concerns","start":18.150,"end":18.850},{"word":"remain","start":18.850,"end":19.325},{"word":"regarding","start":19.325,"end":19.900},{"word":"job","start":19.900,"end":20.275},{"word":"displacement","start":20.275,"end":21.425},{"word":"cybersecurity","start":21.425,"end":22.325},{"word":"vulnerabilities","start":22.325,"end":23.688},{"word":"and","start":23.688,"end":23.812},{"word":"the","start":23.812,"end":23.938},{"word":"ethical","start":23.938,"end":24.375},{"word":"implications","start":24.375,"end":25.225},{"word":"of","start":25.225,"end":25.425},{"word":"algorithmic","start":25.425,"end":26.200},{"word":"decision-making","start":26.200,"end":27.613},{"word":"Whether","start":28.075,"end":28.325},{"word":"the","start":28.325,"end":28.462},{"word":"benefits","start":28.462,"end":29.062},{"word":"ultimately","start":29.062,"end":29.650},{"word":"surpass","start":29.650,"end":30.325},{"word":"the","start":30.325,"end":30.438},{"word":"drawbacks","start":30.438,"end":31.100},{"word":"depends","start":31.100,"end":31.650},{"word":"largely","start":31.650,"end":32.250},{"word":"on","start":32.250,"end":32.425},{"word":"how","start":32.425,"end":32.725},{"word":"effectively","start":32.725,"end":33.413},{"word":"regulators","start":33.413,"end":34.125},{"word":"and","start":34.125,"end":34.250},{"word":"manufacturers","start":34.250,"end":35.600},{"word":"address","start":35.600,"end":36.025},{"word":"these","start":36.025,"end":36.263},{"word":"challenges","start":36.263,"end":37.500}];
+  const shadowingAudio = document.getElementById('shadowingAudio');
+  let audioFallback = false, speaking = false;
+  shadowingAudio.onerror = () => { audioFallback = true; };
+  shadowingAudio.onended = () => { speaking = false; document.querySelector('.listen-btn').textContent = '🔊 Listen Guide'; document.getElementById('shadowing-timer').textContent = '00:00'; document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted')); stopAllWaves(); };
+  shadowingAudio.ontimeupdate = () => { if (!shadowingTS || !speaking) return; const t = shadowingAudio.currentTime; const mins = Math.floor(t / 60); const secs = Math.floor(t % 60); document.getElementById('shadowing-timer').textContent = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`; let lo = 0, hi = shadowingTS.length - 1; while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (shadowingTS[mid].start <= t) lo = mid; else hi = mid - 1; } document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted')); const el = document.getElementById(`word-${lo}`); if (el) { el.classList.add('highlighted'); el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } };
+  let guideOscId = null;
+  function startSimulatedWave() { stopAllWaves(); const canvas = document.getElementById('waveCanvas'); const ctx = canvas.getContext('2d'); const W = canvas.width, H = canvas.height; let phase = 0; function draw() { guideOscId = requestAnimationFrame(draw); ctx.fillStyle = 'rgba(9,13,22,0.3)'; ctx.fillRect(0,0,W,H); ctx.lineWidth = 2.5; ctx.strokeStyle = '#10b981'; ctx.shadowColor = '#10b981'; ctx.shadowBlur = 6; ctx.beginPath(); ctx.moveTo(0, H/2); for (let x = 0; x < W; x++) { const y = H/2 + Math.sin(x*0.03+phase)*13*Math.sin(x*0.004) + Math.sin(x*0.07-phase*1.3)*4*Math.cos(x*0.008); ctx.lineTo(x, y); } ctx.stroke(); ctx.shadowBlur = 0; phase += 0.1; } draw(); }
+  function stopAllWaves() { if (guideOscId) { cancelAnimationFrame(guideOscId); guideOscId = null; } }
+  function ttsFallback() { const u = new SpeechSynthesisUtterance(targetWords.join(' ')); u.lang = 'en-GB'; u.rate = 0.85; u.onstart = () => { speaking = true; document.querySelector('.listen-btn').textContent = '■ Stop'; startSimulatedWave(); }; u.onend = u.onerror = () => { speaking = false; document.querySelector('.listen-btn').textContent = '🔊 Listen Guide'; stopAllWaves(); }; speechSynthesis.speak(u); }
+  function toggleSpeaking() { if (speaking) { shadowingAudio.pause(); shadowingAudio.currentTime = 0; speechSynthesis.cancel(); speaking = false; document.querySelector('.listen-btn').textContent = '🔊 Listen Guide'; document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted')); stopAllWaves(); document.getElementById('shadowing-timer').textContent = '00:00'; return; } stopAllRecording(); if (!audioFallback) { shadowingAudio.src = 'audio/shadowing.wav?' + Date.now(); shadowingAudio.play().then(() => { speaking = true; document.querySelector('.listen-btn').textContent = '■ Stop'; startSimulatedWave(); }).catch(() => { audioFallback = true; ttsFallback(); }); } else ttsFallback(); }
+
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let recognition = null;
+  if (SpeechRecognition) { recognition = new SpeechRecognition(); recognition.continuous = true; recognition.interimResults = false; recognition.lang = 'en-US'; }
+  let mediaRecorder = null, recordedChunks = [], audioBlobUrl = null, shadowingSpokenText = '', recordingTimerInterval = null;
+
+  document.getElementById('startRecord').addEventListener('click', async () => {
+    if (speaking) { shadowingAudio.pause(); shadowingAudio.currentTime = 0; speechSynthesis.cancel(); speaking = false; document.querySelector('.listen-btn').textContent = '🔊 Listen Guide'; document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted')); stopAllWaves(); document.getElementById('shadowing-timer').textContent = '00:00'; }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mime = ['audio/webm;codecs=opus','audio/webm','audio/mp4',''].find(t => !t || MediaRecorder.isTypeSupported(t));
+      mediaRecorder = new MediaRecorder(stream, mime ? { mimeType: mime } : {});
+      recordedChunks = []; shadowingSpokenText = '';
+      mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordedChunks.push(e.data); };
+      mediaRecorder.onstop = () => { const blob = new Blob(recordedChunks, { type: mime || 'audio/webm' }); if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl); audioBlobUrl = URL.createObjectURL(blob); document.getElementById('playRecord').disabled = false; stream.getTracks().forEach(t => t.stop()); };
+      if (recognition) { recognition.onresult = e => { for (let i = 0; i < e.results.length; i++) if (e.results[i].isFinal) shadowingSpokenText += e.results[i][0].transcript + ' '; }; recognition.start(); }
+      mediaRecorder.start();
+      document.getElementById('startRecord').disabled = true; document.getElementById('startRecord').classList.add('recording'); document.getElementById('stopRecord').disabled = false; document.getElementById('playRecord').disabled = true;
+      document.getElementById('recStatus').textContent = '🔴 Recording… Speak the passage aloud'; document.getElementById('accuracyGradeCard').style.display = 'none'; initShadowing();
+      let recSeconds = 0;
+      if (recordingTimerInterval) clearInterval(recordingTimerInterval);
+      recordingTimerInterval = setInterval(() => { recSeconds++; document.getElementById('shadowing-timer').textContent = `${String(Math.floor(recSeconds/60)).padStart(2,'0')}:${String(recSeconds%60).padStart(2,'0')}`; }, 1000);
+    } catch(e) { document.getElementById('recStatus').textContent = '⚠️ Microphone access denied — allow mic access and try again'; }
+  });
+  document.getElementById('stopRecord').addEventListener('click', () => { if (mediaRecorder && mediaRecorder.state === 'recording') mediaRecorder.stop(); document.getElementById('startRecord').disabled = false; document.getElementById('startRecord').classList.remove('recording'); document.getElementById('stopRecord').disabled = true; if (recordingTimerInterval) { clearInterval(recordingTimerInterval); recordingTimerInterval = null; } if (recognition) { recognition.stop(); document.getElementById('recStatus').textContent = '⏳ Evaluating accuracy…'; setTimeout(evaluateShadowing, 700); } else { document.getElementById('recStatus').textContent = '✅ Recording saved. Click Play Back to compare with the model.'; stopAllWaves(); } });
+  document.getElementById('playRecord').addEventListener('click', () => { if (audioBlobUrl) { const a = new Audio(audioBlobUrl); a.play(); document.getElementById('recStatus').textContent = '▶️ Playing your recording…'; a.onended = () => document.getElementById('recStatus').textContent = '✅ Done — click Listen Guide to compare with model'; } });
+
+  function alignWords(target, spoken) { const m = target.length, n = spoken.length; const dp = Array(m+1).fill(null).map(() => Array(n+1).fill(0)); for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) dp[i][j] = target[i-1] === spoken[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j], dp[i][j-1]); let i = m, j = n; const matches = new Set(); while (i > 0 && j > 0) { if (target[i-1] === spoken[j-1]) { matches.add(i-1); i--; j--; } else if (dp[i-1][j] >= dp[i][j-1]) i--; else j--; } return matches; }
+  function evaluateShadowing() { stopAllWaves(); if (!shadowingSpokenText.trim()) { document.getElementById('recStatus').textContent = '⚠️ No speech detected. Try speaking closer to the mic.'; return; } const clean = shadowingSpokenText.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(/\s+/).filter(Boolean); const matches = alignWords(targetWordsClean, clean); document.getElementById('shadowing-text').innerHTML = targetWords.map((w,i) => `<span class="${matches.has(i) ? 'shadowing-word-result word-correct' : 'shadowing-word-result word-incorrect'}">${w}</span>`).join(' '); const acc = Math.round((matches.size / targetWords.length) * 100); document.getElementById('accuracyGaugeFill').style.strokeDashoffset = 220 - (acc/100)*220; document.getElementById('accuracyGaugeText').textContent = `${acc}%`; const t = document.getElementById('accuracyGradeTitle'); const f = document.getElementById('accuracyGradeFeedback'); if (acc >= 85) { t.textContent = '🏆 Excellent!'; f.textContent = 'Outstanding delivery — nearly all vocabulary matched.'; } else if (acc >= 65) { t.textContent = '👍 Fluent & Professional'; f.textContent = 'Good rhythm! Focus on the struck-through terms.'; } else { t.textContent = '💪 Keep Building'; f.textContent = 'Listen to the guide again, track content word stress, re-record.'; } document.getElementById('accuracyGradeCard').style.display = 'flex'; document.getElementById('recStatus').textContent = `🎯 Accuracy: ${acc}% — see results below. Click Reset to try again.`; }
+
+  function stopAllRecording() { if (mediaRecorder && mediaRecorder.state === 'recording') mediaRecorder.stop(); if (recognition) recognition.stop(); document.getElementById('startRecord').disabled = false; document.getElementById('startRecord').classList.remove('recording'); document.getElementById('stopRecord').disabled = true; }
+  function resetShadowing() {
+    if (recordingTimerInterval) { clearInterval(recordingTimerInterval); recordingTimerInterval = null; }
+    stopAllRecording();
+    if (speaking) { shadowingAudio.pause(); shadowingAudio.currentTime = 0; speechSynthesis.cancel(); speaking = false; document.querySelector('.listen-btn').textContent = '🔊 Listen Guide'; document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted')); stopAllWaves(); document.getElementById('shadowing-timer').textContent = '00:00'; }
+    initShadowing();
+    document.getElementById('accuracyGradeCard').style.display = 'none';
+    document.getElementById('shadowing-timer').textContent = '00:00';
+    document.getElementById('recStatus').textContent = 'Click Record Shadowing to practice, or Listen Guide to hear the model.';
+    document.getElementById('playRecord').disabled = true;
+  }
+  document.getElementById('resetShadowingBtn').addEventListener('click', resetShadowing);
+  function changeSpeed(rate) { shadowingAudio.playbackRate = rate; document.querySelectorAll('.speed-btn').forEach(b => { const active = parseFloat(b.textContent) === rate; b.style.background = active ? 'var(--primary-dim)' : 'var(--border-color)'; b.style.color = active ? 'var(--primary)' : 'var(--text-muted)'; b.style.borderColor = active ? 'rgba(16,185,129,0.4)' : 'transparent'; }); }
+
+  const outlineData = { intro: [], body1: [], body2: [], conclusion: [] };
+  function placeIdea(chip) { if (chip.classList.contains('used')) return; const target = chip.dataset.target; outlineData[target].push(chip.dataset.text); chip.classList.add('used'); renderSlot(target); }
+  function renderSlot(k) { const slot = document.getElementById(`slot-${k}`); const content = document.getElementById(`content-${k}`); if (outlineData[k].length === 0) { content.textContent = 'Drop idea chips here…'; slot.classList.remove('filled'); } else { content.innerHTML = outlineData[k].map(t => `<div style="margin-bottom:0.3rem;">• ${t}</div>`).join(''); slot.classList.add('filled'); } }
+  function clearSlot(k) { document.querySelectorAll(`.idea-chip[data-target="${k}"]`).forEach(c => c.classList.remove('used')); outlineData[k] = []; renderSlot(k); }
+  function resetOutline() { ['intro','body1','body2','conclusion'].forEach(k => clearSlot(k)); }
+  function showModelOutline() { resetOutline(); document.querySelectorAll('.idea-chip').forEach(c => placeIdea(c)); }
+
+  const cohesionRules = { 'cp-largely-agree': ['largely agree','i believe','i would argue','i firmly believe'],'cp-i-maintain': ['i maintain','in my assessment','from my perspective'],'cp-in-my-view': ['in my view','in my opinion'],'cp-compelling': ['compelling argument','key benefit','one of the most','primary advantage'],'cp-furthermore': ['furthermore','moreover','additionally','in addition','what is more'],'cp-proponents': ['proponents','advocates','supporters'],'cp-that-said': ['that said','however','nevertheless','nonetheless','on the other hand'],'cp-legitimate': ['legitimate concern','valid point','legitimate reservation'],'cp-critics': ['critics contend','opponents argue','sceptics'],'cp-outweigh': ['outweigh','surpass','exceed'],'cp-on-balance': ['on balance','tip the balance','overall balance'],'cp-in-conclusion': ['in conclusion','to conclude','to summarise','in summary'] };
+  function scanEssay(text) { const lower = text.toLowerCase(); let count = 0; for (const [id, phrases] of Object.entries(cohesionRules)) { const found = phrases.some(p => lower.includes(p)); const pill = document.getElementById(id); if (pill) { found ? pill.classList.add('active') : pill.classList.remove('active'); } if (found) count++; } document.getElementById('cohesionScore').textContent = `${count}/12`; const wc = text.trim() ? text.trim().split(/\s+/).length : 0; document.getElementById('wordCount').textContent = wc; const ws = document.getElementById('wordStatus'); if (wc < 250) { ws.textContent = `(${250-wc} short)`; ws.style.color = 'var(--accent-amber)'; } else if (wc > 300) { ws.textContent = `(${wc-300} over)`; ws.style.color = 'var(--accent-red)'; } else { ws.textContent = '✓ In range'; ws.style.color = 'var(--primary)'; } }
+  document.getElementById('essayArea').addEventListener('input', function() { localStorage.setItem('margo_essay_l4_pub', this.value); scanEssay(this.value); });
+
+  const annoData = { 'paraphrase': '<strong style="color:var(--accent-amber);">[Paraphrase]</strong><br>Skillfully reworded using "autonomous vehicles" and "sparked considerable debate" — never copying the original.','position': '<strong style="color:var(--accent-amber);">[Clear Position]</strong><br>"I largely agree" signals a balanced stance. Immediately links to reasons (safety + efficiency).','adv-intro': '<strong style="color:var(--accent-amber);">[Advantage Intro]</strong><br>"One of the most compelling arguments in favour of" is a Band 7+ signpost phrase.','furthermore': '<strong style="color:var(--accent-amber);">[Cohesive Device]</strong><br>"Furthermore" connects a second advantage. Equivalent: Moreover / Additionally.','collocation': '<strong style="color:var(--accent-amber);">[C1 Collocation]</strong><br>"Optimise traffic flow" — precise, domain-specific. Far stronger than "make traffic better."','concession': '<strong style="color:var(--accent-amber);">[Concession Marker]</strong><br>"That said, legitimate concerns about…" shows balanced thinking — required at Band 7+.','hedging': '<strong style="color:var(--accent-amber);">[Hedging]</strong><br>"Undeniable short-term cost" acknowledges the counter before countering it — sounds authoritative.','rebuttal': '<strong style="color:var(--accent-amber);">[Rebuttal]</strong><br>"Nevertheless, history suggests…" pivots from concession back to the main argument.','conclusion-marker': '<strong style="color:var(--accent-amber);">[Conclusion Signal]</strong><br>"In conclusion" + restate position — satisfies IELTS task achievement criteria.','outweigh': '<strong style="color:var(--accent-amber);">[Outweigh Language]</strong><br>Directly echoes the task rubric. Using the exact task language in the conclusion maximises task achievement.' };
+  const annoTooltip = document.getElementById('annoTooltip');
+  document.getElementById('modelEssay').addEventListener('mouseover', e => { if (e.target.classList.contains('anno-trigger')) { const key = e.target.dataset.anno; if (annoData[key]) { annoTooltip.innerHTML = annoData[key]; annoTooltip.classList.add('visible'); } } });
+  document.getElementById('modelEssay').addEventListener('mousemove', e => { if (annoTooltip.classList.contains('visible')) { annoTooltip.style.top = (e.pageY - annoTooltip.offsetHeight - 12) + 'px'; annoTooltip.style.left = Math.min(e.pageX + 8, window.innerWidth - 300) + 'px'; } });
+  document.getElementById('modelEssay').addEventListener('mouseleave', () => annoTooltip.classList.remove('visible'));
+
+  let writeInterval = null, writeSeconds = 1200;
+  function runWritingClock() { resetWritingClock(); const val = document.getElementById('writing-time'); writeInterval = setInterval(() => { writeSeconds--; val.textContent = `${String(Math.floor(writeSeconds/60)).padStart(2,'0')}:${String(writeSeconds%60).padStart(2,'0')}`; if (writeSeconds <= 300) val.style.color = 'var(--accent-red)'; if (writeSeconds <= 0) { clearInterval(writeInterval); val.textContent = "Time's up!"; } }, 1000); }
+  function resetWritingClock() { if (writeInterval) clearInterval(writeInterval); writeSeconds = 1200; const val = document.getElementById('writing-time'); val.textContent = '20:00'; val.style.color = 'var(--primary)'; }
+
+  document.addEventListener('DOMContentLoaded', () => { initShadowing(); document.getElementById('browserNotice').style.display = window.SpeechRecognition || window.webkitSpeechRecognition ? 'none' : 'block'; const saved = localStorage.getItem('margo_essay_l4_pub') || ''; document.getElementById('essayArea').value = saved; scanEssay(saved); });
+  </script>
+</body>
+</html>

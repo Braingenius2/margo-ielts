@@ -1,0 +1,322 @@
+[
+  {
+    "word": "Autonomous",
+    "start": 0.425,
+    "end": 1.012
+  },
+  {
+    "word": "vehicle",
+    "start": 1.012,
+    "end": 1.4
+  },
+  {
+    "word": "technology",
+    "start": 1.4,
+    "end": 2.3
+  },
+  {
+    "word": "has",
+    "start": 2.3,
+    "end": 2.475
+  },
+  {
+    "word": "advanced",
+    "start": 2.475,
+    "end": 3.062
+  },
+  {
+    "word": "at",
+    "start": 3.062,
+    "end": 3.163
+  },
+  {
+    "word": "an",
+    "start": 3.163,
+    "end": 3.275
+  },
+  {
+    "word": "extraordinary",
+    "start": 3.275,
+    "end": 4.112
+  },
+  {
+    "word": "pace",
+    "start": 4.112,
+    "end": 4.55
+  },
+  {
+    "word": "over",
+    "start": 4.55,
+    "end": 4.763
+  },
+  {
+    "word": "the",
+    "start": 4.763,
+    "end": 4.85
+  },
+  {
+    "word": "past",
+    "start": 4.85,
+    "end": 5.225
+  },
+  {
+    "word": "decade",
+    "start": 5.225,
+    "end": 6.362
+  },
+  {
+    "word": "Proponents",
+    "start": 6.362,
+    "end": 6.987
+  },
+  {
+    "word": "argue",
+    "start": 6.987,
+    "end": 7.4
+  },
+  {
+    "word": "that",
+    "start": 7.4,
+    "end": 7.625
+  },
+  {
+    "word": "self-driving",
+    "start": 7.625,
+    "end": 8.387
+  },
+  {
+    "word": "cars",
+    "start": 8.387,
+    "end": 8.875
+  },
+  {
+    "word": "will",
+    "start": 8.875,
+    "end": 9.025
+  },
+  {
+    "word": "dramatically",
+    "start": 9.025,
+    "end": 9.8
+  },
+  {
+    "word": "reduce",
+    "start": 9.8,
+    "end": 10.325
+  },
+  {
+    "word": "road",
+    "start": 10.325,
+    "end": 10.713
+  },
+  {
+    "word": "accidents",
+    "start": 10.713,
+    "end": 11.812
+  },
+  {
+    "word": "eliminate",
+    "start": 11.812,
+    "end": 12.425
+  },
+  {
+    "word": "traffic",
+    "start": 12.425,
+    "end": 12.85
+  },
+  {
+    "word": "congestion",
+    "start": 12.85,
+    "end": 13.963
+  },
+  {
+    "word": "and",
+    "start": 13.963,
+    "end": 14.1
+  },
+  {
+    "word": "revolutionise",
+    "start": 14.1,
+    "end": 14.963
+  },
+  {
+    "word": "urban",
+    "start": 14.963,
+    "end": 15.3
+  },
+  {
+    "word": "mobility",
+    "start": 15.3,
+    "end": 16.637
+  },
+  {
+    "word": "However",
+    "start": 16.637,
+    "end": 17.538
+  },
+  {
+    "word": "significant",
+    "start": 17.538,
+    "end": 18.15
+  },
+  {
+    "word": "concerns",
+    "start": 18.15,
+    "end": 18.85
+  },
+  {
+    "word": "remain",
+    "start": 18.85,
+    "end": 19.325
+  },
+  {
+    "word": "regarding",
+    "start": 19.325,
+    "end": 19.9
+  },
+  {
+    "word": "job",
+    "start": 19.9,
+    "end": 20.275
+  },
+  {
+    "word": "displacement",
+    "start": 20.275,
+    "end": 21.425
+  },
+  {
+    "word": "cybersecurity",
+    "start": 21.425,
+    "end": 22.325
+  },
+  {
+    "word": "vulnerabilities",
+    "start": 22.325,
+    "end": 23.688
+  },
+  {
+    "word": "and",
+    "start": 23.688,
+    "end": 23.812
+  },
+  {
+    "word": "the",
+    "start": 23.812,
+    "end": 23.938
+  },
+  {
+    "word": "ethical",
+    "start": 23.938,
+    "end": 24.375
+  },
+  {
+    "word": "implications",
+    "start": 24.375,
+    "end": 25.225
+  },
+  {
+    "word": "of",
+    "start": 25.225,
+    "end": 25.425
+  },
+  {
+    "word": "algorithmic",
+    "start": 25.425,
+    "end": 26.2
+  },
+  {
+    "word": "decision-making",
+    "start": 26.2,
+    "end": 27.613
+  },
+  {
+    "word": "Whether",
+    "start": 28.075,
+    "end": 28.325
+  },
+  {
+    "word": "the",
+    "start": 28.325,
+    "end": 28.462
+  },
+  {
+    "word": "benefits",
+    "start": 28.462,
+    "end": 29.062
+  },
+  {
+    "word": "ultimately",
+    "start": 29.062,
+    "end": 29.65
+  },
+  {
+    "word": "surpass",
+    "start": 29.65,
+    "end": 30.325
+  },
+  {
+    "word": "the",
+    "start": 30.325,
+    "end": 30.438
+  },
+  {
+    "word": "drawbacks",
+    "start": 30.438,
+    "end": 31.1
+  },
+  {
+    "word": "depends",
+    "start": 31.1,
+    "end": 31.65
+  },
+  {
+    "word": "largely",
+    "start": 31.65,
+    "end": 32.25
+  },
+  {
+    "word": "on",
+    "start": 32.25,
+    "end": 32.425
+  },
+  {
+    "word": "how",
+    "start": 32.425,
+    "end": 32.725
+  },
+  {
+    "word": "effectively",
+    "start": 32.725,
+    "end": 33.413
+  },
+  {
+    "word": "regulators",
+    "start": 33.413,
+    "end": 34.125
+  },
+  {
+    "word": "and",
+    "start": 34.125,
+    "end": 34.25
+  },
+  {
+    "word": "manufacturers",
+    "start": 34.25,
+    "end": 35.6
+  },
+  {
+    "word": "address",
+    "start": 35.6,
+    "end": 36.025
+  },
+  {
+    "word": "these",
+    "start": 36.025,
+    "end": 36.263
+  },
+  {
+    "word": "challenges",
+    "start": 36.263,
+    "end": 37.5
+  }
+]
