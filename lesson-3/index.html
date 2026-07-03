@@ -1167,7 +1167,7 @@
         // Web Speech Recognition setup
         if (recognition) {
           recognition.onresult = (e) => {
-            for (let i = 0; i < e.results.length; ++i) {
+            for (let i = e.resultIndex; i < e.results.length; ++i) {
               if (e.results[i].isFinal) shadowingSpokenText += e.results[i][0].transcript + ' ';
             }
           };

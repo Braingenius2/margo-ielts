@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margo — IELTS Speaking: Technology & Digital Minimalism</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #090d16;
+    --card: #131a26;
+    --border: #243042;
+    --primary: #10b981;
+    --primary-dim: rgba(16,185,129,0.12);
+    --blue: #3b82f6;
+    --blue-dim: rgba(59,130,246,0.12);
+    --amber: #f59e0b;
+    --amber-dim: rgba(245,158,11,0.12);
+    --red: #ef4444;
+    --red-dim: rgba(239,68,68,0.12);
+    --purple: #8b5cf6;
+    --purple-dim: rgba(139,92,246,0.12);
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --sidebar-w: 220px;
+    --header-h: 64px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--header-h);
+    background: rgba(9,13,22,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+    padding: 0 24px;
+    gap: 16px;
+  }
+  .header-logo {
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    color: var(--primary); text-transform: uppercase;
+    background: var(--primary-dim);
+    border: 1px solid rgba(16,185,129,0.3);
+    padding: 4px 10px; border-radius: 6px;
+    font-family: 'Fira Code', monospace;
+    white-space: nowrap;
+  }
+  .header-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .header-meta {
+    font-size: 12px; color: var(--muted);
+    font-family: 'Fira Code', monospace;
+    white-space: nowrap;
+  }
+  .progress-bar-wrap {
+    position: fixed; top: var(--header-h); left: 0; right: 0; z-index: 99;
+    height: 3px; background: var(--border);
+  }
+  .progress-bar {
+    height: 100%; background: linear-gradient(90deg, var(--primary), var(--blue));
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px var(--primary);
+    width: 14.28%;
+  }
+
+  /* LAYOUT */
+  .layout {
+    display: flex;
+    padding-top: calc(var(--header-h) + 3px);
+    min-height: 100vh;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: var(--sidebar-w);
+    flex-shrink: 0;
+    position: sticky;
+    top: calc(var(--header-h) + 3px);
+    height: calc(100vh - var(--header-h) - 3px);
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    background: rgba(19,26,38,0.5);
+    backdrop-filter: blur(10px);
+    padding: 20px 12px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .sidebar-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    color: var(--muted); text-transform: uppercase;
+    padding: 0 8px; margin-bottom: 8px;
+  }
+  .nav-btn {
+    display: flex; align-items: center; gap: 10px;
+    width: 100%; padding: 10px 12px;
+    background: transparent; border: 1px solid transparent;
+    border-radius: 10px; cursor: pointer;
+    color: var(--muted); font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 500;
+    text-align: left; transition: all 0.2s;
+  }
+  .nav-btn:hover { background: var(--primary-dim); border-color: rgba(16,185,129,0.2); color: var(--text); }
+  .nav-btn.active { background: var(--primary-dim); border-color: rgba(16,185,129,0.4); color: var(--primary); }
+  .nav-num {
+    width: 24px; height: 24px; border-radius: 6px;
+    background: var(--border); display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+    font-family: 'Fira Code', monospace;
+    transition: all 0.2s;
+  }
+  .nav-btn.active .nav-num { background: var(--primary); color: #000; }
+
+  /* MAIN */
+  .main {
+    flex: 1;
+    padding: 32px 36px 80px;
+    max-width: 960px;
+    overflow-x: hidden;
+  }
+
+  /* SLIDE */
+  .slide { display: none; animation: fadeIn 0.4s ease; }
+  .slide.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 28px;
+  }
+  .slide-num {
+    font-family: 'Fira Code', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--primary); background: var(--primary-dim);
+    border: 1px solid rgba(16,185,129,0.3);
+    padding: 4px 10px; border-radius: 6px;
+    white-space: nowrap;
+  }
+  .slide-title { font-size: 22px; font-weight: 700; color: var(--text); }
+  .slide-subtitle { font-size: 14px; color: var(--muted); font-weight: 400; }
+
+  /* GLASS CARD */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+  }
+  .card-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .card-title .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 10px;
+    font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
+    cursor: pointer; border: none; transition: all 0.2s;
+  }
+  .btn-primary { background: var(--primary); color: #000; }
+  .btn-primary:hover { background: #0ea672; box-shadow: 0 0 20px rgba(16,185,129,0.4); }
+  .btn-secondary {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-blue { background: var(--blue); color: #fff; }
+  .btn-blue:hover { background: #2563eb; box-shadow: 0 0 20px rgba(59,130,246,0.4); }
+  .btn-amber { background: var(--amber); color: #000; }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-red:hover { background: #dc2626; }
+  .btn-purple { background: var(--purple); color: #fff; }
+  .btn-purple:hover { background: #7c3aed; }
+  .btn-sm { padding: 7px 13px; font-size: 12px; border-radius: 8px; }
+  .btn-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+  /* SHADOWING TEXT */
+  .shadowing-text {
+    font-size: 17px; line-height: 1.85;
+    color: var(--text); letter-spacing: 0.02em;
+    font-weight: 400; background: rgba(0,0,0,0.25);
+    padding: 1.5rem; border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.02);
+  }
+  .shadowing-text .shadowing-word { transition: all 0.15s; border-radius: 4px; padding: 0 2px; }
+  .shadowing-text .shadowing-word.highlighted { background: var(--primary); color: #000; }
+
+  /* WAVEFORM */
+  .wave-canvas-wrap { margin: 16px 0; }
+  .wave-canvas-wrap canvas {
+    width: 100%; height: 60px;
+    background: rgba(9,13,22,0.6);
+    border: 1px solid var(--border);
+    border-radius: 10px; display: block;
+  }
+
+  /* ACCURACY CARD */
+  .accuracy-card {
+    display: none; background: var(--card);
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    flex-direction: row; align-items: center; gap: 24px;
+  }
+  .accuracy-card .gauge-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    flex-shrink: 0;
+  }
+  .gauge-svg { width: 90px; height: 90px; }
+  .gauge-track { fill: none; stroke: var(--border); stroke-width: 8; }
+  .gauge-fill {
+    fill: none; stroke: var(--primary); stroke-width: 8;
+    stroke-dasharray: 220; stroke-dashoffset: 220;
+    stroke-linecap: round; transform: rotate(-90 45 45);
+    transition: stroke-dashoffset 1.2s ease;
+  }
+  .gauge-text { font-size: 24px; font-weight: 800; color: var(--primary); }
+  .accuracy-info { flex: 1; }
+  .accuracy-info h3 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .accuracy-info p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .shadowing-word-result {
+    display: inline-block; margin: 3px; font-size: 14px;
+    border-radius: 5px; padding: 2px 6px;
+  }
+  .word-correct { color: var(--primary); background: var(--primary-dim); }
+  .word-incorrect { color: var(--red); background: var(--red-dim); text-decoration: line-through; }
+
+  /* RECORDER */
+  .recorder-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .rec-btn { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); font-family: inherit; cursor: pointer; transition: all 0.2s; }
+  .rec-btn:hover { background: rgba(255,255,255,0.1); }
+  .rec-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .rec-btn.recording { background: var(--red-dim); color: var(--red); border-color: rgba(239,68,68,0.4); }
+  .rec-status { font-size: 12px; color: var(--muted); flex: 1; min-width: 120px; }
+  .listen-btn { margin-top: 8px; }
+
+  /* QUESTION LIST */
+  .question-list { list-style: none; }
+  .question-item {
+    display: flex; gap: 14px; padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .question-item:last-child { border-bottom: none; }
+  .q-num {
+    font-family: 'Fira Code', monospace; font-size: 13px; font-weight: 700;
+    color: var(--blue); background: var(--blue-dim);
+    border: 1px solid rgba(59,130,246,0.3);
+    width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .q-text { font-size: 15px; line-height: 1.6; }
+
+  /* DO/DON'T */
+  .do-dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .do-box { background: var(--primary-dim); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 16px; }
+  .dont-box { background: var(--red-dim); border: 1px solid rgba(239,68,68,0.3); border-radius: 12px; padding: 16px; }
+  .do-box .box-title { color: var(--primary); font-weight: 700; font-size: 13px; margin-bottom: 10px; }
+  .dont-box .box-title { color: var(--red); font-weight: 700; font-size: 13px; margin-bottom: 10px; }
+  .do-box li, .dont-box li { font-size: 13px; line-height: 1.7; color: var(--text); margin-left: 16px; }
+
+  /* ERROR TABLE */
+  .err-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .err-table th {
+    text-align: left; padding: 10px 14px;
+    background: rgba(9,13,22,0.5);
+    border: 1px solid var(--border);
+    font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted);
+  }
+  .err-table td { padding: 11px 14px; border: 1px solid var(--border); vertical-align: top; }
+  .err-table tr:nth-child(even) td { background: rgba(9,13,22,0.3); }
+  .text-red { color: var(--red); font-family: 'Fira Code', monospace; }
+  .text-green { color: var(--primary); font-family: 'Fira Code', monospace; }
+
+  /* VOCAB CHIPS */
+  .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .vocab-chip {
+    display: inline-block; padding: 6px 14px; border-radius: 999px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    border: 1px solid transparent; transition: all 0.2s;
+    font-family: 'Fira Code', monospace;
+  }
+  .vocab-chip.blue { background: var(--blue-dim); color: var(--blue); border-color: rgba(59,130,246,0.3); }
+  .vocab-chip.purple { background: var(--purple-dim); color: var(--purple); border-color: rgba(139,92,246,0.3); }
+  .vocab-chip.amber { background: var(--amber-dim); color: var(--amber); border-color: rgba(245,158,11,0.3); }
+  .vocab-chip.active { transform: scale(1.05); }
+  .chip-panel {
+    display: none; overflow: hidden;
+    background: rgba(9,13,22,0.6); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+    margin-top: 10px; font-size: 14px; line-height: 1.65;
+    animation: slideDown 0.25s ease;
+  }
+  .chip-panel.open { display: block; }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* CUE CARD */
+  .cue-card {
+    background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.03));
+    border: 1px solid rgba(245,158,11,0.4);
+    border-radius: 16px; padding: 24px;
+    margin-bottom: 20px;
+  }
+  .cue-card-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
+  .cue-card-main { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+  .cue-card ul { list-style: disc; padding-left: 20px; }
+  .cue-card li { font-size: 14px; line-height: 1.8; color: var(--muted); }
+  .cue-card .say-also { font-size: 13px; color: var(--amber); margin-top: 12px; font-style: italic; }
+
+  /* TIMERS */
+  .timer-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; }
+  .timer-box {
+    flex: 1; min-width: 140px;
+    background: rgba(9,13,22,0.6); border: 1px solid var(--border);
+    border-radius: 14px; padding: 16px; text-align: center;
+  }
+  .timer-box.active-timer { border-color: var(--primary); box-shadow: 0 0 20px rgba(16,185,129,0.2); }
+  .timer-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 8px; }
+  .timer-display { font-family: 'Fira Code', monospace; font-size: 38px; font-weight: 700; color: var(--primary); letter-spacing: 2px; }
+  .timer-display.warning { color: var(--amber); }
+  .timer-display.danger { color: var(--red); }
+
+  /* PEEL FLIP CARDS */
+  .peel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .flip-card { perspective: 900px; height: 180px; cursor: pointer; }
+  .flip-inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+  .flip-front, .flip-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: 14px; padding: 20px;
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  }
+  .flip-front { background: var(--card); border: 1px solid var(--border); }
+  .flip-back { background: var(--card); border: 1px solid var(--primary); transform: rotateY(180deg); }
+  .flip-peel-letter {
+    font-size: 40px; font-weight: 800; color: var(--primary); opacity: 0.15;
+    position: absolute; top: 10px; right: 16px; font-family: 'Outfit', sans-serif; line-height: 1;
+  }
+  .flip-title { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+  .flip-hint { font-size: 12px; color: var(--muted); }
+  .flip-starters { font-size: 13px; line-height: 1.75; color: var(--text); }
+  .flip-starters strong { color: var(--primary); }
+  .flip-tag { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 10px; }
+
+  /* VOCAB TRACKER PILLS */
+  .tracker-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 13px; font-weight: 600;
+    background: var(--border); color: var(--muted);
+    border: 1px solid transparent;
+    font-family: 'Fira Code', monospace;
+    transition: all 0.3s;
+  }
+  .tracker-pill.hit {
+    background: var(--primary-dim); color: var(--primary);
+    border-color: rgba(16,185,129,0.5);
+    box-shadow: 0 0 14px rgba(16,185,129,0.25);
+  }
+  .tracker-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); transition: all 0.3s; }
+  .tracker-pill.hit .dot { background: var(--primary); box-shadow: 0 0 6px var(--primary); }
+
+  /* PART 3 */
+  .p3-question {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; margin-bottom: 14px; overflow: hidden;
+  }
+  .p3-question summary {
+    list-style: none; padding: 16px 20px;
+    cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+    font-size: 15px; font-weight: 600; color: var(--text);
+    transition: background 0.2s;
+  }
+  .p3-question summary:hover { background: rgba(255,255,255,0.02); }
+  .p3-question summary::-webkit-details-marker { display: none; }
+  .p3-q-num {
+    font-family: 'Fira Code', monospace; font-size: 12px; font-weight: 700;
+    color: var(--purple); background: var(--purple-dim);
+    border: 1px solid rgba(139,92,246,0.3);
+    padding: 3px 8px; border-radius: 6px; flex-shrink: 0; margin-top: 1px;
+  }
+  .p3-chevron { margin-left: auto; color: var(--muted); font-size: 18px; flex-shrink: 0; transition: transform 0.3s; }
+  details[open] .p3-chevron { transform: rotate(180deg); }
+  .p3-framework { padding: 16px 20px 20px; border-top: 1px solid var(--border); display: grid; gap: 10px; }
+  .fw-row {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: rgba(9,13,22,0.4); border-radius: 10px; padding: 12px 14px;
+  }
+  .fw-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); min-width: 90px; flex-shrink: 0; padding-top: 1px; }
+  .fw-content { font-size: 14px; line-height: 1.7; color: var(--text); }
+  .fw-content em { color: var(--primary); font-style: normal; font-weight: 600; }
+
+  /* MODEL RESPONSE */
+  .model-text { font-size: 16px; line-height: 1.95; color: var(--text); font-weight: 400; }
+  .ann-em { color: var(--primary); font-weight: 600; }
+  .ann-pu { color: var(--purple); font-weight: 600; }
+  .ann-bl { color: var(--blue); font-weight: 600; }
+  .ann-am { color: var(--amber); font-weight: 600; }
+  .ann-badge {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 3px 9px; border-radius: 5px; margin: 4px 4px 4px 0; letter-spacing: 0.5px;
+  }
+  .ann-badge.em { background: var(--primary-dim); color: var(--primary); border: 1px solid rgba(16,185,129,0.3); }
+  .ann-badge.pu { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(139,92,246,0.3); }
+  .ann-badge.bl { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+  .ann-badge.am { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+
+  /* COMPARE */
+  .compare-textarea {
+    width: 100%; min-height: 120px;
+    background: rgba(9,13,22,0.6); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 16px;
+    color: var(--text); font-family: 'Outfit', sans-serif; font-size: 14px;
+    resize: vertical; outline: none; transition: border-color 0.2s;
+  }
+  .compare-textarea:focus { border-color: var(--primary); }
+  .compare-result { display: none; margin-top: 14px; background: rgba(9,13,22,0.5); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .compare-result.visible { display: block; animation: fadeIn 0.3s ease; }
+  .compare-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 32px; font-weight: 800; color: var(--blue); font-family: 'Fira Code', monospace; }
+  .stat-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* FEEDBACK TABLE */
+  .feedback-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .feedback-table th {
+    text-align: left; padding: 10px 14px;
+    background: rgba(9,13,22,0.6); border: 1px solid var(--border);
+    font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted);
+  }
+  .feedback-table td { padding: 11px 14px; border: 1px solid var(--border); vertical-align: top; }
+  .feedback-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .type-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 5px; }
+  .type-lex { background: var(--blue-dim); color: var(--blue); }
+  .type-gram { background: var(--amber-dim); color: var(--amber); }
+  .type-cohe { background: var(--purple-dim); color: var(--purple); }
+  .type-pron { background: var(--red-dim); color: var(--red); }
+
+  /* NOTEPAD */
+  textarea.notepad {
+    width: 100%; min-height: 140px;
+    background: rgba(9,13,22,0.6); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 16px;
+    color: var(--text); font-family: 'Outfit', sans-serif; font-size: 14px;
+    resize: vertical; outline: none; line-height: 1.7;
+    transition: border-color 0.2s;
+  }
+  textarea.notepad:focus { border-color: var(--blue); }
+  .notepad-input {
+    flex: 1; background: rgba(9,13,22,0.6); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 14px;
+    color: var(--text); font-family: 'Outfit', sans-serif; font-size: 14px;
+    outline: none; transition: border-color 0.2s; width: 100%;
+  }
+  .notepad-input:focus { border-color: var(--blue); }
+
+  /* HOMEWORK */
+  .hw-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+  .hw-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--primary); color: #000; font-weight: 800; font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .hw-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .hw-body { font-size: 14px; line-height: 1.75; color: var(--muted); }
+
+  /* COLLOCATIONS */
+  .colloc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .colloc-card { background: rgba(9,13,22,0.5); border-radius: 12px; padding: 14px 16px; border-left: 3px solid; }
+  .colloc-card.digital { border-color: var(--primary); }
+  .colloc-card.social { border-color: var(--blue); }
+  .colloc-card.opinion { border-color: var(--purple); }
+  .colloc-card .cat-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .colloc-card.digital .cat-label { color: var(--primary); }
+  .colloc-card.social .cat-label { color: var(--blue); }
+  .colloc-card.opinion .cat-label { color: var(--purple); }
+  .colloc-card .phrase { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; font-family: 'Fira Code', monospace; }
+  .colloc-card .usage { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* NEXT PREVIEW */
+  .next-preview {
+    background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.05));
+    border: 1px solid rgba(16,185,129,0.25);
+    border-radius: 16px; padding: 24px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .next-icon { font-size: 36px; }
+  .next-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 4px; }
+  .next-title { font-size: 17px; font-weight: 700; color: var(--text); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+  /* CORRECTION INPUT ROW */
+  .corr-input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 140px auto;
+    gap: 8px;
+    align-items: end;
+  }
+  .corr-input-label { font-size: 11px; color: var(--muted); margin-bottom: 5px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* TEMPO + VOICE SWITCHES */
+  .tempo-switch-wrap {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 18px; padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .switch-group {
+    display: flex; background: rgba(0,0,0,0.3);
+    border-radius: 10px; padding: 3px; gap: 2px;
+    border: 1px solid var(--border);
+  }
+  .switch-btn {
+    padding: 7px 16px; border-radius: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+    background: transparent; color: var(--muted);
+    border: none; cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+    white-space: nowrap;
+  }
+  .switch-btn:hover { color: var(--text); }
+  .switch-btn.active { background: var(--primary-dim); color: var(--primary); }
+
+  .switch-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .tempo-badge {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 4px;
+    margin-left: 8px;
+  }
+  .tempo-badge.writing { background: var(--primary-dim); color: var(--primary); }
+  .tempo-badge.speaking { background: var(--blue-dim); color: var(--blue); }
+  .tempo-insight {
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+    padding: 12px 14px; background: rgba(0,0,0,0.2);
+    border-radius: 8px; margin-top: 14px;
+    border-left: 3px solid var(--blue);
+    display: none;
+  }
+  .tempo-insight.show { display: block; }
+
+  /* SPEAKING TEMPO (legacy, kept for other cards) */
+  .speaking-tempo {
+    border-left: 4px solid var(--blue);
+    background: var(--blue-dim);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1.25rem;
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .speaking-tempo .st-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(59,130,246,0.2);
+    padding: 3px 9px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .speaking-tempo .st-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .st-row { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(59,130,246,0.15); }
+  .st-row:last-child { border-bottom: none; }
+  .st-orig { flex: 1; font-size: 13px; color: var(--red); font-family: 'Fira Code', monospace; }
+  .st-spoken { flex: 1; font-size: 13px; color: var(--blue); display: flex; align-items: flex-start; gap: 6px; }
+  .st-why { flex: 0 0 140px; font-size: 11px; color: var(--muted); padding-top: 2px; }
+
+  /* MODEL AUDIO PLAYER */
+  .model-player {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(0,0,0,0.2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 16px;
+  }
+  .model-play-btn {
+    flex-shrink: 0; width: 40px; height: 40px;
+    border-radius: 50%; border: 2px solid var(--blue);
+    background: transparent; color: var(--blue);
+    font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s ease;
+    font-family: 'Outfit', sans-serif;
+  }
+  .model-play-btn:hover { background: var(--blue-dim); }
+  .model-progress-wrap {
+    flex: 1; height: 6px;
+    background: var(--border); border-radius: 3px;
+    overflow: hidden; cursor: pointer;
+  }
+  .model-progress-fill {
+    height: 100%; width: 0%;
+    background: var(--blue); border-radius: 3px;
+    transition: width 0.2s linear;
+  }
+  .model-time { font-size: 12px; color: var(--muted); font-family: 'Fira Code', monospace; white-space: nowrap; min-width: 90px; text-align: center; }
+  .model-stop-btn {
+    flex-shrink: 0; width: 34px; height: 34px;
+    border-radius: 50%; border: 1px solid var(--muted);
+    background: transparent; color: var(--muted);
+    font-size: 14px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s ease;
+  }
+  .model-stop-btn:hover { background: var(--red-dim); border-color: var(--red); color: var(--red); }
+  .model-speaking-text {
+    font-size: 16px; line-height: 1.9;
+    color: var(--text); background: rgba(59,130,246,0.04);
+    border: 1px solid rgba(59,130,246,0.15);
+    border-radius: 10px; padding: 18px 20px;
+    font-weight: 400;
+  }
+
+  /* SLIDE PAIR PLAY BUTTONS */
+  .pair-play-btn {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%; border: 1px solid var(--blue);
+    background: transparent; color: var(--blue);
+    font-size: 11px; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.15s ease;
+    font-family: 'Outfit', sans-serif;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+  .pair-play-btn:hover { background: var(--blue-dim); }
+  .pair-play-btn.playing { background: var(--blue); color: #fff; }
+  .st-row { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(59,130,246,0.15); align-items: center; }
+
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 20px 16px 60px; }
+    .do-dont-grid { grid-template-columns: 1fr; }
+    .peel-grid { grid-template-columns: 1fr; }
+    .corr-input-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="../index.html" style="color:var(--muted);text-decoration:none;font-size:13px;white-space:nowrap;font-family:'Fira Code',monospace;">← Portal</a>
+  <div class="header-logo">IELTS Speaking</div>
+  <div class="header-title">Margo — IELTS Speaking: Technology &amp; Digital Minimalism</div>
+  <div class="header-meta">Lesson 5 · B2→7.0+</div>
+</header>
+<div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-label">Lesson Slides</div>
+    <button class="nav-btn active" onclick="showSlide(1)">
+      <span class="nav-num">01</span><span>Warm-up</span>
+    </button>
+    <button class="nav-btn" onclick="showSlide(2)">
+      <span class="nav-num">02</span><span>Part 1</span>
+    </button>
+    <button class="nav-btn" onclick="showSlide(3)">
+      <span class="nav-num">03</span><span>Part 2 / Cue</span>
+    </button>
+    <button class="nav-btn" onclick="showSlide(4)">
+      <span class="nav-num">04</span><span>Part 3</span>
+    </button>
+    <button class="nav-btn" onclick="showSlide(5)">
+      <span class="nav-num">05</span><span>Model</span>
+    </button>
+    <button class="nav-btn" onclick="showSlide(6)">
+      <span class="nav-num">06</span><span>Homework</span>
+    </button>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- ====================================================
+         SLIDE 1: WARM-UP SHADOWING
+    ==================================================== -->
+    <div class="slide active" id="slide1">
+      <div class="slide-header">
+        <span class="slide-num">01</span>
+        <div>
+          <div class="slide-title">Warm-up: Shadowing</div>
+          <div class="slide-subtitle">Pronunciation, rhythm &amp; prosody practice</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="dot" style="background:var(--primary)"></span>
+          Shadowing Text — Digital Minimalism
+          <span class="tempo-badge speaking" id="tempoBadge">Speaking Tempo</span>
+        </div>
+
+        <!-- Tempo Switch -->
+        <div class="tempo-switch-wrap">
+          <div class="switch-group" id="tempoSwitch">
+            <button class="switch-btn" data-tempo="writing" onclick="SpeakingTempoEngine.setTempo('writing')">✍ Writing</button>
+            <button class="switch-btn active" data-tempo="speaking" onclick="SpeakingTempoEngine.setTempo('speaking')">🗣 Speaking</button>
+          </div>
+        </div>
+
+        <div id="shadowing-text" class="shadowing-text"></div>
+        <div class="wave-canvas-wrap"><canvas id="waveCanvas" width="800" height="60"></canvas></div>
+        <div style="display:flex;align-items:center;gap:12px;margin:0.5rem 0;">
+          <span style="font-size:13px;color:var(--muted);">Speed:</span>
+          <button class="speed-btn" onclick="changeSpeed(0.75)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--border);color:var(--muted);border:1px solid transparent;cursor:pointer;font-family:'Fira Code',monospace;">0.75x</button>
+          <button class="speed-btn active" onclick="changeSpeed(1.0)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--primary-dim);color:var(--primary);border:1px solid rgba(16,185,129,0.4);cursor:pointer;font-family:'Fira Code',monospace;">1.0x</button>
+          <button class="speed-btn" onclick="changeSpeed(1.25)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--border);color:var(--muted);border:1px solid transparent;cursor:pointer;font-family:'Fira Code',monospace;">1.25x</button>
+          <span id="shadowing-timer" style="font-family:'Fira Code';font-size:1.1rem;background:rgba(0,0,0,0.4);padding:0.35rem 0.875rem;border-radius:4px;border:1px solid var(--border);margin-left:auto;">00:00</span>
+        </div>
+        <button class="btn btn-secondary listen-btn" onclick="toggleSpeaking()">Listen Guide</button>
+        <div class="recorder-bar">
+          <button class="rec-btn" id="startRecord">Record Shadowing</button>
+          <button class="rec-btn" id="stopRecord" disabled>Stop</button>
+          <button class="rec-btn" id="playRecord" disabled>Play Back</button>
+          <span class="rec-status" id="recStatus">Record yourself shadowing, then compare with the model</span>
+        </div>
+
+        <!-- Tempo insight banner (shows per-tempo tips) -->
+        <div class="tempo-insight show" id="writingInsight">
+          <strong>Writing Tempo:</strong> Dense academic prose — long sentences, nominalisations, fronted transitions.
+          Notice how clauses are stacked without breath pauses.
+        </div>
+        <div class="tempo-insight" id="speakingInsight">
+          <strong>Speaking Tempo:</strong> Shorter idea units at breath length. Contractions (<em>it's, don't</em>),
+          rhetorical framing (<em>You know, And honestly</em>), and unpacked nominalisations
+          (<em>erosion of leisure time</em> → <em>your free time just gets eaten up</em>).
+        </div>
+      </div>
+
+      <div class="accuracy-card" id="accuracyGradeCard">
+        <div class="gauge-wrap">
+          <svg class="gauge-svg" viewBox="0 0 90 90">
+            <circle class="gauge-track" cx="45" cy="45" r="35"/>
+            <circle class="gauge-fill" id="accuracyGaugeFill" cx="45" cy="45" r="35"/>
+          </svg>
+          <div class="gauge-text" id="accuracyGaugeText">0%</div>
+        </div>
+        <div class="accuracy-info">
+          <h3 id="accuracyGradeTitle">Evaluating...</h3>
+          <p id="accuracyGradeFeedback">Processing your shadowing accuracy against the model text.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SLIDE 2: PART 1 QUESTIONS
+    ==================================================== -->
+    <div class="slide" id="slide2">
+      <div class="slide-header">
+        <span class="slide-num">02</span>
+        <div>
+          <div class="slide-title">Part 1: Questions</div>
+          <div class="slide-subtitle">Technology &amp; Digital Minimalism — personal experience</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>IELTS Part 1 Questions</div>
+        <ul class="question-list">
+          <li class="question-item"><span class="q-num">1</span><span class="q-text">Do you use technology a lot in your daily life? Which devices or apps do you find most useful?</span></li>
+          <li class="question-item"><span class="q-num">2</span><span class="q-text">Have you ever tried to reduce the amount of time you spend on your phone or social media? Why / Why not?</span></li>
+          <li class="question-item"><span class="q-num">3</span><span class="q-text">Do you think people today are too dependent on technology? In what way?</span></li>
+          <li class="question-item"><span class="q-num">4</span><span class="q-text">What kind of technology did you use when you were younger? How has that changed?</span></li>
+          <li class="question-item"><span class="q-num">5</span><span class="q-text">Do you ever switch off your phone completely? How does it make you feel?</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--amber)"></span>Exam Strategy: Do &amp; Don't</div>
+        <div class="do-dont-grid">
+          <div class="do-box">
+            <div class="box-title">✓ DO</div>
+            <ul>
+              <li>Give a direct answer first, then extend with a reason</li>
+              <li>Use linking phrases: <em style="color:var(--primary)">"Having said that…"</em></li>
+              <li>Use real examples from your own life</li>
+              <li>Vary vocabulary — don't repeat the question's exact words</li>
+              <li>Aim for 3–5 sentences per answer</li>
+            </ul>
+          </div>
+          <div class="dont-box">
+            <div class="box-title">✗ DON'T</div>
+            <ul>
+              <li>Start every sentence with "Actually"</li>
+              <li>Use filler phrases: <em style="color:var(--red)">"It's a good question…"</em></li>
+              <li>Give one-word or one-sentence answers</li>
+              <li>Repeat the question back verbatim</li>
+              <li>Switch tense inconsistently mid-narrative</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-color:rgba(59,130,246,0.3);">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — Say It Naturally</div>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">Listen to natural spoken versions of common Part 1 answers. Tap ▶ to hear the British voice, then shadow it yourself.</p>
+        <div style="display:grid;gap:10px;">
+          <div class="st-row">
+            <div class="st-spoken"><strong style="color:var(--blue);">"Honestly? I'm on my phone pretty much all day." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','1')" data-pair-key="l5-slide2-1">▶</button></strong></div>
+            <div class="st-why">Contraction + rhetorical question opener</div>
+          </div>
+          <div class="st-row">
+            <div class="st-spoken"><strong style="color:var(--blue);">"What gets me is how much our relationship with technology has changed — and how fast." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','2')" data-pair-key="l5-slide2-2">▶</button></strong></div>
+            <div class="st-why">Fronted clause + shorter rhythm</div>
+          </div>
+          <div class="st-row">
+            <div class="st-spoken"><strong style="color:var(--blue);">"So I deleted Instagram. Just like that." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','3')" data-pair-key="l5-slide2-3">▶</button></strong></div>
+            <div class="st-why">Two short sentences = emphasis</div>
+          </div>
+          <div class="st-row">
+            <div class="st-spoken"><strong style="color:var(--blue);">"It actually makes a real difference to your wellbeing." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','4')" data-pair-key="l5-slide2-4">▶</button></strong></div>
+            <div class="st-why">"Actually" placed mid-sentence, not fronted</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--purple)"></span>Vocabulary Upgrade — Click a Chip to Expand</div>
+        <div class="chip-grid" id="p1Chips"></div>
+        <div id="p1ChipPanel" class="chip-panel"></div>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SLIDE 3: PART 2 CUE CARD + PEEL
+    ==================================================== -->
+    <div class="slide" id="slide3">
+      <div class="slide-header">
+        <span class="slide-num">03</span>
+        <div>
+          <div class="slide-title">Part 2: Cue Card</div>
+          <div class="slide-subtitle">Cambridge IELTS 16 · Test 4 — real exam task</div>
+        </div>
+      </div>
+
+      <div class="cue-card">
+        <div class="cue-card-title">📋 Cambridge IELTS 16 · Test 4 · Part 2 Cue Card</div>
+        <div class="cue-card-main">Describe some technology you decided to stop using.</div>
+        <ul>
+          <li>What the technology was</li>
+          <li>When and why you stopped using it</li>
+          <li>What effect this had on your life</li>
+          <li>And explain whether you would recommend others do the same</li>
+        </ul>
+        <div class="say-also">You have 1 minute to prepare. You will then speak for 1–2 minutes.</div>
+      </div>
+
+      <div class="timer-row">
+        <div class="timer-box active-timer" id="prepBox">
+          <div class="timer-label">⏱ Preparation</div>
+          <div class="timer-display" id="prepDisplay">1:00</div>
+        </div>
+        <div class="timer-box" id="speakBox">
+          <div class="timer-label">🎙 Speaking</div>
+          <div class="timer-display" id="speakDisplay">2:00</div>
+        </div>
+      </div>
+      <div class="btn-group" style="margin-bottom:24px;">
+        <button class="btn btn-primary" onclick="startPrepTimer()">▶ Start Prep</button>
+        <button class="btn btn-secondary" onclick="resetTimers()">↺ Reset</button>
+      </div>
+
+      <div class="card" style="border-color:rgba(59,130,246,0.3);">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — PEEL Sentence Starters</div>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">These versions use spoken discourse markers instead of written transitions. Practice delivering them aloud — notice where you naturally pause.</p>
+        <div class="peel-grid">
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-inner">
+              <div class="flip-front" style="border-color:rgba(59,130,246,0.3);">
+                <span class="flip-peel-letter" style="color:var(--blue);opacity:0.15;">P</span>
+                <div class="flip-title">Point — Spoken</div>
+                <div class="flip-hint">State your main idea. Click to flip ↩</div>
+              </div>
+              <div class="flip-back">
+                <div class="flip-tag" style="color:var(--blue);">Speaking Starters</div>
+                <div class="flip-starters">
+                  <strong style="color:var(--blue);">• "OK so the tech I decided to ditch was…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','1')" data-pair-key="l5-slide3-1">▶</button></strong><br>
+                  • "I eventually decided to step back from…"<br>
+                  • "There came a point where I just thought — enough."
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-inner">
+              <div class="flip-front" style="border-color:rgba(59,130,246,0.3);">
+                <span class="flip-peel-letter" style="color:var(--blue);opacity:0.15;">E</span>
+                <div class="flip-title">Evidence — Spoken</div>
+                <div class="flip-hint">Give a specific example. Click ↩</div>
+              </div>
+              <div class="flip-back">
+                <div class="flip-tag" style="color:var(--blue);">Speaking Starters</div>
+                <div class="flip-starters">
+                  <strong style="color:var(--blue);">• "What happened was — I'd been spending like…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','2')" data-pair-key="l5-slide3-2">▶</button></strong><br>
+                  • "The moment I realised things had gone too far was when…"<br>
+                  • "I remember one evening I just looked at my screen time and…"
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-inner">
+              <div class="flip-front" style="border-color:rgba(59,130,246,0.3);">
+                <span class="flip-peel-letter" style="color:var(--blue);opacity:0.15;">E</span>
+                <div class="flip-title">Explanation — Spoken</div>
+                <div class="flip-hint">Explain the effect. Click ↩</div>
+              </div>
+              <div class="flip-back">
+                <div class="flip-tag" style="color:var(--blue);">Speaking Starters</div>
+                <div class="flip-starters">
+                  <strong style="color:var(--blue);">• "The thing that surprised me most was how quickly…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','3')" data-pair-key="l5-slide3-3">▶</button></strong><br>
+                  • "It actually had a pretty big impact on my daily life."<br>
+                  • "I started to notice that my mood was — you know — better."
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-inner">
+              <div class="flip-front" style="border-color:rgba(59,130,246,0.3);">
+                <span class="flip-peel-letter" style="color:var(--blue);opacity:0.15;">L</span>
+                <div class="flip-title">Link — Spoken</div>
+                <div class="flip-hint">Connect to bigger picture. Click ↩</div>
+              </div>
+              <div class="flip-back">
+                <div class="flip-tag" style="color:var(--blue);">Speaking Starters</div>
+                <div class="flip-starters">
+                  <strong style="color:var(--blue);">• "So yeah — I'd definitely tell other people to give it a try." <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','4')" data-pair-key="l5-slide3-4">▶</button></strong><br>
+                  • "At the end of the day, the pros outweighed the cons for me."<br>
+                  • "I mean, it's not for everyone, but in my case it really worked."
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>🎙 Live Vocabulary Tracker — Web Speech Recognition</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Speak your Part 2 answer. Target words light up in emerald when detected in the transcript.</p>
+        <div class="chip-grid" id="vocabTrackerPills" style="margin-bottom:16px;"></div>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="startTrackerBtn" onclick="startVocabTracker()">🎙 Start Tracker</button>
+          <button class="btn btn-red" id="stopTrackerBtn" onclick="stopVocabTracker()" style="display:none;">⏹ Stop Tracker</button>
+          <button class="btn btn-secondary" onclick="resetTracker()">↺ Reset</button>
+        </div>
+        <div id="trackerTranscript" style="margin-top:12px;font-size:12px;color:var(--muted);font-family:'Fira Code',monospace;min-height:24px;line-height:1.6;"></div>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SLIDE 4: PART 3 DISCUSSION
+    ==================================================== -->
+    <div class="slide" id="slide4">
+      <div class="slide-header">
+        <span class="slide-num">04</span>
+        <div>
+          <div class="slide-title">Part 3: Discussion</div>
+          <div class="slide-subtitle">Abstract questions — use the spoken frameworks to practise natural delivery</div>
+        </div>
+      </div>
+
+      <div class="card" style="border-color:rgba(59,130,246,0.3);">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — Part 3 Frameworks</div>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">Tap each question to see a spoken framework. Use the ▶ button to hear the British voice deliver it, then practise saying it yourself with natural pausing and shorter clauses.</p>
+
+        <details class="p3-question" style="border-color:rgba(59,130,246,0.2);">
+          <summary>
+            <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q1</span>
+            Do you think technology companies have a responsibility to help users manage their screen time?
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','1')" data-pair-key="l5-slide4-1" style="float:right;">▶</button>
+          </summary>
+          <div class="p3-framework">
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"I think companies absolutely have a responsibility here. I mean, these platforms are designed to keep you scrolling — that's not an accident."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Evidence</div><div class="fw-content"><em style="color:var(--blue);">"Former engineers from Meta and other big tech companies have actually admitted this. They've said the algorithms are deliberately built to be addictive."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Counter</div><div class="fw-content"><em style="color:var(--blue);">"That said, you could argue it's ultimately down to the individual. It's your choice how you use it."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Conclusion</div><div class="fw-content"><em style="color:var(--blue);">"But I think given the scale of the problem, we need both — personal responsibility and some kind of regulation."</em></div></div>
+          </div>
+        </details>
+
+        <details class="p3-question" style="border-color:rgba(59,130,246,0.2);">
+          <summary>
+            <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q2</span>
+            How has the widespread use of smartphones changed the way people communicate?
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','2')" data-pair-key="l5-slide4-2" style="float:right;">▶</button>
+          </summary>
+          <div class="p3-framework">
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"Smartphones have completely changed how we talk to each other — and honestly, not always for the better."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Evidence</div><div class="fw-content"><em style="color:var(--blue);">"I mean, think about it — families sitting at the same dinner table texting each other instead of talking. That's become completely normal."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Counter</div><div class="fw-content"><em style="color:var(--blue);">"On the other hand, they've made it possible to stay in touch with people on the other side of the world. That's something we couldn't do before."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Conclusion</div><div class="fw-content"><em style="color:var(--blue);">"So it's a mixed picture, really. We're connected to more people, but maybe those connections are shallower."</em></div></div>
+          </div>
+        </details>
+
+        <details class="p3-question" style="border-color:rgba(59,130,246,0.2);">
+          <summary>
+            <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q3</span>
+            Some people believe that digital detoxing is just a trend for wealthy people. Do you agree?
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','3')" data-pair-key="l5-slide4-3" style="float:right;">▶</button>
+          </summary>
+          <div class="p3-framework">
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"There's some truth to that. If you're working multiple jobs or rely on your phone for income, switching off isn't really an option."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Evidence</div><div class="fw-content"><em style="color:var(--blue);">"A lot of gig economy workers depend on their smartphones to make a living. Telling them to take a digital detox isn't just impractical — it's out of touch."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Counter</div><div class="fw-content"><em style="color:var(--blue);">"But at the same time, the basic idea of digital minimalism — being more intentional with your screen time — that's free. Anyone can do it."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Conclusion</div><div class="fw-content"><em style="color:var(--blue);">"So I'd say it's not that detoxing is only for the rich — it's more that access to it is uneven."</em></div></div>
+          </div>
+        </details>
+
+        <details class="p3-question" style="border-color:rgba(59,130,246,0.2);">
+          <summary>
+            <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q4</span>
+            What might be the long-term consequences of children growing up with constant access to digital devices?
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','4')" data-pair-key="l5-slide4-4" style="float:right;">▶</button>
+          </summary>
+          <div class="p3-framework">
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"I think we're only just starting to understand the long-term effects — and some of the early signs are worrying."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Evidence</div><div class="fw-content"><em style="color:var(--blue);">"There's research that links heavy screen time in early childhood to shorter attention spans and problems with emotional regulation."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Counter</div><div class="fw-content"><em style="color:var(--blue);">"At the same time, kids who grow up with technology tend to be more digitally fluent — which is a skill in itself."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Conclusion</div><div class="fw-content"><em style="color:var(--blue);">"So I think the key difference is between supervised, purposeful use and just passive consumption. That's what matters."</em></div></div>
+          </div>
+        </details>
+
+        <details class="p3-question" style="border-color:rgba(59,130,246,0.2);">
+          <summary>
+            <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q5</span>
+            Should governments regulate how much data technology companies can collect from users?
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','5')" data-pair-key="l5-slide4-5" style="float:right;">▶</button>
+          </summary>
+          <div class="p3-framework">
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"In my opinion, yes — I think some level of regulation is not just desirable but necessary."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Evidence</div><div class="fw-content"><em style="color:var(--blue);">"The GDPR in Europe has shown that you can regulate data collection without killing innovation. It's a good starting point."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Counter</div><div class="fw-content"><em style="color:var(--blue);">"Critics say too much regulation could push companies to move to countries with weaker rules. And that's a valid concern."</em></div></div>
+            <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Conclusion</div><div class="fw-content"><em style="color:var(--blue);">"But given how much power these companies have compared to individual users, I think some form of government oversight is justified."</em></div></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SLIDE 5: MODEL RESPONSE
+    ==================================================== -->
+    <div class="slide" id="slide5">
+      <div class="slide-header">
+        <span class="slide-num">05</span>
+        <div>
+          <div class="slide-title">Model Response — Speaking Tempo</div>
+          <div class="slide-subtitle">Listen to the full Band 8.0 Part 2 answer delivered naturally — then shadow it</div>
+        </div>
+      </div>
+
+      <div class="card" style="border-color:rgba(59,130,246,0.3);">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Model Answer — Full Recording</div>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">~130 words delivered at natural speaking pace. Listen to the full answer, then practise shadowing it section by section.</p>
+
+        <div class="model-player">
+          <button class="model-play-btn" id="modelPlayBtn" onclick="toggleModelPlay()">▶</button>
+          <div class="model-progress-wrap">
+            <div class="model-progress-fill" id="modelProgress"></div>
+          </div>
+          <span class="model-time" id="modelTime">00:00 / 00:00</span>
+          <button class="model-stop-btn" onclick="stopModelPlay()">⏹</button>
+        </div>
+
+        <div class="model-speaking-text">
+          So the tech I decided to step back from — well, it was Instagram. I'd been using it for about three years, and honestly, I didn't even realise how much it was affecting me until one evening I noticed I'd spent nearly three hours just scrolling — and I felt worse than before I'd started. The thing was, everyone's life looked so perfectly curated. I kept comparing — you know, my everyday reality to these idealised pictures. And that was doing a lot of damage, looking back. So I deleted the app. Just as an experiment — for a week. And the effect was pretty immediate. I had so much more time. I started reading again, exercising, having proper conversations. That low-level anxiety I hadn't even fully acknowledged — it just started to fade. Would I recommend it? Honestly, yes — if you feel like technology is taking over, try it. But I'm not saying go completely off-grid. Just be more intentional about how you use it. That's really the key.
+        </div>
+
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);">
+          <strong>Speaking Tempo Techniques Used Here:</strong>
+          <ul style="margin-top:4px;padding-left:18px;line-height:1.8;">
+            <li>Sentences broken at breath points — average length halved</li>
+            <li>Self-correction modelled: "<span style="color:var(--amber);">well,</span>" "<span style="color:var(--amber);">I kept comparing — you know</span>"</li>
+            <li>Rhetorical question: "Would I recommend it?" — engages the listener</li>
+            <li>Contractions throughout: "I'd", "didn't", "That's"</li>
+            <li>Discourse markers mid-clause: "looking back" placed at end, not fronted</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Compare My Response — Word Frequency Analyser</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Speak your Part 2 answer directly (Chrome only) or paste a transcript. Then click Analyse to compare vocabulary breadth with the model.</p>
+        <textarea class="compare-textarea" id="compareInput" placeholder="Your transcript appears here as you speak, or paste one…"></textarea>
+        <div class="btn-group">
+          <button class="btn btn-red" onclick="startCompareRecord()" id="compareRecordBtn">🎤 Speak & Analyse</button>
+          <button class="btn btn-secondary" onclick="stopCompareRecord()" id="compareStopBtn" style="display:none;">⏹ Stop</button>
+          <button class="btn btn-blue" onclick="analyseResponse()">🔍 Analyse</button>
+          <button class="btn btn-secondary" onclick="clearCompare()">Clear</button>
+        </div>
+        <span id="compareRecStatus" style="font-size:12px;color:var(--muted);margin-top:8px;display:inline-block;"></span>
+        <div class="compare-result" id="compareResult">
+          <div class="compare-stats" id="compareStats"></div>
+          <div id="compareWords" style="margin-top:16px;font-size:13px;line-height:1.8;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SLIDE 7: HOMEWORK
+    ==================================================== -->
+    <div class="slide" id="slide6">
+      <div class="slide-header">
+        <span class="slide-num">07</span>
+        <div>
+          <div class="slide-title">Homework</div>
+          <div class="slide-subtitle">Practice tasks &amp; vocabulary to prepare for next session</div>
+        </div>
+      </div>
+
+      <div class="hw-card">
+        <div class="hw-num">1</div>
+        <div class="hw-title">Record Part 2 — New Topic</div>
+        <div class="hw-body">
+          Using voice notes or any recording app, deliver a <strong style="color:var(--text);">1–2 minute Part 2 answer</strong> on the following cue card:<br><br>
+          <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:10px;padding:14px 16px;margin-top:8px;font-size:16px;font-weight:700;color:var(--text);">
+            🎯 Describe a piece of technology that changed people's lives.
+          </div>
+          <br>
+          Cover: what it is, how it changed behaviour, who benefited most, and your personal view of its impact. Use the PEEL structure from Slide 3.<br><br>
+          🎧 <strong style="color:var(--primary);">Send the recording to your teacher before the next session.</strong>
+        </div>
+      </div>
+
+      <div class="hw-card">
+        <div class="hw-num">2</div>
+        <div class="hw-title">Self-Transcription &amp; 3-Step Improvement</div>
+        <div class="hw-body">
+          Listen back to your recording and transcribe it word for word. Then apply these three steps:<br><br>
+          <ol style="padding-left:20px;line-height:2.2;">
+            <li><strong style="color:var(--text);">Underline</strong> any word used more than twice — find a synonym or collocation for each repeat</li>
+            <li><strong style="color:var(--text);">Circle</strong> any tense errors and write the corrected version beside them in the margin</li>
+            <li><strong style="color:var(--text);">Highlight</strong> 3 places where you could add a discourse marker or hedging phrase to improve coherence</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="hw-card">
+        <div class="hw-num">3</div>
+        <div class="hw-title">Written Part 3 Practice</div>
+        <div class="hw-body">
+          Write <strong style="color:var(--text);">2–3 sentence answers</strong> to two of the following questions. Use a Position → Evidence → Conclusion mini-structure in each.<br><br>
+          <ul style="padding-left:20px;line-height:2.2;">
+            <li>Do you think artificial intelligence will replace most human jobs in the future?</li>
+            <li>Should governments have the power to regulate or ban certain technologies?</li>
+            <li>How might advances in AI change the nature of human creativity?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>Vocabulary Collocations — 3 Categories, 8 Phrases</div>
+        <div class="colloc-grid">
+          <div class="colloc-card digital">
+            <div class="cat-label">Digital Habits</div>
+            <div class="phrase">digital detox</div>
+            <div class="usage">undergo / go on a digital detox</div>
+          </div>
+          <div class="colloc-card digital">
+            <div class="cat-label">Digital Habits</div>
+            <div class="phrase">screen fatigue</div>
+            <div class="usage">suffer from / combat screen fatigue</div>
+          </div>
+          <div class="colloc-card digital">
+            <div class="cat-label">Digital Habits</div>
+            <div class="phrase">mindless scrolling</div>
+            <div class="usage">engage in / resist mindless scrolling</div>
+          </div>
+          <div class="colloc-card social">
+            <div class="cat-label">Social Impact</div>
+            <div class="phrase">interpersonal bonds</div>
+            <div class="usage">strengthen / erode interpersonal bonds</div>
+          </div>
+          <div class="colloc-card social">
+            <div class="cat-label">Social Impact</div>
+            <div class="phrase">social withdrawal</div>
+            <div class="usage">exhibit signs of social withdrawal</div>
+          </div>
+          <div class="colloc-card social">
+            <div class="cat-label">Social Impact</div>
+            <div class="phrase">collective wellbeing</div>
+            <div class="usage">prioritise collective wellbeing</div>
+          </div>
+          <div class="colloc-card opinion">
+            <div class="cat-label">Opinion Language</div>
+            <div class="phrase">it stands to reason</div>
+            <div class="usage">"It stands to reason that…"</div>
+          </div>
+          <div class="colloc-card opinion">
+            <div class="cat-label">Opinion Language</div>
+            <div class="phrase">one could argue</div>
+            <div class="usage">"One could argue that… though it should be noted…"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="next-preview">
+        <div class="next-icon">📚</div>
+        <div>
+          <div class="next-label">Next Lesson Preview</div>
+          <div class="next-title">Lesson 6 — Band 7+ Grammar: Subordination, Conditionals &amp; Participle Clauses</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:6px;">Mixed conditionals · Reduced relative clauses · Fronted adverbials · Complex sentence embedding</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <audio id="shadowingAudio" preload="none" style="display:none"></audio>
+</div><!-- /layout -->
+
+<script src="../audio/speaking-tempo-engine.js"></script>
+<script>
+// ================================================================
+// NAVIGATION
+// ================================================================
+let currentSlide = 1;
+const TOTAL_SLIDES = 6;
+
+function showSlide(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('slide' + n).classList.add('active');
+  document.querySelectorAll('.nav-btn')[n - 1].classList.add('active');
+  currentSlide = n;
+  document.getElementById('progressBar').style.width = (n / TOTAL_SLIDES * 100) + '%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ================================================================
+// SLIDE 1 — SHADOWING ENGINE (WAV + timestamp)
+// ================================================================
+const shadowingText = "Many people have begun reassessing their relationship with digital technology in recent years. The constant barrage of notifications, the pressure to maintain an online presence, and the erosion of uninterrupted leisure time have prompted a growing number of individuals to disconnect deliberately. What began as a niche practice has evolved into a widespread movement known as digital minimalism. Adherents report improved concentration, deeper interpersonal connections, and a renewed sense of agency over their daily lives.";
+const speakingShadowingText = "You know, a lot of people have started to really question their relationship with technology. And honestly, I think the reason is pretty clear — the constant notifications, the pressure to always be online, the way your free time just gets eaten up. So more and more people are choosing to disconnect — on purpose. It started as this niche thing, but now it's become this whole movement — they call it digital minimalism. And the people who try it say their concentration gets better, their relationships feel deeper, and they actually feel like they're in control of their own lives again.";
+const targetWords = shadowingText.split(' ');
+const targetWordsClean = targetWords.map(w => w.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""));
+
+const shadowingTS = [{word:"Many",start:0.3,end:0.525},{word:"people",start:0.525,end:0.9},{word:"have",start:0.9,end:1.025},{word:"begun",start:1.025,end:1.438},{word:"reassessing",start:1.438,end:2.025},{word:"their",start:2.025,end:2.225},{word:"relationship",start:2.225,end:3.138},{word:"with",start:3.138,end:3.337},{word:"digital",start:3.337,end:3.75},{word:"technology",start:3.75,end:4.487},{word:"in",start:4.487,end:4.65},{word:"recent",start:4.65,end:5.013},{word:"years",start:5.013,end:5.987},{word:"The",start:5.987,end:6.138},{word:"constant",start:6.138,end:6.75},{word:"barrage",start:6.75,end:7.213},{word:"of",start:7.213,end:7.3},{word:"notifications",start:7.3,end:8.65},{word:"the",start:8.65,end:8.75},{word:"pressure",start:8.75,end:9.15},{word:"to",start:9.15,end:9.238},{word:"maintain",start:9.238,end:9.775},{word:"an",start:9.775,end:9.912},{word:"online",start:9.912,end:10.4},{word:"presence",start:10.4,end:11.3},{word:"and",start:11.3,end:11.412},{word:"the",start:11.412,end:11.5},{word:"erosion",start:11.5,end:12.05},{word:"of",start:12.05,end:12.213},{word:"uninterrupted",start:12.213,end:12.975},{word:"leisure",start:12.975,end:13.3},{word:"time",start:13.3,end:13.938},{word:"have",start:13.938,end:14.15},{word:"prompted",start:14.15,end:14.625},{word:"a",start:14.625,end:14.738},{word:"growing",start:14.738,end:15.175},{word:"number",start:15.175,end:15.412},{word:"of",start:15.412,end:15.488},{word:"individuals",start:15.488,end:16.175},{word:"to",start:16.175,end:16.275},{word:"disconnect",start:16.275,end:16.913},{word:"deliberately",start:16.913,end:18.363},{word:"What",start:18.363,end:18.575},{word:"began",start:18.575,end:19.113},{word:"as",start:19.113,end:19.238},{word:"a",start:19.238,end:19.337},{word:"niche",start:19.337,end:19.6},{word:"practice",start:19.6,end:20.3},{word:"has",start:20.3,end:20.475},{word:"evolved",start:20.475,end:21.0},{word:"into",start:21.0,end:21.275},{word:"a",start:21.275,end:21.4},{word:"widespread",start:21.4,end:22.075},{word:"movement",start:22.075,end:22.812},{word:"known",start:22.812,end:23.337},{word:"as",start:23.337,end:23.512},{word:"digital",start:23.512,end:23.925},{word:"minimalism",start:23.925,end:25.038},{word:"Adherents",start:25.425,end:25.975},{word:"report",start:25.975,end:26.4},{word:"improved",start:26.4,end:26.95},{word:"concentration",start:26.95,end:28.212},{word:"deeper",start:28.212,end:28.575},{word:"interpersonal",start:28.575,end:29.225},{word:"connections",start:29.225,end:30.325},{word:"and",start:30.325,end:30.438},{word:"a",start:30.438,end:30.5},{word:"renewed",start:30.5,end:30.925},{word:"sense",start:30.925,end:31.163},{word:"of",start:31.163,end:31.262},{word:"agency",start:31.262,end:31.962},{word:"over",start:31.962,end:32.188},{word:"their",start:32.188,end:32.35},{word:"daily",start:32.35,end:32.725},{word:"lives",start:32.725,end:33.625}];
+
+let activeText = shadowingText;
+let activeWords = targetWords;
+
+function renderShadowingText(text) {
+  const container = document.getElementById('shadowing-text');
+  const words = text.split(' ');
+  activeText = text;
+  activeWords = words;
+  container.innerHTML = words.map((w, i) => `<span class="shadowing-word" id="word-${i}">${w}</span>`).join(' ');
+}
+
+function initShadowing() {
+  renderShadowingText(shadowingText);
+}
+
+function rebuildForTempo(tempo) {
+  stopSpeaking();
+  if (tempo === 'speaking') {
+    renderShadowingText(speakingShadowingText);
+    document.getElementById('tempoBadge').textContent = 'Speaking Tempo';
+    document.getElementById('tempoBadge').className = 'tempo-badge speaking';
+    document.getElementById('writingInsight').classList.remove('show');
+    document.getElementById('speakingInsight').classList.add('show');
+    document.querySelector('.accuracy-info h3').textContent = 'Speaking Tempo';
+    document.querySelector('.accuracy-info p').textContent = 'Focus on rhythm, flow, and natural pausing. Word-level accuracy tracking is available in Writing Tempo.';
+    document.getElementById('accuracyGaugeFill').style.strokeDashoffset = 251.2;
+    document.getElementById('accuracyGaugeText').textContent = '--';
+    document.getElementById('accuracyGradeTitle').textContent = 'Speaking Tempo';
+    document.getElementById('accuracyGradeFeedback').textContent = 'Focus on rhythm, flow, and natural pausing. Word-level accuracy tracking is available in Writing Tempo.';
+  } else {
+    renderShadowingText(shadowingText);
+    document.getElementById('tempoBadge').textContent = 'Writing Tempo';
+    document.getElementById('tempoBadge').className = 'tempo-badge writing';
+    document.getElementById('writingInsight').classList.add('show');
+    document.getElementById('speakingInsight').classList.remove('show');
+    document.querySelector('.accuracy-info h3').textContent = 'Evaluating...';
+    document.querySelector('.accuracy-info p').textContent = 'Processing your shadowing accuracy against the model text.';
+  }
+}
+
+function stopSpeaking() {
+  shadowingAudio.pause();
+  shadowingAudio.currentTime = 0;
+  speechSynthesis.cancel();
+  speaking = false;
+  document.querySelector('.listen-btn').textContent = 'Listen Guide';
+  document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
+  stopSimulatedWave();
+  document.getElementById('shadowing-timer').textContent = '00:00';
+}
+
+const shadowingAudio = document.getElementById('shadowingAudio');
+let audioFallback = false;
+shadowingAudio.onerror = () => { audioFallback = true; };
+shadowingAudio.onended = () => { speaking = false; document.querySelector('.listen-btn').textContent = 'Listen Guide'; document.getElementById('shadowing-timer').textContent = '00:00'; };
+shadowingAudio.ontimeupdate = () => {
+  if (!shadowingTS || SpeakingTempoEngine.isSpeaking()) return;
+  const t = shadowingAudio.currentTime;
+  const mins = Math.floor(t / 60);
+  const secs = Math.floor(t % 60);
+  document.getElementById('shadowing-timer').textContent = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+  let lo = 0, hi = shadowingTS.length - 1;
+  while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (shadowingTS[mid].start <= t) lo = mid; else hi = mid - 1; }
+  document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
+  const el = document.getElementById(`word-${lo}`);
+  if (el) { el.classList.add('highlighted'); el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+};
+
+let speaking = false;
+function ttsFallback() {
+  const text = SpeakingTempoEngine.isSpeaking() ? speakingShadowingText : shadowingText;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-GB'; u.rate = 0.85;
+  u.onstart = () => { speaking = true; document.querySelector('.listen-btn').textContent = 'Stop'; startSimulatedWave(); };
+  u.onend = u.onerror = () => { speaking = false; document.querySelector('.listen-btn').textContent = 'Listen Guide'; stopSimulatedWave(); };
+  speechSynthesis.speak(u);
+}
+function toggleSpeaking() {
+  if (speaking) { stopSpeaking(); return; }
+  stopAllRecording();
+  if (audioFallback) {
+    ttsFallback();
+  } else {
+    shadowingAudio.src = SpeakingTempoEngine.getWarmupAudioUrl('l5') + '?' + Date.now();
+    shadowingAudio.play().then(() => { speaking = true; document.querySelector('.listen-btn').textContent = 'Stop'; startSimulatedWave(); }).catch(() => { audioFallback = true; ttsFallback(); });
+  }
+}
+
+// Waveform canvas
+let guideOscId = null, micAnimId = null, activeAudioCtx = null, activeAnalyser = null;
+function startSimulatedWave() {
+  stopAllWaves();
+  const canvas = document.getElementById('waveCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  let phase = 0;
+  function draw() {
+    guideOscId = requestAnimationFrame(draw);
+    ctx.fillStyle = 'rgba(9,13,22,0.3)'; ctx.fillRect(0,0,W,H);
+    ctx.lineWidth = 2.5; ctx.strokeStyle = '#10b981'; ctx.shadowColor = '#10b981'; ctx.shadowBlur = 6;
+    ctx.beginPath(); ctx.moveTo(0, H/2);
+    for (let x = 0; x < W; x++) {
+      const y = H/2 + Math.sin(x*0.03+phase)*13*Math.sin(x*0.004) + Math.sin(x*0.07-phase*1.3)*4*Math.cos(x*0.008);
+      ctx.lineTo(x, y);
+    }
+    ctx.stroke(); ctx.shadowBlur = 0; phase += 0.1;
+  }
+  draw();
+}
+function startMicWave(stream) {
+  stopAllWaves();
+  try {
+    const canvas = document.getElementById('waveCanvas');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    activeAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const src = activeAudioCtx.createMediaStreamSource(stream);
+    activeAnalyser = activeAudioCtx.createAnalyser();
+    activeAnalyser.fftSize = 128;
+    src.connect(activeAnalyser);
+    const buf = new Uint8Array(activeAnalyser.frequencyBinCount);
+    function draw() {
+      if (!activeAnalyser) return;
+      micAnimId = requestAnimationFrame(draw);
+      activeAnalyser.getByteTimeDomainData(buf);
+      ctx.fillStyle = 'rgba(9,13,22,0.4)'; ctx.fillRect(0,0,W,H);
+      ctx.lineWidth = 2.5; ctx.strokeStyle = '#22d3ee'; ctx.shadowColor = '#22d3ee'; ctx.shadowBlur = 6;
+      ctx.beginPath();
+      const sw = W / buf.length;
+      let x = 0;
+      for (let i = 0; i < buf.length; i++) {
+        const v = buf[i] / 128.0;
+        const y = v * H / 2;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        x += sw;
+      }
+      ctx.lineTo(W, H/2); ctx.stroke(); ctx.shadowBlur = 0;
+    }
+    draw();
+  } catch(e) {}
+}
+function stopSimulatedWave() { if (guideOscId) { cancelAnimationFrame(guideOscId); guideOscId = null; } }
+function stopAllWaves() {
+  stopSimulatedWave();
+  if (micAnimId) { cancelAnimationFrame(micAnimId); micAnimId = null; }
+  if (activeAudioCtx && activeAudioCtx.state !== 'closed') { activeAudioCtx.close(); }
+  activeAudioCtx = null; activeAnalyser = null;
+  const canvas = document.getElementById('waveCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+
+// Web Speech API
+const SpeechRecognition$1 = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition = null;
+if (SpeechRecognition$1) {
+  recognition = new SpeechRecognition$1();
+  recognition.continuous = true;
+  recognition.interimResults = false;
+  recognition.lang = 'en-US';
+}
+let mediaRecorder = null, recordedChunks = [], audioBlobUrl = null, shadowingSpokenText = '';
+
+document.getElementById('startRecord').addEventListener('click', async () => {
+  stopListening();
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    startMicWave(stream);
+    const mimeTypes = ['audio/webm;codecs=opus','audio/webm','audio/mp4',''];
+    const mime = mimeTypes.find(t => !t || MediaRecorder.isTypeSupported(t));
+    mediaRecorder = new MediaRecorder(stream, mime ? { mimeType: mime } : {});
+    recordedChunks = []; shadowingSpokenText = '';
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordedChunks.push(e.data); };
+    mediaRecorder.onstop = () => {
+      const blob = new Blob(recordedChunks, { type: mime || 'audio/webm' });
+      if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl);
+      audioBlobUrl = URL.createObjectURL(blob);
+      document.getElementById('playRecord').disabled = false;
+      stream.getTracks().forEach(t => t.stop());
+    };
+    if (recognition) {
+      recognition.onresult = e => { for (let i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) shadowingSpokenText += e.results[i][0].transcript + ' '; };
+      recognition.start();
+    }
+    mediaRecorder.start();
+    document.getElementById('startRecord').disabled = true;
+    document.getElementById('startRecord').classList.add('recording');
+    document.getElementById('stopRecord').disabled = false;
+    document.getElementById('playRecord').disabled = true;
+    document.getElementById('recStatus').textContent = 'Recording... Read the passage aloud';
+    document.getElementById('accuracyGradeCard').style.display = 'none';
+    initShadowing();
+  } catch(e) { document.getElementById('recStatus').textContent = 'Microphone access denied - allow mic access and try again'; }
+});
+
+document.getElementById('stopRecord').addEventListener('click', () => {
+  if (mediaRecorder && mediaRecorder.state === 'recording') { mediaRecorder.stop(); }
+  document.getElementById('startRecord').disabled = false;
+  document.getElementById('startRecord').classList.remove('recording');
+  document.getElementById('stopRecord').disabled = true;
+  if (recognition) { recognition.stop(); setTimeout(evaluateShadowing, 700); }
+  else { document.getElementById('recStatus').textContent = 'Recording saved. Click Play Back to listen.'; stopAllWaves(); }
+});
+
+document.getElementById('playRecord').addEventListener('click', () => {
+  if (audioBlobUrl) {
+    const a = new Audio(audioBlobUrl);
+    a.play();
+    document.getElementById('recStatus').textContent = 'Playing your recording...';
+    startSimulatedWave();
+    a.onended = () => { document.getElementById('recStatus').textContent = 'Done - click Listen Guide to compare with model'; stopSimulatedWave(); };
+  }
+});
+
+function stopAllRecording() { if (mediaRecorder && mediaRecorder.state === 'recording') mediaRecorder.stop(); if (recognition) recognition.stop(); document.getElementById('startRecord').disabled = false; document.getElementById('startRecord').classList.remove('recording'); document.getElementById('stopRecord').disabled = true; }
+function stopListening() { stopSpeaking(); stopAllWaves(); }
+
+function alignSpokenWords(target, spoken) {
+  const m = target.length, n = spoken.length;
+  const dp = Array(m+1).fill(null).map(() => Array(n+1).fill(0));
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) dp[i][j] = target[i-1] === spoken[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j], dp[i][j-1]);
+  let i = m, j = n; const matches = new Set();
+  while (i > 0 && j > 0) { if (target[i-1] === spoken[j-1]) { matches.add(i-1); i--; j--; } else if (dp[i-1][j] >= dp[i][j-1]) i--; else j--; }
+  return matches;
+}
+
+function evaluateShadowing() {
+  stopAllWaves();
+  if (!shadowingSpokenText.trim()) { document.getElementById('recStatus').textContent = 'No speech detected. Try speaking closer to the mic.'; return; }
+  const cleanSpoken = shadowingSpokenText.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(/\s+/).filter(Boolean);
+  const matches = alignSpokenWords(targetWordsClean, cleanSpoken);
+  document.getElementById('shadowing-text').innerHTML = targetWords.map((w,i) => `<span class="${matches.has(i) ? 'shadowing-word-result word-correct' : 'shadowing-word-result word-incorrect'}">${w}</span>`).join(' ');
+  const acc = Math.round((matches.size / targetWords.length) * 100);
+  const circumference = 220;
+  document.getElementById('accuracyGaugeFill').style.strokeDashoffset = circumference - (acc / 100) * circumference;
+  document.getElementById('accuracyGaugeText').textContent = `${acc}%`;
+  const t = document.getElementById('accuracyGradeTitle');
+  const f = document.getElementById('accuracyGradeFeedback');
+  if (acc >= 85) { t.textContent = 'Excellent Delivery!'; f.textContent = 'Outstanding pacing and pronunciation. Nearly all complex vocabulary matched.'; }
+  else if (acc >= 65) { t.textContent = 'Fluent & Professional'; f.textContent = 'Good rhythm! Focus on repeating the struck-through terms - minor syllable skips are holding you back.'; }
+  else { t.textContent = 'Keep Building Phrasing'; f.textContent = 'Good start. Play the guide audio again, track content word stress, and re-record.'; }
+  document.getElementById('accuracyGradeCard').style.display = 'flex';
+  document.getElementById('recStatus').textContent = `Evaluation complete - Accuracy: ${acc}%`;
+}
+
+// Speed control
+function changeSpeed(rate) {
+  shadowingAudio.playbackRate = rate;
+  document.querySelectorAll('.speed-btn').forEach(b => {
+    const isActive = parseFloat(b.textContent) === rate;
+    b.style.background = isActive ? 'var(--primary-dim)' : 'var(--border)';
+    b.style.color = isActive ? 'var(--primary)' : 'var(--muted)';
+    b.style.borderColor = isActive ? 'rgba(16,185,129,0.4)' : 'transparent';
+  });
+}
+
+// ================================================================
+// SLIDE 2 — VOCAB CHIPS
+// ================================================================
+const p1Vocab = [
+  { word: 'curated', color: 'blue', example: '<strong style="color:var(--blue)">curated</strong> — <em>"She maintains a carefully <strong>curated</strong> online persona that bears little resemblance to her everyday life."</em><br><span style="color:var(--muted)">Collocates: curated content · curated feed · meticulously curated</span>' },
+  { word: 'proliferation', color: 'blue', example: '<strong style="color:var(--blue)">proliferation</strong> — <em>"The <strong>proliferation</strong> of social media platforms has fundamentally altered how we consume news."</em><br><span style="color:var(--muted)">Collocates: rapid proliferation · unchecked proliferation · the proliferation of</span>' },
+  { word: 'encroach on', color: 'purple', example: '<strong style="color:var(--purple)">encroach on</strong> — <em>"Smartphones have begun to <strong>encroach on</strong> every aspect of our leisure time."</em><br><span style="color:var(--muted)">Phrasal verb · formal register · commonly used in academic/IELTS writing</span>' },
+  { word: 'intentional', color: 'purple', example: '<strong style="color:var(--purple)">intentional</strong> — <em>"Digital minimalists advocate for more <strong>intentional</strong> engagement with technology."</em><br><span style="color:var(--muted)">Collocates: intentional use · intentional living · deliberately intentional</span>' },
+  { word: 'agency', color: 'amber', example: '<strong style="color:var(--amber)">agency</strong> — <em>"Constant notifications erode our sense of personal <strong>agency</strong> and autonomous decision-making."</em><br><span style="color:var(--muted)">Collocates: sense of agency · personal agency · exercise agency over</span>' },
+  { word: 'detrimental', color: 'amber', example: '<strong style="color:var(--amber)">detrimental</strong> — <em>"Excessive screen time can be <strong>detrimental</strong> to both cognitive performance and emotional wellbeing."</em><br><span style="color:var(--muted)">Collocates: detrimental to · detrimental effects · prove detrimental</span>' },
+  { word: 'ubiquitous', color: 'blue', example: '<strong style="color:var(--blue)">ubiquitous</strong> — <em>"Smartphones have become so <strong>ubiquitous</strong> that going without one feels disorienting."</em><br><span style="color:var(--muted)">High-frequency academic adjective · near-synonym: pervasive, omnipresent</span>' },
+  { word: 'mindfully', color: 'purple', example: '<strong style="color:var(--purple)">mindfully</strong> — <em>"The key is not to abandon technology entirely, but to engage with it more <strong>mindfully</strong>."</em><br><span style="color:var(--muted)">Collocates: use mindfully · consume mindfully · engage mindfully</span>' },
+];
+
+let openChipIndex = -1;
+(function buildP1Chips() {
+  const grid = document.getElementById('p1Chips');
+  const panel = document.getElementById('p1ChipPanel');
+  p1Vocab.forEach((v, i) => {
+    const chip = document.createElement('span');
+    chip.className = 'vocab-chip ' + v.color;
+    chip.textContent = v.word;
+    chip.onclick = () => {
+      if (openChipIndex === i) {
+        panel.classList.remove('open');
+        chip.classList.remove('active');
+        openChipIndex = -1;
+      } else {
+        document.querySelectorAll('#p1Chips .vocab-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        panel.innerHTML = v.example;
+        panel.classList.add('open');
+        openChipIndex = i;
+      }
+    };
+    grid.appendChild(chip);
+  });
+})();
+
+// ================================================================
+// SLIDE 3 — TIMERS
+// ================================================================
+let prepTimer = null, speakTimer = null;
+let prepSecs = 60, speakSecs = 120;
+let prepRunning = false;
+
+function fmtTime(s) { return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+
+function startPrepTimer() {
+  if (prepRunning) return;
+  prepRunning = true;
+  document.getElementById('prepBox').classList.add('active-timer');
+  prepTimer = setInterval(() => {
+    prepSecs--;
+    const d = document.getElementById('prepDisplay');
+    d.textContent = fmtTime(prepSecs);
+    if (prepSecs <= 10) d.className = 'timer-display warning';
+    if (prepSecs <= 0) {
+      clearInterval(prepTimer); prepRunning = false;
+      document.getElementById('prepBox').classList.remove('active-timer');
+      d.textContent = 'GO!';
+      setTimeout(startSpeakTimer, 200);
+    }
+  }, 1000);
+}
+
+function startSpeakTimer() {
+  playBeep(800, 150, 2);
+  document.getElementById('speakBox').classList.add('active-timer');
+  speakTimer = setInterval(() => {
+    speakSecs--;
+    const d = document.getElementById('speakDisplay');
+    d.textContent = fmtTime(speakSecs);
+    if (speakSecs <= 30) d.className = 'timer-display warning';
+    if (speakSecs <= 0) {
+      clearInterval(speakTimer);
+      document.getElementById('speakBox').classList.remove('active-timer');
+      d.textContent = 'STOP!';
+      d.className = 'timer-display danger';
+    }
+  }, 1000);
+}
+
+function resetTimers() {
+  clearInterval(prepTimer); clearInterval(speakTimer);
+  prepSecs = 60; speakSecs = 120; prepRunning = false;
+  document.getElementById('prepDisplay').textContent = '1:00';
+  document.getElementById('prepDisplay').className = 'timer-display';
+  document.getElementById('speakDisplay').textContent = '2:00';
+  document.getElementById('speakDisplay').className = 'timer-display';
+  document.getElementById('prepBox').classList.remove('active-timer');
+  document.getElementById('speakBox').classList.remove('active-timer');
+}
+
+// ================================================================
+// SLIDE 3 — VOCAB TRACKER
+// ================================================================
+const TRACKER_WORDS = ['digital detox','curated','mindlessly','agency','wellbeing','interpersonal','withdrawal','in moderation'];
+let trackerRec = null;
+let hitWords = new Set();
+
+(function buildTrackerPills() {
+  const container = document.getElementById('vocabTrackerPills');
+  TRACKER_WORDS.forEach(w => {
+    const pill = document.createElement('span');
+    pill.className = 'tracker-pill';
+    pill.id = 'pill_' + w.replace(/[\s]/g,'_');
+    pill.innerHTML = '<span class="dot"></span>' + w;
+    container.appendChild(pill);
+  });
+})();
+
+function startVocabTracker() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { alert('Speech Recognition is not available in this browser.\nPlease use Chrome or Edge.'); return; }
+  trackerRec = new SR();
+  trackerRec.lang = 'en-GB';
+  trackerRec.continuous = true;
+  trackerRec.interimResults = true;
+  trackerRec.onresult = e => {
+    let full = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) full += e.results[i][0].transcript.toLowerCase() + ' ';
+    const display = full.length > 120 ? '…' + full.slice(-120) : full;
+    document.getElementById('trackerTranscript').textContent = '▸ ' + display;
+    TRACKER_WORDS.forEach(w => {
+      if (full.includes(w.toLowerCase()) && !hitWords.has(w)) {
+        hitWords.add(w);
+        const pill = document.getElementById('pill_' + w.replace(/[\s]/g,'_'));
+        if (pill) pill.classList.add('hit');
+      }
+    });
+  };
+  trackerRec.onerror = e => { if (e.error !== 'aborted') console.warn('Tracker:', e.error); };
+  trackerRec.start();
+  document.getElementById('startTrackerBtn').style.display = 'none';
+  document.getElementById('stopTrackerBtn').style.display = 'inline-flex';
+}
+
+function stopVocabTracker() {
+  if (trackerRec) { try { trackerRec.stop(); } catch(e){} trackerRec = null; }
+  document.getElementById('startTrackerBtn').style.display = 'inline-flex';
+  document.getElementById('stopTrackerBtn').style.display = 'none';
+}
+
+function resetTracker() {
+  stopVocabTracker();
+  hitWords.clear();
+  document.querySelectorAll('.tracker-pill').forEach(p => p.classList.remove('hit'));
+  document.getElementById('trackerTranscript').textContent = '';
+}
+
+function normalise(t) {
+  return t.toLowerCase().replace(/[^a-z0-9\s'-]/g, '').split(/\s+/).filter(Boolean);
+}
+
+function playBeep(freq = 800, dur = 150, count = 1) {
+  try {
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator(); const gain = ctx.createGain();
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.frequency.value = freq; osc.type = 'sine';
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur / 1000);
+        osc.start(); osc.stop(ctx.currentTime + dur / 1000);
+      }, i * 200);
+    }
+  } catch(e) {}
+}
+
+// ================================================================
+// SLIDE 5 — COMPARE RESPONSE
+// ================================================================
+let compareRecognition = null;
+let compareFinalTranscript = '';
+
+function startCompareRecord() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { alert('Speech recognition requires Chrome.'); return; }
+  compareRecognition = new SR();
+  compareRecognition.lang = 'en-US';
+  compareRecognition.continuous = true;
+  compareRecognition.interimResults = true;
+  compareFinalTranscript = '';
+  document.getElementById('compareInput').value = '';
+  document.getElementById('compareResult').classList.remove('visible');
+
+  compareRecognition.onresult = (e) => {
+    let interim = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      const t = e.results[i][0].transcript;
+      if (e.results[i].isFinal) compareFinalTranscript += t + ' ';
+      else interim += t;
+    }
+    document.getElementById('compareInput').value = compareFinalTranscript + interim;
+  };
+
+  compareRecognition.onerror = () => { stopCompareRecord(); };
+
+  compareRecognition.onend = () => {
+    document.getElementById('compareInput').value = compareFinalTranscript;
+    if (compareFinalTranscript.trim().length > 10) analyseResponse();
+  };
+
+  compareRecognition.start();
+  document.getElementById('compareRecordBtn').style.display = 'none';
+  document.getElementById('compareStopBtn').style.display = 'inline-flex';
+  document.getElementById('compareRecStatus').textContent = '🔴 Recording... Speak your Part 2 answer';
+}
+
+function stopCompareRecord() {
+  if (compareRecognition) {
+    compareRecognition.stop();
+    compareRecognition = null;
+  }
+  document.getElementById('compareRecordBtn').style.display = 'inline-flex';
+  document.getElementById('compareStopBtn').style.display = 'none';
+  document.getElementById('compareRecStatus').textContent = compareFinalTranscript.trim() ? '✅ Recording complete — analysis below' : '';
+}
+
+const MODEL_PLAIN = "Well thinking back the technology I made the conscious decision to step back from was social media specifically Instagram I suppose it had been building up for some time but the turning point came one evening when I realised I had spent nearly three hours mindlessly scrolling through content that left me feeling if anything more discontented than before What struck me at the time was how curated everyone life appeared an endless parade of meticulously composed images that bore little resemblance to lived reality I would find myself comparing my everyday life to these idealised representations which looking back was doing considerable damage to my sense of wellbeing So I deleted the app initially just for a week as a kind of experiment The effect was quite profound I noticed that I had far more uninterrupted time time I began filling with reading exercise and genuine conversations what more the low level anxiety I had not even fully acknowledged began to dissipate As for whether I would recommend it I would certainly encourage anyone who feels that technology is encroaching on their sense of agency to consider it That said I am not advocating for complete abstinence rather using it in moderation with deliberate intention seems to be the key";
+
+function analyseResponse() {
+  const input = document.getElementById('compareInput').value.trim();
+  if (!input) { alert('Please paste your transcript first.'); return; }
+  const myWords = new Set(normalise(input));
+  const modelWords = new Set(normalise(MODEL_PLAIN));
+  const overlap = [...myWords].filter(w => modelWords.has(w));
+  const modelOnly = [...modelWords].filter(w => !myWords.has(w));
+
+  const statsEl = document.getElementById('compareStats');
+  const wordsEl = document.getElementById('compareWords');
+  const resultEl = document.getElementById('compareResult');
+
+  statsEl.innerHTML = `
+    <div class="stat-item"><div class="stat-num">${myWords.size}</div><div class="stat-lbl">Your unique words</div></div>
+    <div class="stat-item"><div class="stat-num">${modelWords.size}</div><div class="stat-lbl">Model unique words</div></div>
+    <div class="stat-item"><div class="stat-num" style="color:var(--primary)">${overlap.length}</div><div class="stat-lbl">Shared vocabulary</div></div>
+    <div class="stat-item"><div class="stat-num" style="color:var(--amber)">${modelOnly.length}</div><div class="stat-lbl">Model words to learn</div></div>`;
+
+  const displayWords = modelOnly.slice(0,35);
+  const remainder = modelOnly.length - displayWords.length;
+  wordsEl.innerHTML = `
+    <div><span style="color:var(--amber);font-weight:700;font-size:13px;">Model words you didn't use — add these to your active vocabulary:</span><br><br>
+    ${displayWords.map(w => `<span class="ann-badge am">${w}</span>`).join(' ')}
+    ${remainder > 0 ? `<span style="color:var(--muted);font-size:12px;"> +${remainder} more</span>` : ''}
+    </div>`;
+
+  resultEl.classList.add('visible');
+}
+
+function clearCompare() {
+  document.getElementById('compareInput').value = '';
+  document.getElementById('compareResult').classList.remove('visible');
+}
+
+// ================================================================
+// SLIDE 5 — FULL MODEL AUDIO PLAYER
+// ================================================================
+let modelAudio = new Audio();
+let modelPlaying = false;
+
+function toggleModelPlay() {
+  if (modelPlaying) {
+    modelAudio.pause();
+    modelPlaying = false;
+    document.getElementById('modelPlayBtn').textContent = '\u25B6';
+    return;
+  }
+  modelAudio.src = SpeakingTempoEngine.getFullModelUrl('l5') + '?' + Date.now();
+  modelAudio.play().then(function() {
+    modelPlaying = true;
+    document.getElementById('modelPlayBtn').textContent = '\u23F8';
+  }).catch(function(e) {
+    console.warn('Model audio failed:', e);
+  });
+}
+
+function stopModelPlay() {
+  modelAudio.pause();
+  modelAudio.currentTime = 0;
+  modelPlaying = false;
+  document.getElementById('modelPlayBtn').textContent = '\u25B6';
+  document.getElementById('modelProgress').style.width = '0%';
+  document.getElementById('modelTime').textContent = '00:00 / 00:00';
+}
+
+modelAudio.ontimeupdate = function() {
+  if (modelAudio.duration) {
+    var pct = (modelAudio.currentTime / modelAudio.duration) * 100;
+    document.getElementById('modelProgress').style.width = pct + '%';
+    var cur = formatTime(modelAudio.currentTime);
+    var dur = formatTime(modelAudio.duration);
+    document.getElementById('modelTime').textContent = cur + ' / ' + dur;
+  }
+};
+
+modelAudio.onended = function() {
+  modelPlaying = false;
+  document.getElementById('modelPlayBtn').textContent = '\u25B6';
+};
+
+function formatTime(sec) {
+  var m = Math.floor(sec / 60);
+  var s = Math.floor(sec % 60);
+  return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+}
+
+// ================================================================
+// SLIDE PAIR PLAYER (reusable across slides 2-4)
+// ================================================================
+let slidePairAudio = new Audio();
+let currentSlidePair = null;
+
+function playSlidePair(lessonId, slideId, pairId) {
+  var key = lessonId + '-' + slideId + '-' + pairId;
+  if (currentSlidePair === key && !slidePairAudio.paused) {
+    slidePairAudio.pause();
+    slidePairAudio.currentTime = 0;
+    updateSlidePairBtn(key, false);
+    currentSlidePair = null;
+    return;
+  }
+  if (currentSlidePair) {
+    updateSlidePairBtn(currentSlidePair, false);
+  }
+  slidePairAudio.pause();
+  slidePairAudio.currentTime = 0;
+  var url = SpeakingTempoEngine.getSlidePairUrl(lessonId, slideId, pairId);
+  slidePairAudio.src = url + '?' + Date.now();
+  updateSlidePairBtn(key, true);
+  currentSlidePair = key;
+  slidePairAudio.play().catch(function(e) {
+    console.warn('Slide pair audio failed:', e);
+    updateSlidePairBtn(key, false);
+    currentSlidePair = null;
+  });
+  slidePairAudio.onended = function() {
+    updateSlidePairBtn(key, false);
+    currentSlidePair = null;
+  };
+}
+
+function updateSlidePairBtn(key, playing) {
+  document.querySelectorAll('.pair-play-btn').forEach(function(btn) {
+    var k = btn.getAttribute('data-pair-key');
+    if (k === key) {
+      btn.textContent = playing ? '\u23F8' : '\u25B6';
+      btn.classList.toggle('playing', playing);
+    } else if (playing) {
+      btn.textContent = '\u25B6';
+      btn.classList.toggle('playing', false);
+    }
+  });
+}
+
+// ================================================================
+// INIT
+// ================================================================
+SpeakingTempoEngine.init('../audio');
+initShadowing();
+showSlide(1);
+
+function syncTempoUI(tempo) {
+  document.querySelectorAll('#tempoSwitch .switch-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.tempo === tempo);
+  });
+  rebuildForTempo(tempo);
+}
+syncTempoUI(SpeakingTempoEngine.getTempo());
+
+SpeakingTempoEngine.on(function(ev) {
+  if (ev.type === 'tempo-change') syncTempoUI(ev.detail.tempo);
+});
+</script>
+</body>
+</html>
