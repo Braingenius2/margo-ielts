@@ -1303,7 +1303,7 @@ function renderShadowingText(text) {
 }
 
 function initShadowing() {
-  renderShadowingText(shadowingText);
+  renderShadowingText(SpeakingTempoEngine.isSpeaking() ? speakingShadowingText : shadowingText);
 }
 
 function rebuildForTempo(tempo) {
@@ -1481,7 +1481,7 @@ document.getElementById('startRecord').addEventListener('click', async () => {
     document.getElementById('playRecord').disabled = true;
     document.getElementById('recStatus').textContent = 'Recording... Read the passage aloud';
     document.getElementById('accuracyGradeCard').style.display = 'none';
-    initShadowing();
+    // Do NOT call initShadowing() here — it would override the active tempo text.
   } catch(e) { document.getElementById('recStatus').textContent = 'Microphone access denied - allow mic access and try again'; }
 });
 
