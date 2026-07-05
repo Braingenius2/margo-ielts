@@ -1288,6 +1288,9 @@ const targetWordsClean = targetWords.map(w => w.toLowerCase().replace(/[.,\/#!$%
 
 const shadowingTS = [{word:"Many",start:0.3,end:0.525},{word:"people",start:0.525,end:0.9},{word:"have",start:0.9,end:1.025},{word:"begun",start:1.025,end:1.438},{word:"reassessing",start:1.438,end:2.025},{word:"their",start:2.025,end:2.225},{word:"relationship",start:2.225,end:3.138},{word:"with",start:3.138,end:3.337},{word:"digital",start:3.337,end:3.75},{word:"technology",start:3.75,end:4.487},{word:"in",start:4.487,end:4.65},{word:"recent",start:4.65,end:5.013},{word:"years",start:5.013,end:5.987},{word:"The",start:5.987,end:6.138},{word:"constant",start:6.138,end:6.75},{word:"barrage",start:6.75,end:7.213},{word:"of",start:7.213,end:7.3},{word:"notifications",start:7.3,end:8.65},{word:"the",start:8.65,end:8.75},{word:"pressure",start:8.75,end:9.15},{word:"to",start:9.15,end:9.238},{word:"maintain",start:9.238,end:9.775},{word:"an",start:9.775,end:9.912},{word:"online",start:9.912,end:10.4},{word:"presence",start:10.4,end:11.3},{word:"and",start:11.3,end:11.412},{word:"the",start:11.412,end:11.5},{word:"erosion",start:11.5,end:12.05},{word:"of",start:12.05,end:12.213},{word:"uninterrupted",start:12.213,end:12.975},{word:"leisure",start:12.975,end:13.3},{word:"time",start:13.3,end:13.938},{word:"have",start:13.938,end:14.15},{word:"prompted",start:14.15,end:14.625},{word:"a",start:14.625,end:14.738},{word:"growing",start:14.738,end:15.175},{word:"number",start:15.175,end:15.412},{word:"of",start:15.412,end:15.488},{word:"individuals",start:15.488,end:16.175},{word:"to",start:16.175,end:16.275},{word:"disconnect",start:16.275,end:16.913},{word:"deliberately",start:16.913,end:18.363},{word:"What",start:18.363,end:18.575},{word:"began",start:18.575,end:19.113},{word:"as",start:19.113,end:19.238},{word:"a",start:19.238,end:19.337},{word:"niche",start:19.337,end:19.6},{word:"practice",start:19.6,end:20.3},{word:"has",start:20.3,end:20.475},{word:"evolved",start:20.475,end:21.0},{word:"into",start:21.0,end:21.275},{word:"a",start:21.275,end:21.4},{word:"widespread",start:21.4,end:22.075},{word:"movement",start:22.075,end:22.812},{word:"known",start:22.812,end:23.337},{word:"as",start:23.337,end:23.512},{word:"digital",start:23.512,end:23.925},{word:"minimalism",start:23.925,end:25.038},{word:"Adherents",start:25.425,end:25.975},{word:"report",start:25.975,end:26.4},{word:"improved",start:26.4,end:26.95},{word:"concentration",start:26.95,end:28.212},{word:"deeper",start:28.212,end:28.575},{word:"interpersonal",start:28.575,end:29.225},{word:"connections",start:29.225,end:30.325},{word:"and",start:30.325,end:30.438},{word:"a",start:30.438,end:30.5},{word:"renewed",start:30.5,end:30.925},{word:"sense",start:30.925,end:31.163},{word:"of",start:31.163,end:31.262},{word:"agency",start:31.262,end:31.962},{word:"over",start:31.962,end:32.188},{word:"their",start:32.188,end:32.35},{word:"daily",start:32.35,end:32.725},{word:"lives",start:32.725,end:33.625}];
 
+// Speaking Tempo timestamps — heuristic word-level alignment for l5-slide1-tempo-speaking.wav (31.35s)
+const speakingShadowingTS = [{word:"You",start:0.1,end:0.279},{word:"know",start:0.279,end:0.572},{word:"a",start:0.697,end:0.757},{word:"lot",start:0.757,end:0.936},{word:"of",start:0.936,end:1.055},{word:"people",start:1.055,end:1.414},{word:"have",start:1.414,end:1.653},{word:"started",start:1.653,end:2.071},{word:"to",start:2.071,end:2.19},{word:"really",start:2.19,end:2.548},{word:"question",start:2.548,end:3.026},{word:"their",start:3.026,end:3.325},{word:"relationship",start:3.325,end:4.041},{word:"with",start:4.041,end:4.28},{word:"technology",start:4.28,end:4.758},{word:"And",start:5.235,end:5.415},{word:"honestly",start:5.415,end:5.874},{word:"I",start:6.071,end:6.131},{word:"think",start:6.131,end:6.43},{word:"the",start:6.43,end:6.609},{word:"reason",start:6.609,end:6.967},{word:"is",start:6.967,end:7.087},{word:"pretty",start:7.087,end:7.445},{word:"clear",start:7.445,end:7.743},{word:"the",start:7.743,end:7.923},{word:"constant",start:7.923,end:8.4},{word:"notifications",start:8.4,end:9.069},{word:"the",start:9.356,end:9.535},{word:"pressure",start:9.535,end:10.013},{word:"to",start:10.013,end:10.132},{word:"always",start:10.132,end:10.49},{word:"be",start:10.49,end:10.61},{word:"online",start:10.61,end:10.986},{word:"the",start:11.147,end:11.326},{word:"way",start:11.326,end:11.505},{word:"your",start:11.505,end:11.744},{word:"free",start:11.744,end:11.983},{word:"time",start:11.983,end:12.222},{word:"just",start:12.222,end:12.461},{word:"gets",start:12.461,end:12.7},{word:"eaten",start:12.7,end:12.998},{word:"up",start:12.998,end:13.237},{word:"So",start:13.476,end:13.595},{word:"more",start:13.595,end:13.834},{word:"and",start:13.834,end:14.013},{word:"more",start:14.013,end:14.252},{word:"people",start:14.252,end:14.611},{word:"are",start:14.611,end:14.79},{word:"choosing",start:14.79,end:15.267},{word:"to",start:15.267,end:15.387},{word:"disconnect",start:15.387,end:15.984},{word:"on",start:15.984,end:16.103},{word:"purpose",start:16.103,end:16.492},{word:"It",start:16.88,end:16.999},{word:"started",start:16.999,end:17.417},{word:"as",start:17.417,end:17.537},{word:"this",start:17.537,end:17.775},{word:"niche",start:17.775,end:18.074},{word:"thing",start:18.074,end:18.408},{word:"but",start:18.552,end:18.731},{word:"now",start:18.731,end:18.91},{word:"it's",start:18.91,end:19.149},{word:"become",start:19.149,end:19.507},{word:"this",start:19.507,end:19.746},{word:"whole",start:19.746,end:20.045},{word:"movement",start:20.045,end:20.522},{word:"they",start:20.522,end:20.761},{word:"call",start:20.761,end:21.0},{word:"it",start:21.0,end:21.119},{word:"digital",start:21.119,end:21.537},{word:"minimalism",start:21.537,end:22.015},{word:"And",start:22.493,end:22.672},{word:"the",start:22.672,end:22.851},{word:"people",start:22.851,end:23.209},{word:"who",start:23.209,end:23.389},{word:"try",start:23.389,end:23.568},{word:"it",start:23.568,end:23.687},{word:"say",start:23.687,end:23.866},{word:"their",start:23.866,end:24.165},{word:"concentration",start:24.165,end:24.941},{word:"gets",start:24.941,end:25.18},{word:"better",start:25.18,end:25.556},{word:"their",start:25.717,end:26.016},{word:"relationships",start:26.016,end:26.792},{word:"feel",start:26.792,end:27.031},{word:"deeper",start:27.031,end:27.407},{word:"and",start:27.569,end:27.748},{word:"they",start:27.748,end:27.987},{word:"actually",start:27.987,end:28.464},{word:"feel",start:28.464,end:28.703},{word:"like",start:28.703,end:28.942},{word:"they're",start:28.942,end:29.36},{word:"in",start:29.36,end:29.479},{word:"control",start:29.479,end:29.897},{word:"of",start:29.897,end:30.017},{word:"their",start:30.017,end:30.315},{word:"own",start:30.315,end:30.495},{word:"lives",start:30.495,end:30.793},{word:"again",start:30.793,end:31.122}];
+
 let activeText = shadowingText;
 let activeWords = targetWords;
 
@@ -1311,21 +1314,19 @@ function rebuildForTempo(tempo) {
     document.getElementById('tempoBadge').className = 'tempo-badge speaking';
     document.getElementById('writingInsight').classList.remove('show');
     document.getElementById('speakingInsight').classList.add('show');
-    document.querySelector('.accuracy-info h3').textContent = 'Speaking Tempo';
-    document.querySelector('.accuracy-info p').textContent = 'Focus on rhythm, flow, and natural pausing. Word-level accuracy tracking is available in Writing Tempo.';
-    document.getElementById('accuracyGaugeFill').style.strokeDashoffset = 251.2;
-    document.getElementById('accuracyGaugeText').textContent = '--';
-    document.getElementById('accuracyGradeTitle').textContent = 'Speaking Tempo';
-    document.getElementById('accuracyGradeFeedback').textContent = 'Focus on rhythm, flow, and natural pausing. Word-level accuracy tracking is available in Writing Tempo.';
   } else {
     renderShadowingText(shadowingText);
     document.getElementById('tempoBadge').textContent = 'Writing Tempo';
     document.getElementById('tempoBadge').className = 'tempo-badge writing';
     document.getElementById('writingInsight').classList.add('show');
     document.getElementById('speakingInsight').classList.remove('show');
-    document.querySelector('.accuracy-info h3').textContent = 'Evaluating...';
-    document.querySelector('.accuracy-info p').textContent = 'Processing your shadowing accuracy against the model text.';
   }
+  // Reset accuracy card on every tempo change
+  document.getElementById('accuracyGradeCard').style.display = 'none';
+  document.getElementById('accuracyGaugeFill').style.strokeDashoffset = 220;
+  document.getElementById('accuracyGaugeText').textContent = '0%';
+  document.getElementById('accuracyGradeTitle').textContent = 'Evaluating...';
+  document.getElementById('accuracyGradeFeedback').textContent = 'Record yourself shadowing, then see your accuracy.';
 }
 
 function stopSpeaking() {
@@ -1344,13 +1345,14 @@ let audioFallback = false;
 shadowingAudio.onerror = () => { audioFallback = true; };
 shadowingAudio.onended = () => { speaking = false; document.querySelector('.listen-btn').textContent = 'Listen Guide'; document.getElementById('shadowing-timer').textContent = '00:00'; };
 shadowingAudio.ontimeupdate = () => {
-  if (!shadowingTS || SpeakingTempoEngine.isSpeaking()) return;
+  const activeTS = SpeakingTempoEngine.isSpeaking() ? speakingShadowingTS : shadowingTS;
+  if (!activeTS) return;
   const t = shadowingAudio.currentTime;
   const mins = Math.floor(t / 60);
   const secs = Math.floor(t % 60);
   document.getElementById('shadowing-timer').textContent = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
-  let lo = 0, hi = shadowingTS.length - 1;
-  while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (shadowingTS[mid].start <= t) lo = mid; else hi = mid - 1; }
+  let lo = 0, hi = activeTS.length - 1;
+  while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (activeTS[mid].start <= t) lo = mid; else hi = mid - 1; }
   document.querySelectorAll('.shadowing-word').forEach(w => w.classList.remove('highlighted'));
   const el = document.getElementById(`word-${lo}`);
   if (el) { el.classList.add('highlighted'); el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
@@ -1518,9 +1520,13 @@ function evaluateShadowing() {
   stopAllWaves();
   if (!shadowingSpokenText.trim()) { document.getElementById('recStatus').textContent = 'No speech detected. Try speaking closer to the mic.'; return; }
   const cleanSpoken = shadowingSpokenText.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(/\s+/).filter(Boolean);
-  const matches = alignSpokenWords(targetWordsClean, cleanSpoken);
-  document.getElementById('shadowing-text').innerHTML = targetWords.map((w,i) => `<span class="${matches.has(i) ? 'shadowing-word-result word-correct' : 'shadowing-word-result word-incorrect'}">${w}</span>`).join(' ');
-  const acc = Math.round((matches.size / targetWords.length) * 100);
+  // Use the active tempo's word list so both Writing and Speaking modes get accuracy grading
+  const activeTS = SpeakingTempoEngine.isSpeaking() ? speakingShadowingTS : shadowingTS;
+  const activeWordsRaw = activeTS.map(item => item.word);
+  const activeWordsClean = activeWordsRaw.map(w => w.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""));
+  const matches = alignSpokenWords(activeWordsClean, cleanSpoken);
+  document.getElementById('shadowing-text').innerHTML = activeWordsRaw.map((w,i) => `<span class="${matches.has(i) ? 'shadowing-word-result word-correct' : 'shadowing-word-result word-incorrect'}">${w}</span>`).join(' ');
+  const acc = Math.round((matches.size / activeWordsRaw.length) * 100);
   const circumference = 220;
   document.getElementById('accuracyGaugeFill').style.strokeDashoffset = circumference - (acc / 100) * circumference;
   document.getElementById('accuracyGaugeText').textContent = `${acc}%`;
