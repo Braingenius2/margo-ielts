@@ -28,6 +28,7 @@
     --header-h: 64px;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; border-radius: 4px; }
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Outfit', sans-serif;
@@ -35,6 +36,8 @@
     color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   /* HEADER */
@@ -106,7 +109,8 @@
   }
   .nav-btn {
     display: flex; align-items: center; gap: 10px;
-    width: 100%; padding: 10px 12px;
+    width: 100%; padding: 11px 12px;
+    min-height: 44px;
     background: transparent; border: 1px solid transparent;
     border-radius: 10px; cursor: pointer;
     color: var(--muted); font-family: 'Outfit', sans-serif;
@@ -174,7 +178,7 @@
   /* BUTTONS */
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 18px; border-radius: 10px;
+    padding: 12px 20px; min-height: 44px; border-radius: 10px;
     font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
     cursor: pointer; border: none; transition: all 0.2s;
   }
@@ -192,7 +196,7 @@
   .btn-red:hover { background: #dc2626; }
   .btn-purple { background: var(--purple); color: #fff; }
   .btn-purple:hover { background: #7c3aed; }
-  .btn-sm { padding: 7px 13px; font-size: 12px; border-radius: 8px; }
+  .btn-sm { padding: 10px 16px; min-height: 44px; font-size: 14px; border-radius: 8px; }
   .btn-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 
   /* SHADOWING TEXT */
@@ -248,7 +252,7 @@
 
   /* RECORDER */
   .recorder-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
-  .rec-btn { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); font-family: inherit; cursor: pointer; transition: all 0.2s; }
+  .rec-btn { padding: 10px 16px; min-height: 44px; border-radius: 20px; font-size: 13px; font-weight: 600; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); font-family: inherit; cursor: pointer; transition: all 0.2s; }
   .rec-btn:hover { background: rgba(255,255,255,0.1); }
   .rec-btn:disabled { opacity: 0.3; cursor: not-allowed; }
   .rec-btn.recording { background: var(--red-dim); color: var(--red); border-color: rgba(239,68,68,0.4); }
@@ -296,8 +300,8 @@
   /* VOCAB CHIPS */
   .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
   .vocab-chip {
-    display: inline-block; padding: 6px 14px; border-radius: 999px;
-    font-size: 13px; font-weight: 600; cursor: pointer;
+    display: inline-block; padding: 10px 16px; border-radius: 999px;
+    font-size: 14px; font-weight: 600; cursor: pointer;
     border: 1px solid transparent; transition: all 0.2s;
     font-family: 'Fira Code', monospace;
   }
@@ -546,8 +550,8 @@
     border: 1px solid var(--border);
   }
   .switch-btn {
-    padding: 7px 16px; border-radius: 8px;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+    padding: 10px 16px; min-height: 44px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.5px;
     background: transparent; color: var(--muted);
     border: none; cursor: pointer;
     transition: all 0.2s ease;
@@ -622,7 +626,7 @@
     border-radius: 10px; padding: 12px 16px; margin-bottom: 16px;
   }
   .model-play-btn {
-    flex-shrink: 0; width: 40px; height: 40px;
+    flex-shrink: 0; width: 44px; height: 44px;
     border-radius: 50%; border: 2px solid var(--blue);
     background: transparent; color: var(--blue);
     font-size: 16px; cursor: pointer;
@@ -643,7 +647,7 @@
   }
   .model-time { font-size: 12px; color: var(--muted); font-family: 'Fira Code', monospace; white-space: nowrap; min-width: 90px; text-align: center; }
   .model-stop-btn {
-    flex-shrink: 0; width: 34px; height: 34px;
+    flex-shrink: 0; width: 44px; height: 44px;
     border-radius: 50%; border: 1px solid var(--muted);
     background: transparent; color: var(--muted);
     font-size: 14px; cursor: pointer;
@@ -661,7 +665,7 @@
 
   /* SLIDE PAIR PLAY BUTTONS */
   .pair-play-btn {
-    flex-shrink: 0; width: 28px; height: 28px;
+    flex-shrink: 0; width: 44px; height: 44px;
     border-radius: 50%; border: 1px solid var(--blue);
     background: transparent; color: var(--blue);
     font-size: 11px; cursor: pointer;
@@ -675,8 +679,28 @@
   .pair-play-btn.playing { background: var(--blue); color: #fff; }
   .st-row { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(59,130,246,0.15); align-items: center; }
 
+    .mobile-nav-toggle {
+    display: none; position: fixed; bottom: 20px; right: 20px; z-index: 200;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--primary); color: #000; border: none;
+    font-size: 20px; cursor: pointer; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+  .sidebar-overlay {
+    display: none; position: fixed; inset: 0; z-index: 150;
+    background: rgba(0,0,0,0.6);
+  }
+  .sidebar-overlay.open { display: block; }
+
   @media (max-width: 768px) {
-    .sidebar { display: none; }
+    .mobile-nav-toggle { display: flex; }
+    .sidebar {
+      position: fixed; left: 0; top: var(--header-h); z-index: 175;
+      height: calc(100vh - var(--header-h));
+      transform: translateX(-100%); transition: transform 0.25s ease;
+      width: var(--sidebar-w); display: flex !important;
+    }
+    .sidebar.open { transform: translateX(0); }
     .main { padding: 20px 16px 60px; }
     .do-dont-grid { grid-template-columns: 1fr; }
     .peel-grid { grid-template-columns: 1fr; }
@@ -688,7 +712,7 @@
 
 <!-- HEADER -->
 <header class="site-header">
-  <a href="../index.html" style="color:var(--muted);text-decoration:none;font-size:13px;white-space:nowrap;font-family:'Fira Code',monospace;">← Portal</a>
+  <a href="../index.html" style="color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap;font-family:'Fira Code',monospace;">← Portal</a>
   <div class="header-logo">IELTS Speaking</div>
   <div class="header-title">Margo — IELTS Speaking: Technology &amp; Digital Minimalism</div>
   <div class="header-meta">Lesson 5 · B2→7.0+</div>
@@ -699,7 +723,7 @@
 <div class="layout">
 
   <!-- SIDEBAR -->
-  <nav class="sidebar">
+  <nav class="sidebar" role="tablist">
     <div class="sidebar-label">Lesson Slides</div>
     <button class="nav-btn active" onclick="showSlide(1)">
       <span class="nav-num">01</span><span>Warm-up</span>
@@ -727,7 +751,7 @@
     <!-- ====================================================
          SLIDE 1: WARM-UP SHADOWING
     ==================================================== -->
-    <div class="slide active" id="slide1">
+    <div class="slide active" role="tabpanel" id="slide1">
       <div class="slide-header">
         <span class="slide-num">01</span>
         <div>
@@ -737,11 +761,11 @@
       </div>
 
       <div class="card">
-        <div class="card-title">
+        <h2 class="card-title">
           <span class="dot" style="background:var(--primary)"></span>
           Shadowing Text — Digital Minimalism
           <span class="tempo-badge speaking" id="tempoBadge">Speaking Tempo</span>
-        </div>
+        </h2>
 
         <!-- Tempo Switch -->
         <div class="tempo-switch-wrap">
@@ -754,10 +778,10 @@
         <div id="shadowing-text" class="shadowing-text"></div>
         <div class="wave-canvas-wrap"><canvas id="waveCanvas" width="800" height="60"></canvas></div>
         <div style="display:flex;align-items:center;gap:12px;margin:0.5rem 0;">
-          <span style="font-size:13px;color:var(--muted);">Speed:</span>
-          <button class="speed-btn" onclick="changeSpeed(0.75)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--border);color:var(--muted);border:1px solid transparent;cursor:pointer;font-family:'Fira Code',monospace;">0.75x</button>
-          <button class="speed-btn active" onclick="changeSpeed(1.0)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--primary-dim);color:var(--primary);border:1px solid rgba(16,185,129,0.4);cursor:pointer;font-family:'Fira Code',monospace;">1.0x</button>
-          <button class="speed-btn" onclick="changeSpeed(1.25)" style="padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;background:var(--border);color:var(--muted);border:1px solid transparent;cursor:pointer;font-family:'Fira Code',monospace;">1.25x</button>
+          <span style="font-size:14px;color:var(--muted);">Speed:</span>
+          <button class="speed-btn" onclick="changeSpeed(0.75)" style="padding:10px 14px;border-radius:7px;font-size:14px;font-weight:600;background:var(--border);color:var(--muted);border:1px solid transparent;cursor:pointer;font-family:'Fira Code',monospace;">0.75x</button>
+          <button class="speed-btn active" onclick="changeSpeed(1.0)" style="padding:10px 14px;border-radius:7px;font-size:14px;font-weight:600;background:var(--primary-dim);color:var(--primary);border:1px solid rgba(16,185,129,0.4);cursor:pointer;font-family:'Fira Code',monospace;">1.0x</button>
+          <button class="speed-btn" onclick="changeSpeed(1.25)" style="padding:10px 14px;border-radius:7px;font-size:14px;font-weight:600;background:var(--border);color:var(--muted);border:1px solid transparent;cursor:pointer;font-family:'Fira Code',monospace;">1.25x</button>
           <span id="shadowing-timer" style="font-family:'Fira Code';font-size:1.1rem;background:rgba(0,0,0,0.4);padding:0.35rem 0.875rem;border-radius:4px;border:1px solid var(--border);margin-left:auto;">00:00</span>
         </div>
         <button class="btn btn-secondary listen-btn" onclick="toggleSpeaking()">Listen Guide</button>
@@ -798,7 +822,7 @@
     <!-- ====================================================
          SLIDE 2: PART 1 QUESTIONS
     ==================================================== -->
-    <div class="slide" id="slide2">
+    <div class="slide" role="tabpanel" id="slide2">
       <div class="slide-header">
         <span class="slide-num">02</span>
         <div>
@@ -808,7 +832,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>IELTS Part 1 Questions</div>
+        <h2 class="card-title"><span class="dot" style="background:var(--blue)"></span>IELTS Part 1 Questions</h2>
         <ul class="question-list">
           <li class="question-item"><span class="q-num">1</span><span class="q-text">Do you use technology a lot in your daily life? Which devices or apps do you find most useful?</span></li>
           <li class="question-item"><span class="q-num">2</span><span class="q-text">Have you ever tried to reduce the amount of time you spend on your phone or social media? Why / Why not?</span></li>
@@ -819,7 +843,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--amber)"></span>Exam Strategy: Do &amp; Don't</div>
+        <h2 class="card-title"><span class="dot" style="background:var(--amber)"></span>Exam Strategy: Do &amp; Don't</h2>
         <div class="do-dont-grid">
           <div class="do-box">
             <div class="box-title">✓ DO</div>
@@ -845,30 +869,30 @@
       </div>
 
       <div class="card" style="border-color:rgba(59,130,246,0.3);">
-        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — Say It Naturally</div>
+        <h2 class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — Say It Naturally</h2>
         <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">Listen to natural spoken versions of common Part 1 answers. Tap ▶ to hear the British voice, then shadow it yourself.</p>
         <div style="display:grid;gap:10px;">
           <div class="st-row">
-            <div class="st-spoken"><strong style="color:var(--blue);">"Honestly? I'm on my phone pretty much all day." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','1')" data-pair-key="l5-slide2-1">▶</button></strong></div>
+            <div class="st-spoken"><strong style="color:var(--blue);">"Honestly? I'm on my phone pretty much all day." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','1')" aria-label="Play model audio" data-pair-key="l5-slide2-1">▶</button></strong></div>
             <div class="st-why">Contraction + rhetorical question opener</div>
           </div>
           <div class="st-row">
-            <div class="st-spoken"><strong style="color:var(--blue);">"What gets me is how much our relationship with technology has changed — and how fast." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','2')" data-pair-key="l5-slide2-2">▶</button></strong></div>
+            <div class="st-spoken"><strong style="color:var(--blue);">"What gets me is how much our relationship with technology has changed — and how fast." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','2')" aria-label="Play model audio" data-pair-key="l5-slide2-2">▶</button></strong></div>
             <div class="st-why">Fronted clause + shorter rhythm</div>
           </div>
           <div class="st-row">
-            <div class="st-spoken"><strong style="color:var(--blue);">"So I deleted Instagram. Just like that." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','3')" data-pair-key="l5-slide2-3">▶</button></strong></div>
+            <div class="st-spoken"><strong style="color:var(--blue);">"So I deleted Instagram. Just like that." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','3')" aria-label="Play model audio" data-pair-key="l5-slide2-3">▶</button></strong></div>
             <div class="st-why">Two short sentences = emphasis</div>
           </div>
           <div class="st-row">
-            <div class="st-spoken"><strong style="color:var(--blue);">"It actually makes a real difference to your wellbeing." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','4')" data-pair-key="l5-slide2-4">▶</button></strong></div>
+            <div class="st-spoken"><strong style="color:var(--blue);">"It actually makes a real difference to your wellbeing." <button class="pair-play-btn" onclick="playSlidePair('l5','slide2','4')" aria-label="Play model audio" data-pair-key="l5-slide2-4">▶</button></strong></div>
             <div class="st-why">"Actually" placed mid-sentence, not fronted</div>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--purple)"></span>Vocabulary Upgrade — Click a Chip to Expand</div>
+        <h2 class="card-title"><span class="dot" style="background:var(--purple)"></span>Vocabulary Upgrade — Click a Chip to Expand</h2>
         <div class="chip-grid" id="p1Chips"></div>
         <div id="p1ChipPanel" class="chip-panel"></div>
       </div>
@@ -877,7 +901,7 @@
     <!-- ====================================================
          SLIDE 3: PART 2 CUE CARD + PEEL
     ==================================================== -->
-    <div class="slide" id="slide3">
+    <div class="slide" role="tabpanel" id="slide3">
       <div class="slide-header">
         <span class="slide-num">03</span>
         <div>
@@ -914,7 +938,7 @@
       </div>
 
       <div class="card" style="border-color:rgba(59,130,246,0.3);">
-        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — PEEL Sentence Starters</div>
+        <h2 class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — PEEL Sentence Starters</h2>
         <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">These versions use spoken discourse markers instead of written transitions. Practice delivering them aloud — notice where you naturally pause.</p>
         <div class="peel-grid">
           <div class="flip-card" onclick="this.classList.toggle('flipped')">
@@ -927,7 +951,7 @@
               <div class="flip-back">
                 <div class="flip-tag" style="color:var(--blue);">Speaking Starters</div>
                 <div class="flip-starters">
-                  <strong style="color:var(--blue);">• "OK so the tech I decided to ditch was…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','1')" data-pair-key="l5-slide3-1">▶</button></strong><br>
+                  <strong style="color:var(--blue);">• "OK so the tech I decided to ditch was…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','1')" aria-label="Play model audio" data-pair-key="l5-slide3-1">▶</button></strong><br>
                   • "I eventually decided to step back from…"<br>
                   • "There came a point where I just thought — enough."
                 </div>
@@ -944,7 +968,7 @@
               <div class="flip-back">
                 <div class="flip-tag" style="color:var(--blue);">Speaking Starters</div>
                 <div class="flip-starters">
-                  <strong style="color:var(--blue);">• "What happened was — I'd been spending like…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','2')" data-pair-key="l5-slide3-2">▶</button></strong><br>
+                  <strong style="color:var(--blue);">• "What happened was — I'd been spending like…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','2')" aria-label="Play model audio" data-pair-key="l5-slide3-2">▶</button></strong><br>
                   • "The moment I realised things had gone too far was when…"<br>
                   • "I remember one evening I just looked at my screen time and…"
                 </div>
@@ -961,7 +985,7 @@
               <div class="flip-back">
                 <div class="flip-tag" style="color:var(--blue);">Speaking Starters</div>
                 <div class="flip-starters">
-                  <strong style="color:var(--blue);">• "The thing that surprised me most was how quickly…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','3')" data-pair-key="l5-slide3-3">▶</button></strong><br>
+                  <strong style="color:var(--blue);">• "The thing that surprised me most was how quickly…" <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','3')" aria-label="Play model audio" data-pair-key="l5-slide3-3">▶</button></strong><br>
                   • "It actually had a pretty big impact on my daily life."<br>
                   • "I started to notice that my mood was — you know — better."
                 </div>
@@ -978,7 +1002,7 @@
               <div class="flip-back">
                 <div class="flip-tag" style="color:var(--blue);">Speaking Starters</div>
                 <div class="flip-starters">
-                  <strong style="color:var(--blue);">• "So yeah — I'd definitely tell other people to give it a try." <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','4')" data-pair-key="l5-slide3-4">▶</button></strong><br>
+                  <strong style="color:var(--blue);">• "So yeah — I'd definitely tell other people to give it a try." <button class="pair-play-btn" onclick="playSlidePair('l5','slide3','4')" aria-label="Play model audio" data-pair-key="l5-slide3-4">▶</button></strong><br>
                   • "At the end of the day, the pros outweighed the cons for me."<br>
                   • "I mean, it's not for everyone, but in my case it really worked."
                 </div>
@@ -989,8 +1013,8 @@
       </div>
 
       <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>🎙 Live Vocabulary Tracker — Web Speech Recognition</div>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Speak your Part 2 answer. Target words light up in emerald when detected in the transcript.</p>
+        <h2 class="card-title"><span class="dot" style="background:var(--primary)"></span>🎙 Live Vocabulary Tracker — Web Speech Recognition</h2>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:14px;">Speak your Part 2 answer. Target words light up in emerald when detected in the transcript.</p>
         <div class="chip-grid" id="vocabTrackerPills" style="margin-bottom:16px;"></div>
         <div class="btn-group">
           <button class="btn btn-primary" id="startTrackerBtn" onclick="startVocabTracker()">🎙 Start Tracker</button>
@@ -1004,7 +1028,7 @@
     <!-- ====================================================
          SLIDE 4: PART 3 DISCUSSION
     ==================================================== -->
-    <div class="slide" id="slide4">
+    <div class="slide" role="tabpanel" id="slide4">
       <div class="slide-header">
         <span class="slide-num">04</span>
         <div>
@@ -1014,14 +1038,14 @@
       </div>
 
       <div class="card" style="border-color:rgba(59,130,246,0.3);">
-        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — Part 3 Frameworks</div>
+        <h2 class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Speaking Tempo — Part 3 Frameworks</h2>
         <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">Tap each question to see a spoken framework. Use the ▶ button to hear the British voice deliver it, then practise saying it yourself with natural pausing and shorter clauses.</p>
 
         <details class="p3-question" style="border-color:rgba(59,130,246,0.2);">
           <summary>
             <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q1</span>
             Do you think technology companies have a responsibility to help users manage their screen time?
-            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','1')" data-pair-key="l5-slide4-1" style="float:right;">▶</button>
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','1')" aria-label="Play model audio" data-pair-key="l5-slide4-1" style="float:right;">▶</button>
           </summary>
           <div class="p3-framework">
             <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"I think companies absolutely have a responsibility here. I mean, these platforms are designed to keep you scrolling — that's not an accident."</em></div></div>
@@ -1035,7 +1059,7 @@
           <summary>
             <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q2</span>
             How has the widespread use of smartphones changed the way people communicate?
-            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','2')" data-pair-key="l5-slide4-2" style="float:right;">▶</button>
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','2')" aria-label="Play model audio" data-pair-key="l5-slide4-2" style="float:right;">▶</button>
           </summary>
           <div class="p3-framework">
             <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"Smartphones have completely changed how we talk to each other — and honestly, not always for the better."</em></div></div>
@@ -1049,7 +1073,7 @@
           <summary>
             <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q3</span>
             Some people believe that digital detoxing is just a trend for wealthy people. Do you agree?
-            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','3')" data-pair-key="l5-slide4-3" style="float:right;">▶</button>
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','3')" aria-label="Play model audio" data-pair-key="l5-slide4-3" style="float:right;">▶</button>
           </summary>
           <div class="p3-framework">
             <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"There's some truth to that. If you're working multiple jobs or rely on your phone for income, switching off isn't really an option."</em></div></div>
@@ -1063,7 +1087,7 @@
           <summary>
             <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q4</span>
             What might be the long-term consequences of children growing up with constant access to digital devices?
-            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','4')" data-pair-key="l5-slide4-4" style="float:right;">▶</button>
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','4')" aria-label="Play model audio" data-pair-key="l5-slide4-4" style="float:right;">▶</button>
           </summary>
           <div class="p3-framework">
             <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"I think we're only just starting to understand the long-term effects — and some of the early signs are worrying."</em></div></div>
@@ -1077,7 +1101,7 @@
           <summary>
             <span class="p3-q-num" style="background:var(--blue-dim);color:var(--blue);border-color:rgba(59,130,246,0.3);">Q5</span>
             Should governments regulate how much data technology companies can collect from users?
-            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','5')" data-pair-key="l5-slide4-5" style="float:right;">▶</button>
+            <button class="pair-play-btn" onclick="playSlidePair('l5','slide4','5')" aria-label="Play model audio" data-pair-key="l5-slide4-5" style="float:right;">▶</button>
           </summary>
           <div class="p3-framework">
             <div class="fw-row"><div class="fw-label" style="color:var(--blue);">Position</div><div class="fw-content"><em style="color:var(--blue);">"In my opinion, yes — I think some level of regulation is not just desirable but necessary."</em></div></div>
@@ -1092,7 +1116,7 @@
     <!-- ====================================================
          SLIDE 5: MODEL RESPONSE
     ==================================================== -->
-    <div class="slide" id="slide5">
+    <div class="slide" role="tabpanel" id="slide5">
       <div class="slide-header">
         <span class="slide-num">05</span>
         <div>
@@ -1102,7 +1126,7 @@
       </div>
 
       <div class="card" style="border-color:rgba(59,130,246,0.3);">
-        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Model Answer — Full Recording</div>
+        <h2 class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Model Answer — Full Recording</h2>
         <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">~130 words delivered at natural speaking pace. Listen to the full answer, then practise shadowing it section by section.</p>
 
         <div class="model-player">
@@ -1111,7 +1135,7 @@
             <div class="model-progress-fill" id="modelProgress"></div>
           </div>
           <span class="model-time" id="modelTime">00:00 / 00:00</span>
-          <button class="model-stop-btn" onclick="stopModelPlay()">⏹</button>
+          <button class="model-stop-btn" onclick="stopModelPlay()" aria-label="Stop model audio">⏹</button>
         </div>
 
         <div class="model-speaking-text">
@@ -1131,8 +1155,8 @@
       </div>
 
       <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Compare My Response — Word Frequency Analyser</div>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Speak your Part 2 answer directly (Chrome only) or paste a transcript. Then click Analyse to compare vocabulary breadth with the model.</p>
+        <h2 class="card-title"><span class="dot" style="background:var(--blue)"></span>Compare My Response — Word Frequency Analyser</h2>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">Speak your Part 2 answer directly (Chrome only) or paste a transcript. Then click Analyse to compare vocabulary breadth with the model.</p>
         <textarea class="compare-textarea" id="compareInput" placeholder="Your transcript appears here as you speak, or paste one…"></textarea>
         <div class="btn-group">
           <button class="btn btn-red" onclick="startCompareRecord()" id="compareRecordBtn">🎤 Speak & Analyse</button>
@@ -1143,7 +1167,7 @@
         <span id="compareRecStatus" style="font-size:12px;color:var(--muted);margin-top:8px;display:inline-block;"></span>
         <div class="compare-result" id="compareResult">
           <div class="compare-stats" id="compareStats"></div>
-          <div id="compareWords" style="margin-top:16px;font-size:13px;line-height:1.8;"></div>
+          <div id="compareWords" style="margin-top:16px;font-size:14px;line-height:1.8;"></div>
         </div>
       </div>
     </div>
@@ -1151,9 +1175,9 @@
     <!-- ====================================================
          SLIDE 7: HOMEWORK
     ==================================================== -->
-    <div class="slide" id="slide6">
+    <div class="slide" role="tabpanel" id="slide6">
       <div class="slide-header">
-        <span class="slide-num">07</span>
+        <span class="slide-num">06</span>
         <div>
           <div class="slide-title">Homework</div>
           <div class="slide-subtitle">Practice tasks &amp; vocabulary to prepare for next session</div>
@@ -1201,7 +1225,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>Vocabulary Collocations — 3 Categories, 8 Phrases</div>
+        <h2 class="card-title"><span class="dot" style="background:var(--primary)"></span>Vocabulary Collocations — 3 Categories, 8 Phrases</h2>
         <div class="colloc-grid">
           <div class="colloc-card digital">
             <div class="cat-label">Digital Habits</div>
@@ -1251,7 +1275,7 @@
         <div>
           <div class="next-label">Next Lesson Preview</div>
           <div class="next-title">Lesson 6 — Band 7+ Grammar: Subordination, Conditionals &amp; Participle Clauses</div>
-          <div style="font-size:13px;color:var(--muted);margin-top:6px;">Mixed conditionals · Reduced relative clauses · Fronted adverbials · Complex sentence embedding</div>
+          <div style="font-size:14px;color:var(--muted);margin-top:6px;">Mixed conditionals · Reduced relative clauses · Fronted adverbials · Complex sentence embedding</div>
         </div>
       </div>
     </div>
@@ -1794,7 +1818,7 @@ function analyseResponse() {
   const displayWords = modelOnly.slice(0,35);
   const remainder = modelOnly.length - displayWords.length;
   wordsEl.innerHTML = `
-    <div><span style="color:var(--amber);font-weight:700;font-size:13px;">Model words you didn't use — add these to your active vocabulary:</span><br><br>
+    <div><span style="color:var(--amber);font-weight:700;font-size:14px;">Model words you didn't use — add these to your active vocabulary:</span><br><br>
     ${displayWords.map(w => `<span class="ann-badge am">${w}</span>`).join(' ')}
     ${remainder > 0 ? `<span style="color:var(--muted);font-size:12px;"> +${remainder} more</span>` : ''}
     </div>`;
@@ -1925,6 +1949,28 @@ syncTempoUI(SpeakingTempoEngine.getTempo());
 SpeakingTempoEngine.on(function(ev) {
   if (ev.type === 'tempo-change') syncTempoUI(ev.detail.tempo);
 });
+
+// Mobile nav toggle
+document.getElementById('mobileNavToggle').addEventListener('click', function() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+});
+document.getElementById('sidebarOverlay').addEventListener('click', function() {
+  document.querySelector('.sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+});
+
+// Close sidebar on slide change on mobile
+var origShowSlide = showSlide;
+showSlide = function(n) {
+  origShowSlide(n);
+  if (window.innerWidth <= 768) {
+    document.querySelector('.sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  }
+};
 </script>
+<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open lesson navigation">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 </body>
 </html>
