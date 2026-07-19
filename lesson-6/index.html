@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Margo — IELTS Speaking Mock: Success, Ambition & Role Models</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#090d16; --card:#131a26; --border:#243042;
+  --primary:#f59e0b; --primary-dim:rgba(245,158,11,0.12);
+  --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.12);
+  --amber:#f59e0b; --amber-dim:rgba(245,158,11,0.12);
+  --green:#10b981; --green-dim:rgba(16,185,129,0.12);
+  --red:#ef4444; --red-dim:rgba(239,68,68,0.12);
+  --purple:#8b5cf6; --purple-dim:rgba(139,92,246,0.12);
+  --text:#e2e8f0; --muted:#64748b;
+  --sidebar-w:220px; --header-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;overflow-wrap:break-word;word-break:break-word}
+
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);background:rgba(9,13,22,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:16px}
+.header-logo{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--primary);text-transform:uppercase;background:var(--primary-dim);border:1px solid rgba(245,158,11,0.3);padding:4px 10px;border-radius:6px;font-family:'Fira Code',monospace;white-space:nowrap}
+.header-title{font-size:15px;font-weight:600;color:var(--text);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-meta{font-size:12px;color:var(--muted);font-family:'Fira Code',monospace;white-space:nowrap}
+.progress-bar-wrap{position:fixed;top:var(--header-h);left:0;right:0;z-index:99;height:3px;background:var(--border)}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--blue));transition:width 0.4s ease;box-shadow:0 0 10px var(--primary);width:14.28%}
+
+.layout{display:flex;padding-top:calc(var(--header-h) + 3px);min-height:100vh}
+
+.sidebar{width:var(--sidebar-w);flex-shrink:0;position:sticky;top:calc(var(--header-h) + 3px);height:calc(100vh - var(--header-h) - 3px);overflow-y:auto;border-right:1px solid var(--border);background:rgba(19,26,38,0.5);padding:16px 12px;display:flex;flex-direction:column;gap:4px}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.sidebar-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:8px 12px 12px}
+.nav-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;background:transparent;border:none;border-radius:10px;color:var(--muted);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.2s;text-align:left}
+.nav-btn:hover{background:var(--primary-dim);color:var(--text)}
+.nav-btn.active{background:var(--primary-dim);color:var(--primary);border:1px solid rgba(245,158,11,0.25)}
+.nav-num{font-family:'Fira Code',monospace;font-size:11px;font-weight:700;width:28px;text-align:center;flex-shrink:0;color:var(--muted)}
+.nav-btn.active .nav-num{color:var(--primary)}
+
+.main{flex:1;max-width:1000px;margin:0 auto;padding:0 32px 80px}
+
+.slide{display:none;animation:fadeIn 0.35s ease}
+.slide.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.slide-header{margin-bottom:24px}
+.slide-num{font-family:'Fira Code',monospace;font-size:12px;font-weight:700;color:var(--muted);letter-spacing:2px;margin-bottom:4px}
+.slide-title{font-size:26px;font-weight:700;color:var(--text)}
+.slide-subtitle{font-size:14px;color:var(--muted);margin-top:4px}
+
+.hero-banner{position:relative;border-radius:16px;overflow:hidden;margin-bottom:24px;min-height:200px;background:linear-gradient(135deg,#1a0a00,#2d1a00)}
+.hero-banner img{width:100%;height:200px;object-fit:cover;opacity:0.35}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(9,13,22,0.85) 0%, rgba(9,13,22,0.4) 100%)}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:24px 32px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--primary-dim);border:1px solid rgba(245,158,11,0.3);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;color:var(--primary);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;width:fit-content}
+.hero-title{font-size:28px;font-weight:800;color:#fff;margin-bottom:4px;line-height:1.2}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.6)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px}
+.card-title{font-size:14px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;display:inline-block}
+
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;line-height:1}
+.btn-primary{background:var(--primary);color:#000}
+.btn-primary:hover{background:#d97706}
+.btn-secondary{background:var(--card);color:var(--muted);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--border);color:var(--text)}
+.btn-blue{background:var(--blue);color:#000}
+.btn-blue:hover{background:#2563eb}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#dc2626}
+.btn-green{background:var(--green);color:#000}
+.btn-green:hover{background:#059669}
+.btn-sm{padding:6px 12px;font-size:12px}
+
+.timer-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.timer-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 20px;flex:1;min-width:140px;text-align:center;transition:all 0.3s}
+.timer-box.active-timer{border-color:var(--primary);box-shadow:0 0 12px rgba(245,158,11,0.15)}
+.timer-label{font-size:12px;color:var(--muted);margin-bottom:6px}
+.timer-display{font-family:'Fira Code',monospace;font-size:28px;font-weight:700;color:var(--text)}
+.timer-box.active-timer .timer-display{color:var(--primary)}
+
+.rec-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:20px;font-family:'Fira Code',monospace;font-size:12px;font-weight:700;transition:all 0.3s;border:1px solid var(--border)}
+.rec-indicator.off{background:var(--red-dim);color:var(--muted)}
+.rec-indicator.recording{background:var(--red-dim);color:var(--red);border-color:var(--red);animation:pulse 1.5s infinite}
+.rec-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+.rec-indicator.recording .rec-dot{background:var(--red)}
+.rec-indicator.off .rec-dot{background:var(--muted)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+.part-q{margin-bottom:14px;padding:10px 14px;background:rgba(9,13,22,0.4);border-radius:10px;border-left:3px solid var(--primary)}
+.part-q .q-num{font-family:'Fira Code',monospace;font-size:13px;font-weight:700;color:var(--primary)}
+.part-q .q-text{font-size:14px;line-height:1.6;color:var(--text)}
+
+/* Cue Card Deck */
+.card-deck{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.card-deck-item{aspect-ratio:3/4;background:linear-gradient(145deg,#1a1a2e,#16213e);border:2px solid var(--border);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden}
+.card-deck-item:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.card-deck-item.selected{border-color:var(--primary);box-shadow:0 0 24px rgba(245,158,11,0.2)}
+.card-deck-item.revealed{background:linear-gradient(145deg,#2d1a00,#1a0a00);cursor:default}
+.card-deck-item .card-icon{font-size:36px;opacity:0.4}
+.card-deck-item .card-label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.card-deck-item .card-corner{position:absolute;top:10px;right:12px;font-family:'Fira Code',monospace;font-size:11px;color:var(--muted)}
+.card-deck-item .sel-badge{position:absolute;top:8px;left:8px;background:var(--primary);color:#000;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px}
+@keyframes shuffle{0%{transform:rotate(0deg) translateY(0)}25%{transform:rotate(-3deg) translateY(-6px)}50%{transform:rotate(3deg) translateY(-3px)}75%{transform:rotate(-2deg) translateY(-2px)}100%{transform:rotate(0deg) translateY(0)}}
+.card-deck-item.shuffling{animation:shuffle 0.4s ease}
+
+.cue-card-reveal{background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(59,130,246,0.04));border:2px solid rgba(245,158,11,0.3);border-radius:14px;padding:24px;margin-bottom:16px}
+.cue-card-reveal .topic{font-size:20px;font-weight:700;color:var(--primary);margin-bottom:12px}
+.cue-card-reveal .instruction{font-size:13px;color:var(--muted);margin-bottom:12px}
+.cue-card-reveal .bullets{list-style:none;padding:0}
+.cue-card-reveal .bullets li{padding:7px 0 7px 24px;position:relative;font-size:14px;color:var(--muted);line-height:1.5}
+.cue-card-reveal .bullets li::before{content:'◆';position:absolute;left:0;color:var(--primary);font-size:10px}
+
+.p3-set-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.p3-set-card{border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all 0.2s;margin-bottom:8px}
+.p3-set-card:hover{background:var(--primary-dim);border-color:rgba(245,158,11,0.3)}
+
+.band-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.band-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+.band-criterion{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.band-score-input{width:64px;padding:6px 10px;text-align:center;background:rgba(9,13,22,0.6);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Fira Code',monospace;font-size:20px;font-weight:700;outline:none;transition:border-color 0.2s}
+.band-score-input:focus{border-color:var(--primary)}
+
+/* Band Thermometer */
+.band-thermo{display:flex;align-items:stretch;gap:16px;padding:16px 0}
+.band-scale{display:flex;flex-direction:column-reverse;width:40px;background:rgba(9,13,22,0.6);border-radius:20px;border:1px solid var(--border);overflow:hidden;position:relative}
+.band-fill{position:absolute;bottom:0;left:0;right:0;border-radius:0 0 20px 20px;transition:height 0.5s ease;background:linear-gradient(to top,var(--red),var(--amber),var(--green),var(--primary))}
+.band-labels{display:flex;flex-direction:column-reverse;justify-content:space-between;font-size:11px;font-family:'Fira Code',monospace;color:var(--muted);padding:4px 0}
+.band-arrow{position:absolute;right:-16px;font-size:16px;transition:bottom 0.5s ease}
+
+/* Chip grid */
+.chip-grid{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;cursor:default;transition:all 0.2s}
+
+.feedback-table{width:100%;border-collapse:collapse;font-size:13px}
+.feedback-table th{text-align:left;padding:10px 14px;background:rgba(9,13,22,0.6);border:1px solid var(--border);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.feedback-table td{padding:11px 14px;border:1px solid var(--border);vertical-align:top}
+.feedback-table tr:hover td{background:rgba(255,255,255,0.02)}
+.type-badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px}
+.type-lex{background:var(--blue-dim);color:var(--blue)}
+.type-gram{background:var(--amber-dim);color:var(--amber)}
+.type-cohe{background:var(--purple-dim);color:var(--purple)}
+.type-pron{background:var(--red-dim);color:var(--red)}
+
+.corr-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
+.corr-label{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:4px;letter-spacing:1px;text-transform:uppercase}
+.input-field{width:100%;background:rgba(9,13,22,0.6);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s}
+.input-field:focus{border-color:var(--blue)}
+textarea.notepad{width:100%;min-height:100px;background:rgba(9,13,22,0.6);border:1px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;resize:vertical;outline:none;line-height:1.7;transition:border-color 0.2s}
+textarea.notepad:focus{border-color:var(--blue)}
+
+.hw-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px}
+.hw-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--primary);color:#000;font-weight:800;font-size:13px;margin-bottom:10px}
+.hw-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px}
+.hw-body{font-size:14px;line-height:1.75;color:var(--muted)}
+
+.colloc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.colloc-card{background:rgba(9,13,22,0.5);border-radius:12px;padding:14px 16px;border-left:3px solid;transition:transform 0.2s}
+.colloc-card:hover{transform:translateY(-2px)}
+.colloc-card.ambition{border-color:var(--primary)}
+.colloc-card.success{border-color:var(--green)}
+.colloc-card.role{border-color:var(--blue)}
+.colloc-card.achieve{border-color:var(--purple)}
+.colloc-card .cat{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.colloc-card .phrase{font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px}
+.colloc-card .example{font-size:12px;color:var(--muted);line-height:1.5}
+.colloc-card.ambition .cat{color:var(--primary)}
+.colloc-card.success .cat{color:var(--green)}
+.colloc-card.role .cat{color:var(--blue)}
+.colloc-card.achieve .cat{color:var(--purple)}
+
+@media(max-width:768px){
+  .sidebar{display:none}
+  .main{padding:0 16px 80px}
+  .band-grid{grid-template-columns:1fr}
+  .corr-grid{grid-template-columns:1fr}
+  .timer-row{flex-direction:column}
+  .card-deck{grid-template-columns:1fr 1fr}
+  .hero-content{padding:16px 20px}
+  .hero-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <span class="header-logo">IELTS MOCK</span>
+  <span class="header-title">Success, Ambition &amp; Role Models</span>
+  <span class="header-meta">Margo · L6</span>
+</header>
+<div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-label">Test Sections</div>
+    <button class="nav-btn active" onclick="showSlide(1)"><span class="nav-num">01</span><span>Part 1</span></button>
+    <button class="nav-btn" onclick="showSlide(2)"><span class="nav-num">02</span><span>Part 2</span></button>
+    <button class="nav-btn" onclick="showSlide(3)"><span class="nav-num">03</span><span>Part 3</span></button>
+    <button class="nav-btn" onclick="showSlide(4)"><span class="nav-num">04</span><span>Harvest</span></button>
+    <button class="nav-btn" onclick="showSlide(5)"><span class="nav-num">05</span><span>Band Score</span></button>
+    <button class="nav-btn" onclick="showSlide(6)"><span class="nav-num">06</span><span>Corrections</span></button>
+    <button class="nav-btn" onclick="showSlide(7)"><span class="nav-num">07</span><span>Homework</span></button>
+  </nav>
+
+  <main class="main">
+
+    <!-- ===== SLIDE 1: PART 1 ===== -->
+    <div class="slide active" id="slide1">
+      <div class="hero-banner">
+        <img src="images/hero-success.jpg" alt="Mountain vista at sunrise — aspirational view" loading="lazy">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            IELTS Speaking Mock
+          </div>
+          <div class="hero-title">Success, Ambition &amp; Role Models</div>
+          <div class="hero-sub">Full simulated test · Part 1 → Part 2 → Part 3 · Band Score Analysis</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--amber)"></span>📋 What Band 7+ Sounds Like</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Read this silently before we start. These are the criteria your responses will be measured against today.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px;">
+          <div style="background:var(--green-dim);border:1px solid rgba(16,185,129,0.2);border-radius:10px;padding:12px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <strong style="color:var(--green);">Fluency & Coherence</strong>
+            </div>
+            <div style="color:var(--muted);line-height:1.6;">Speak at length without noticeable effort. Use discourse markers flexibly. Organise ideas logically.</div>
+          </div>
+          <div style="background:var(--blue-dim);border:1px solid rgba(59,130,246,0.2);border-radius:10px;padding:12px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              <strong style="color:var(--blue);">Lexical Resource</strong>
+            </div>
+            <div style="color:var(--muted);line-height:1.6;">Wide vocabulary range. Use less common and idiomatic language. Paraphrase effectively.</div>
+          </div>
+          <div style="background:var(--amber-dim);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:12px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+              <strong style="color:var(--amber);">Grammatical Range</strong>
+            </div>
+            <div style="color:var(--muted);line-height:1.6;">Use a wide range of structures flexibly. Mostly error-free sentences.</div>
+          </div>
+          <div style="background:var(--red-dim);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:12px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              <strong style="color:var(--red);">Pronunciation</strong>
+            </div>
+            <div style="color:var(--muted);line-height:1.6;">Use a range of features (stress, intonation, rhythm). Easy to understand throughout.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap;">
+        <div class="rec-indicator off" id="rec1">
+          <span class="rec-dot"></span><span id="rec1Status">REC OFF</span>
+        </div>
+        <span style="font-size:13px;color:var(--muted);font-style:italic;">Examiner: "Hello — can you tell me your full name, please?"</span>
+      </div>
+
+      <div id="p1Intro" class="card">
+        <div class="card-title"><span class="dot" style="background:var(--green)"></span>🎙 Introduction (not scored, but sets the tone)</div>
+        <div class="part-q"><span class="q-num">1.</span> <span class="q-text">What's your full name?</span></div>
+        <div class="part-q"><span class="q-num">2.</span> <span class="q-text">Where are you from?</span></div>
+        <div class="part-q"><span class="q-num">3.</span> <span class="q-text">Can I see your ID, please?</span></div>
+        <div class="btn-group"><button class="btn btn-primary" onclick="startPart1()">▶ Begin Test — Start Part 1</button></div>
+      </div>
+
+      <div id="p1Body" style="display:none;">
+        <div class="card" style="border-color:rgba(16,185,129,0.3);" id="p1t1Card">
+          <div class="card-title"><span class="dot" style="background:var(--green)"></span>🗣 Topic Set 1: Work / Study</div>
+          <div class="part-q"><span class="q-num">1.</span> <span class="q-text">Do you work or are you a student?</span></div>
+          <div class="part-q"><span class="q-num">2.</span> <span class="q-text">What subject(s) are you studying?</span></div>
+          <div class="part-q"><span class="q-num">3.</span> <span class="q-text">What do you enjoy most about your studies?</span></div>
+          <div class="timer-row"><div class="timer-box active-timer" id="p1t1Timer"><div class="timer-label">⏱ Topic 1</div><div class="timer-display" id="p1t1Disp">1:30</div></div></div>
+          <div class="btn-group"><button class="btn btn-blue" onclick="nextP1Topic(2)">→ Topic 2: Ambition & Goals</button></div>
+        </div>
+        <div class="card" style="border-color:rgba(59,130,246,0.3);display:none;" id="p1t2Card">
+          <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Topic Set 2: Ambition & Goals</div>
+          <div class="part-q"><span class="q-num">1.</span> <span class="q-text">What are your ambitions for the future?</span></div>
+          <div class="part-q"><span class="q-num">2.</span> <span class="q-text">Do you think it's important to set goals? Why?</span></div>
+          <div class="part-q"><span class="q-num">3.</span> <span class="q-text">Who has influenced your ambitions most?</span></div>
+          <div class="timer-row"><div class="timer-box active-timer" id="p1t2Timer"><div class="timer-label">⏱ Topic 2</div><div class="timer-display" id="p1t2Disp">1:30</div></div></div>
+          <div class="btn-group"><button class="btn btn-blue" onclick="nextP1Topic(3)">→ Topic 3: Defining Success</button></div>
+        </div>
+        <div class="card" style="border-color:rgba(245,158,11,0.3);display:none;" id="p1t3Card">
+          <div class="card-title"><span class="dot" style="background:var(--amber)"></span>🗣 Topic Set 3: Defining Success</div>
+          <div class="part-q"><span class="q-num">1.</span> <span class="q-text">How do you define success in life?</span></div>
+          <div class="part-q"><span class="q-num">2.</span> <span class="q-text">Do you think successful people share common qualities?</span></div>
+          <div class="part-q"><span class="q-num">3.</span> <span class="q-text">Is it more important to be successful or to be happy?</span></div>
+          <div class="timer-row"><div class="timer-box active-timer" id="p1t3Timer"><div class="timer-label">⏱ Topic 3</div><div class="timer-display" id="p1t3Disp">1:30</div></div></div>
+          <div class="btn-group"><button class="btn btn-green" onclick="endPart1()">✓ End Part 1 → Proceed to Part 2</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SLIDE 2: PART 2 ===== -->
+    <div class="slide" id="slide2">
+      <div class="slide-header">
+        <span class="slide-num">02</span>
+        <div>
+          <div class="slide-title">Part 2: Cue Card</div>
+          <div class="slide-subtitle">Draw a card → 1 min prep → 2 min speak → follow-up questions</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--amber)"></span>🎯 Examiner Says:</div>
+        <p style="font-size:14px;color:var(--muted);font-style:italic;padding:6px 0;">"Now I'm going to give you a topic. You'll have one minute to think about what you're going to say, and then I'll ask you to speak for one to two minutes. Here's your topic."</p>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
+        <div class="rec-indicator off" id="rec2"><span class="rec-dot"></span><span id="rec2Status">REC OFF</span></div>
+        <button class="btn btn-primary" id="dealBtn" onclick="dealCards()">🃏 Deal Cards</button>
+        <button class="btn btn-secondary" id="redealBtn" onclick="redeal()" style="display:none;">↺ Re-deal</button>
+      </div>
+
+      <div class="card-deck" id="cardDeck">
+        <div class="card-deck-item" data-idx="0" onclick="selectCard(0)">
+          <span class="card-corner">✦</span>
+          <span class="card-icon">🃏</span>
+          <span class="card-label">Cue Card</span>
+        </div>
+        <div class="card-deck-item" data-idx="1" onclick="selectCard(1)">
+          <span class="card-corner">✦</span>
+          <span class="card-icon">🃏</span>
+          <span class="card-label">Cue Card</span>
+        </div>
+        <div class="card-deck-item" data-idx="2" onclick="selectCard(2)">
+          <span class="card-corner">✦</span>
+          <span class="card-icon">🃏</span>
+          <span class="card-label">Cue Card</span>
+        </div>
+        <div class="card-deck-item" data-idx="3" onclick="selectCard(3)">
+          <span class="card-corner">✦</span>
+          <span class="card-icon">🃏</span>
+          <span class="card-label">Cue Card</span>
+        </div>
+      </div>
+
+      <div id="cueCardDisplay" style="display:none;">
+        <div class="cue-card-reveal" id="cueCardContent">
+          <div class="topic" id="cueTopic"></div>
+          <div class="instruction">You should say:</div>
+          <ul class="bullets" id="cueBullets"></ul>
+        </div>
+
+        <div class="timer-row">
+          <div class="timer-box" id="p2Prep"><div class="timer-label">⏱ Preparation</div><div class="timer-display" id="p2PrepDisp">1:00</div></div>
+          <div class="timer-box" id="p2Speak"><div class="timer-label">🎙 Speaking</div><div class="timer-display" id="p2SpeakDisp">2:00</div></div>
+        </div>
+        <div class="btn-group" style="margin-bottom:20px;">
+          <button class="btn btn-primary" id="startP2Btn" onclick="startP2()">▶ Start Prep</button>
+          <button class="btn btn-secondary" onclick="resetP2()">↺ Reset</button>
+        </div>
+
+        <div class="card" id="p2FollowUp" style="display:none;border-color:rgba(59,130,246,0.3);">
+          <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Follow-up Questions</div>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">"Thank you. Now I have a couple of follow-up questions."</p>
+          <div id="p2FollowUpQs"></div>
+          <div class="btn-group"><button class="btn btn-green" onclick="showSlide(3)">→ Proceed to Part 3</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SLIDE 3: PART 3 ===== -->
+    <div class="slide" id="slide3">
+      <div class="slide-header">
+        <span class="slide-num">03</span>
+        <div>
+          <div class="slide-title">Part 3: Discussion</div>
+          <div class="slide-subtitle">Abstract questions on success, ambition & role models — increasingly challenging</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--amber)"></span>🎯 Examiner Says:</div>
+        <p style="font-size:14px;color:var(--muted);font-style:italic;padding:6px 0;">"Let's talk about some more general questions related to success and ambition."</p>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
+        <div class="rec-indicator off" id="rec3"><span class="rec-dot"></span><span id="rec3Status">REC OFF</span></div>
+        <button class="btn btn-primary" id="drawSetBtn" onclick="drawSet()">🎲 Draw Question Set</button>
+        <button class="btn btn-blue" id="nextQBtn" onclick="nextQ()" style="display:none;">→ Next Question</button>
+      </div>
+
+      <div id="p3Sets" style="display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:16px;">
+        <div class="p3-set-card" onclick="drawSet(0)">
+          <div class="p3-set-icon" style="background:var(--green-dim);color:var(--green);">🏆</div>
+          <div><strong style="color:var(--text);">Nature of Success</strong><br><span style="font-size:12px;color:var(--muted);">What success means, how it's measured, societal attitudes</span></div>
+        </div>
+        <div class="p3-set-card" onclick="drawSet(1)">
+          <div class="p3-set-icon" style="background:var(--blue-dim);color:var(--blue);">🏔</div>
+          <div><strong style="color:var(--text);">Ambition & Motivation</strong><br><span style="font-size:12px;color:var(--muted);">What drives people, talent vs effort, generational differences</span></div>
+        </div>
+        <div class="p3-set-card" onclick="drawSet(2)">
+          <div class="p3-set-icon" style="background:var(--purple-dim);color:var(--purple);">🧭</div>
+          <div><strong style="color:var(--text);">Role Models & Influence</strong><br><span style="font-size:12px;color:var(--muted);">Who inspires us, social media's role, moral expectations</span></div>
+        </div>
+      </div>
+
+      <div id="p3QuestionArea" style="display:none;">
+        <div class="card" style="border-color:rgba(59,130,246,0.3);">
+          <div class="card-title">
+            <span class="dot" style="background:var(--blue)"></span>
+            <span id="p3QHeader">Question 1</span>
+          </div>
+          <div style="font-size:16px;line-height:1.7;padding:8px 0;" id="p3QText"></div>
+        </div>
+      </div>
+
+      <div class="card" style="border-color:rgba(16,185,129,0.2);">
+        <div class="card-title"><span class="dot" style="background:var(--green)"></span>🗣 Discussion Frameworks — Band 7+</div>
+        <div style="display:grid;gap:8px;font-size:13px;">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;">
+            <strong style="color:var(--green);">Position → Evidence → Counter → Conclusion</strong><br>
+            <span style="color:var(--muted);">"I think... because... However... So overall..."</span>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;">
+            <strong style="color:var(--amber);">Past → Present → Future / Compare → Contrast → Nuance</strong><br>
+            <span style="color:var(--muted);">"In the past... whereas today... Although it depends on..."</span>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;">
+            <strong style="color:var(--blue);">Hypothesis → Condition → Speculation</strong><br>
+            <span style="color:var(--muted);">"If we consider... then we might... This could lead to..."</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SLIDE 4: LANGUAGE HARVEST ===== -->
+    <div class="slide" id="slide4">
+      <div class="slide-header">
+        <span class="slide-num">04</span>
+        <div>
+          <div class="slide-title">Language Harvest</div>
+          <div class="slide-subtitle">Topic collocations + phrase upgrades from today's mock</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>🎯 Topic Collocations — Success & Ambition</div>
+        <div class="colloc-grid">
+          <div class="colloc-card ambition">
+            <div class="cat">Ambition</div>
+            <div class="phrase">aspire to · driven by · set one's sights on</div>
+            <div class="example">"I aspire to become a leader in my field."</div>
+          </div>
+          <div class="colloc-card success">
+            <div class="cat">Success</div>
+            <div class="phrase">milestone · breakthrough · pinnacle</div>
+            <div class="example">"Graduating was a major milestone for me."</div>
+          </div>
+          <div class="colloc-card role">
+            <div class="cat">Role Models</div>
+            <div class="phrase">look up to · emulate · trailblazer</div>
+            <div class="example">"She's a trailblazer in the tech industry."</div>
+          </div>
+          <div class="colloc-card achieve">
+            <div class="cat">Achievement</div>
+            <div class="phrase">accomplish · fulfil · come to fruition</div>
+            <div class="example">"Her plans finally came to fruition."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--amber)"></span>🗂 Phrase Upgrades — Today's Crop</div>
+        <div class="table-wrap">
+          <table class="feedback-table">
+            <thead><tr><th>Student Said</th><th>Upgrade</th><th>Band Impact</th></tr></thead>
+            <tbody id="harvestBody">
+              <tr><td style="padding:10px 14px;color:var(--muted);font-style:italic;">— (fill in during class) —</td><td style="padding:10px 14px;color:var(--primary);">—</td><td style="padding:10px 14px;color:var(--muted);">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>🧰 Upgrade Builder</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <input class="input-field" id="harvestInput" placeholder="e.g. 'I want to be successful'" style="flex:1;min-width:200px;">
+          <button class="btn btn-primary" onclick="upgradeHarvest()">✨ Upgrade</button>
+        </div>
+        <div id="harvestResult" style="margin-top:12px;font-size:14px;color:var(--primary);min-height:24px;"></div>
+      </div>
+    </div>
+
+    <!-- ===== SLIDE 5: BAND SCORE ===== -->
+    <div class="slide" id="slide5">
+      <div class="slide-header">
+        <span class="slide-num">05</span>
+        <div>
+          <div class="slide-title">Band Score Analysis</div>
+          <div class="slide-subtitle">Criterion-by-criterion feedback + weekly target</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>📊 Estimated Band — Today's Mock</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Adjust each criterion score. Overall is calculated automatically.</p>
+        <div class="band-grid">
+          <div class="band-item">
+            <div class="band-criterion">Fluency & Coherence</div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <input class="band-score-input" id="bFC" type="number" min="4" max="9" step="0.5" value="6.5" oninput="calcBand()">
+              <span style="font-size:12px;color:var(--muted);">/ 9</span>
+            </div>
+          </div>
+          <div class="band-item">
+            <div class="band-criterion">Lexical Resource</div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <input class="band-score-input" id="bLR" type="number" min="4" max="9" step="0.5" value="6.5" oninput="calcBand()">
+              <span style="font-size:12px;color:var(--muted);">/ 9</span>
+            </div>
+          </div>
+          <div class="band-item">
+            <div class="band-criterion">Grammatical Range & Accuracy</div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <input class="band-score-input" id="bGRA" type="number" min="4" max="9" step="0.5" value="6.5" oninput="calcBand()">
+              <span style="font-size:12px;color:var(--muted);">/ 9</span>
+            </div>
+          </div>
+          <div class="band-item">
+            <div class="band-criterion">Pronunciation</div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <input class="band-score-input" id="bPron" type="number" min="4" max="9" step="0.5" value="7.0" oninput="calcBand()">
+              <span style="font-size:12px;color:var(--muted);">/ 9</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:16px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+          <div style="flex:1;">
+            <div class="band-thermo">
+              <div class="band-scale" id="bandScale" style="height:160px;">
+                <div class="band-fill" id="bandFill" style="height:60%;"></div>
+              </div>
+              <div class="band-labels" style="height:160px;">
+                <span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;flex:2;">
+            <div style="font-size:13px;color:var(--muted);margin-bottom:4px;">Estimated Overall Band</div>
+            <div style="font-family:'Fira Code',monospace;font-size:56px;font-weight:800;" id="overallBand">6.5</div>
+            <div style="font-size:12px;color:var(--muted);" id="bandLabel">Good user — operational command</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-color:rgba(16,185,129,0.3);">
+        <div class="card-title"><span class="dot" style="background:var(--green)"></span>🎯 Weekly Target</div>
+        <div class="chip-grid" id="targetChips">
+          <span class="chip" style="background:var(--green-dim);color:var(--green);border:1px solid rgba(16,185,129,0.2);cursor:pointer;" onclick="setTarget(this)">Fluency — reduce mid-sentence pauses</span>
+          <span class="chip" style="background:var(--blue-dim);color:var(--blue);border:1px solid rgba(59,130,246,0.2);cursor:pointer;" onclick="setTarget(this)">Lexical — use 3 topic collocations</span>
+          <span class="chip" style="background:var(--amber-dim);color:var(--amber);border:1px solid rgba(245,158,11,0.2);cursor:pointer;" onclick="setTarget(this)">Grammar — use mixed conditionals</span>
+          <span class="chip" style="background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,0.2);cursor:pointer;" onclick="setTarget(this)">Pronunciation — sentence stress</span>
+        </div>
+        <div id="targetDisplay" style="margin-top:12px;font-size:14px;color:var(--muted);font-style:italic;">Tap a chip to set your focus for next mock (L7 — Travel).</div>
+      </div>
+    </div>
+
+    <!-- ===== SLIDE 6: CORRECTIONS ===== -->
+    <div class="slide" id="slide6">
+      <div class="slide-header">
+        <span class="slide-num">06</span>
+        <div>
+          <div class="slide-title">Corrections Board</div>
+          <div class="slide-subtitle">Error log from today's mock + teacher notepad</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--amber)"></span>Teacher Notepad <span style="font-size:11px;color:var(--muted);font-weight:400;margin-left:8px;text-transform:none;letter-spacing:0;">Auto-saved</span></div>
+        <textarea class="notepad" id="teacherNotepad" placeholder="Type lesson notes, observations, priorities for next session…"></textarea>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Add Correction</div>
+        <div class="corr-grid">
+          <div><div class="corr-label">Margo's Output</div><input class="input-field" id="inOutput" placeholder="What she said…"></div>
+          <div><div class="corr-label">Correction / Upgrade</div><input class="input-field" id="inCorrection" placeholder="Better version…"></div>
+          <div>
+            <div class="corr-label">Type</div>
+            <select class="input-field" id="inType" style="cursor:pointer;">
+              <option value="lex">Lexical</option><option value="gram">Grammar</option><option value="cohe">Coherence</option><option value="pron">Pronunciation</option>
+            </select>
+          </div>
+          <div><div class="corr-label">&nbsp;</div><button class="btn btn-primary" onclick="addCorrection()" style="width:100%;justify-content:center;">+ Add</button></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--red)"></span>Correction Table</div>
+        <table class="feedback-table">
+          <thead><tr><th>Margo's Output</th><th>Correction / Upgrade</th><th>Type</th><th></th></tr></thead>
+          <tbody id="correctionBody">
+            <tr><td style="padding:10px 14px;"><span style="color:var(--red);">"I want to be success"</span></td><td style="padding:10px 14px;"><span style="color:var(--green);">"I aspire to be successful"</span></td><td style="padding:10px 14px;"><span class="type-badge type-lex">Lexical</span></td><td style="padding:10px 14px;"><button class="btn btn-secondary btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr>
+            <tr><td style="padding:10px 14px;"><span style="color:var(--red);">"When I will go to university"</span></td><td style="padding:10px 14px;"><span style="color:var(--green);">"When I go to university" (no 'will' in time clause)</span></td><td style="padding:10px 14px;"><span class="type-badge type-gram">Grammar</span></td><td style="padding:10px 14px;"><button class="btn btn-secondary btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr>
+            <tr><td style="padding:10px 14px;"><span style="color:var(--red);">Repeated fillers: "actually, well, I think actually"</span></td><td style="padding:10px 14px;"><span style="color:var(--green);">"To be honest…" / pause instead of filler</span></td><td style="padding:10px 14px;"><span class="type-badge type-cohe">Coherence</span></td><td style="padding:10px 14px;"><button class="btn btn-secondary btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== SLIDE 7: HOMEWORK ===== -->
+    <div class="slide" id="slide7">
+      <div class="slide-header">
+        <span class="slide-num">07</span>
+        <div>
+          <div class="slide-title">Homework</div>
+          <div class="slide-subtitle">Prepare for L7 — Travel &amp; Cultural Immersion mock</div>
+        </div>
+      </div>
+
+      <div class="hw-card">
+        <div class="hw-num">1</div>
+        <div class="hw-title">🎙 Self-Recorded Mock — Success Topic</div>
+        <div class="hw-body">
+          Record yourself doing the full mock on <strong style="color:var(--text);">today's topic</strong>.<br><br>
+          <ol style="padding-left:20px;line-height:2.2;">
+            <li><strong style="color:var(--text);">Part 1:</strong> 3 questions about ambition (2-3 sentences each)</li>
+            <li><strong style="color:var(--text);">Part 2:</strong> Choose 1 cue card from today — record 1-2 min</li>
+            <li><strong style="color:var(--text);">Part 3:</strong> 2 abstract questions from today</li>
+          </ol>
+          🎧 <strong style="color:var(--primary);">Send the recording before the next session.</strong>
+        </div>
+      </div>
+
+      <div class="hw-card">
+        <div class="hw-num">2</div>
+        <div class="hw-title">📖 Band Descriptor Self-Assessment</div>
+        <div class="hw-body">
+          Listen back and grade yourself on the 4 criteria. Bring your scores.<br><br>
+          <ul style="padding-left:20px;line-height:2.2;">
+            <li><strong style="color:var(--text);">Fluency:</strong> Did you hesitate? Smooth transitions?</li>
+            <li><strong style="color:var(--text);">Lexical:</strong> Any topic-specific vocabulary used?</li>
+            <li><strong style="color:var(--text);">Grammar:</strong> Mix of simple and complex structures?</li>
+            <li><strong style="color:var(--text);">Pronunciation:</strong> Natural stress and intonation?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hw-card">
+        <div class="hw-num">3</div>
+        <div class="hw-title">📝 Vocabulary Log — 5 Band 7+ Sentences</div>
+        <div class="hw-body">
+          Write 5 full sentences about success, ambition, or a role model using the collocations from Slide 4.
+          <div style="margin-top:8px;padding:10px 14px;background:rgba(245,158,11,0.06);border-radius:8px;font-size:13px;color:var(--muted);">
+            💡 <em>"My mother has always been a <strong style="color:var(--primary);">trailblazer</strong> in her community, and I <strong style="color:var(--primary);">look up to</strong> her enormously."</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ================================================================
+// NAVIGATION
+// ================================================================
+function showSlide(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  document.getElementById('slide' + n).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-btn')[n-1].classList.add('active');
+  document.getElementById('progressBar').style.width = (n/7*100) + '%';
+}
+
+// ================================================================
+// SLIDE 1 — PART 1
+// ================================================================
+let p1Timer, p1Topic = 1, p1Rem = [90,90,90];
+
+function startPart1() {
+  document.getElementById('p1Intro').style.display = 'none';
+  document.getElementById('p1Body').style.display = 'block';
+  recOn('rec1','rec1Status');
+  startP1Timer(1);
+}
+
+function startP1Timer(t) {
+  if (p1Timer) clearInterval(p1Timer);
+  p1Topic = t; p1Rem[t-1] = 90;
+  document.getElementById('p1t'+t+'Disp').textContent = '1:30';
+  p1Timer = setInterval(() => {
+    p1Rem[t-1]--;
+    const d = document.getElementById('p1t'+t+'Disp');
+    d.textContent = Math.floor(p1Rem[t-1]/60) + ':' + (p1Rem[t-1]%60).toString().padStart(2,'0');
+    if (p1Rem[t-1] <= 0) { clearInterval(p1Timer); d.textContent = '⏰'; }
+  }, 1000);
+}
+
+function nextP1Topic(n) {
+  if (p1Timer) clearInterval(p1Timer);
+  document.getElementById('p1t'+p1Topic+'Card').style.display = 'none';
+  document.getElementById('p1t'+n+'Card').style.display = 'block';
+  startP1Timer(n);
+}
+
+function endPart1() {
+  if (p1Timer) clearInterval(p1Timer);
+  recOff('rec1','rec1Status');
+  showSlide(2);
+}
+
+// ================================================================
+// RECORDING INDICATOR
+// ================================================================
+function recOn(id,statusId) {
+  const el = document.getElementById(id);
+  el.classList.remove('off'); el.classList.add('recording');
+  document.getElementById(statusId).textContent = '● REC';
+}
+function recOff(id,statusId) {
+  const el = document.getElementById(id);
+  el.classList.remove('recording'); el.classList.add('off');
+  document.getElementById(statusId).textContent = 'REC OFF';
+}
+
+// ================================================================
+// SLIDE 2 — PART 2 CUE CARD
+// ================================================================
+const CUES = [
+  {title:"Describe a successful person you admire.",bullets:["Who this person is","How you know them","What makes them successful","Explain why you admire them"]},
+  {title:"Describe a goal you worked hard to achieve.",bullets:["What the goal was","How long it took","What challenges you faced","How you felt when you achieved it"]},
+  {title:"Describe a role model who influenced your choices.",bullets:["Who this person is","How they influenced you","How your choices changed","Would you be the same without them?"]},
+  {title:"Describe a time when you helped someone achieve something.",bullets:["What the situation was","What you did to help","How the person reacted","What you learned from it"]}
+];
+const FOLLOWUPS = [
+  ["Do you think successful people are born or made?","What qualities do most successful people share?"],
+  ["Is it important to set challenging goals?","Do people give up on goals too easily?"],
+  ["Are role models more important for young people?","Can someone be a role model without knowing it?"],
+  ["Are people more willing to help others today?","What motivates people to help others?"]
+];
+let selCard = -1;
+
+function dealCards() {
+  document.getElementById('dealBtn').style.display = 'none';
+  document.getElementById('redealBtn').style.display = 'inline-flex';
+  document.querySelectorAll('.card-deck-item').forEach(el => {
+    el.classList.add('shuffling');
+    el.classList.remove('selected','revealed');
+    el.querySelector('.card-icon').textContent = '🃏';
+    el.querySelector('.card-label').textContent = 'Cue Card';
+    el.querySelector('.card-corner').textContent = '✦';
+    const sel = el.querySelector('.sel-badge');
+    if (sel) sel.remove();
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.card-deck-item').forEach(el => el.classList.remove('shuffling'));
+  }, 400);
+  selCard = -1;
+  document.getElementById('cueCardDisplay').style.display = 'none';
+}
+
+function redeal() { dealCards(); }
+
+function selectCard(idx) {
+  if (selCard === idx) return;
+  selCard = idx;
+  document.querySelectorAll('.card-deck-item').forEach((el,i) => {
+    el.classList.remove('selected','revealed');
+    el.querySelector('.card-icon').textContent = '🃏';
+    el.querySelector('.card-label').textContent = 'Cue Card';
+    const sel = el.querySelector('.sel-badge');
+    if (sel) sel.remove();
+  });
+  const el = document.querySelectorAll('.card-deck-item')[idx];
+  el.classList.add('selected','revealed');
+  const badge = document.createElement('span');
+  badge.className = 'sel-badge';
+  badge.textContent = '✓ Selected';
+  el.appendChild(badge);
+  
+  const card = CUES[idx];
+  document.getElementById('cueTopic').textContent = card.title;
+  document.getElementById('cueBullets').innerHTML = card.bullets.map(b => '<li>'+b+'</li>').join('');
+  document.getElementById('cueCardDisplay').style.display = 'block';
+  resetP2();
+}
+
+let p2Int, p2Prep = 60, p2Speak = 120;
+
+function startP2() {
+  document.getElementById('startP2Btn').disabled = true;
+  document.getElementById('redealBtn').style.display = 'none';
+  recOn('rec2','rec2Status');
+  p2Prep = 60; p2Speak = 120;
+  document.getElementById('p2PrepDisp').textContent = '1:00';
+  document.getElementById('p2SpeakDisp').textContent = '2:00';
+  document.getElementById('p2Prep').classList.add('active-timer');
+  document.getElementById('p2Speak').classList.remove('active-timer');
+  document.getElementById('p2FollowUp').style.display = 'none';
+  p2Int = setInterval(() => {
+    if (p2Prep > 0) {
+      p2Prep--;
+      document.getElementById('p2PrepDisp').textContent = Math.floor(p2Prep/60) + ':' + (p2Prep%60).toString().padStart(2,'0');
+    } else {
+      clearInterval(p2Int);
+      document.getElementById('p2Prep').classList.remove('active-timer');
+      document.getElementById('p2Speak').classList.add('active-timer');
+      p2Int = setInterval(() => {
+        if (p2Speak > 0) {
+          p2Speak--;
+          document.getElementById('p2SpeakDisp').textContent = Math.floor(p2Speak/60) + ':' + (p2Speak%60).toString().padStart(2,'0');
+        } else {
+          clearInterval(p2Int);
+          document.getElementById('p2SpeakDisp').textContent = '⏰';
+          document.getElementById('p2Speak').classList.remove('active-timer');
+          recOff('rec2','rec2Status');
+          if (selCard >= 0) {
+            document.getElementById('p2FollowUp').style.display = 'block';
+            document.getElementById('p2FollowUpQs').innerHTML = FOLLOWUPS[selCard].map((q,i) =>
+              '<div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;"><strong style="color:var(--blue);">'+(i+1)+'.</strong> '+q+'</div>'
+            ).join('');
+          }
+        }
+      }, 1000);
+    }
+  }, 1000);
+}
+
+function resetP2() {
+  if (p2Int) clearInterval(p2Int);
+  p2Prep = 60; p2Speak = 120;
+  document.getElementById('p2PrepDisp').textContent = '1:00';
+  document.getElementById('p2SpeakDisp').textContent = '2:00';
+  document.getElementById('p2Prep').classList.add('active-timer');
+  document.getElementById('p2Speak').classList.remove('active-timer');
+  document.getElementById('p2FollowUp').style.display = 'none';
+  recOff('rec2','rec2Status');
+  document.getElementById('startP2Btn').disabled = false;
+}
+
+// ================================================================
+// SLIDE 3 — PART 3
+// ================================================================
+const SETS = [
+  {name:"Nature of Success",icon:"🏆",color:"var(--green)",qs:[
+    "Is success mainly about money and status, or are there other important factors?",
+    "Do you think society places too much pressure on young people to be successful?",
+    "How has the definition of success changed over the last few decades?",
+    "Why do some people achieve great success while others with equal talent do not?",
+    "Can failure ever be considered a form of success?"
+  ]},
+  {name:"Ambition & Motivation",icon:"🏔",color:"var(--blue)",qs:[
+    "Why do some people seem more ambitious than others?",
+    "Is ambition something you're born with, or can it be developed?",
+    "Do you think young people today are more or less ambitious than previous generations?",
+    "What role does fear of failure play in motivating people?",
+    "Should parents encourage ambition or focus on happiness?"
+  ]},
+  {name:"Role Models & Influence",icon:"🧭",color:"var(--purple)",qs:[
+    "Do young people need role models more today than in the past?",
+    "Who makes a better role model — a celebrity or someone from everyday life?",
+    "Can a person be a role model in one area but fail in others?",
+    "How has social media changed how we choose role models?",
+    "Should role models be held to higher moral standards than ordinary people?"
+  ]}
+];
+let curSet = -1, curQ = -1;
+
+function drawSet(idx) {
+  curSet = idx; curQ = 0;
+  document.getElementById('drawSetBtn').style.display = 'none';
+  document.getElementById('nextQBtn').style.display = 'inline-flex';
+  document.getElementById('p3Sets').style.display = 'none';
+  document.getElementById('nextQBtn').textContent = '→ Question 1';
+  recOn('rec3','rec3Status');
+  showQ();
+}
+
+function showQ() {
+  const s = SETS[curSet];
+  if (curQ >= s.qs.length) {
+    document.getElementById('p3QuestionArea').style.display = 'block';
+    document.getElementById('p3QHeader').textContent = '✓ All Questions Complete';
+    document.getElementById('p3QText').innerHTML = '<div style="text-align:center;padding:16px;"><div style="font-size:40px;margin-bottom:8px;">✓</div><div style="font-size:16px;font-weight:700;color:var(--green);">Part 3 Complete</div><div style="font-size:13px;color:var(--muted);margin-top:4px;">Great work! Move to Language Harvest.</div><div class="btn-group" style="justify-content:center;margin-top:12px;"><button class="btn btn-primary" onclick="showSlide(4)">→ Language Harvest</button></div></div>';
+    document.getElementById('nextQBtn').style.display = 'none';
+    recOff('rec3','rec3Status');
+    return;
+  }
+  document.getElementById('p3QuestionArea').style.display = 'block';
+  document.getElementById('nextQBtn').style.display = 'inline-flex';
+  document.getElementById('p3QHeader').textContent = s.icon + ' ' + s.name + ' — Question ' + (curQ+1);
+  document.getElementById('p3QText').textContent = s.qs[curQ];
+  document.getElementById('nextQBtn').textContent = curQ < s.qs.length-1 ? '→ Next Question' : '→ Final Question';
+}
+
+function nextQ() {
+  curQ++;
+  showQ();
+}
+
+// ================================================================
+// SLIDE 4 — LANGUAGE HARVEST
+// ================================================================
+function upgradeHarvest() {
+  const input = document.getElementById('harvestInput').value.trim();
+  const res = document.getElementById('harvestResult');
+  if (!input) { res.textContent = 'Type a phrase first!'; return; }
+  const map = {
+    'want to be successful':'aspire to achieve success / strive for excellence',
+    'want to be':'aspire to be / aim to become / hope to be',
+    'successful':'distinguished / accomplished / high-achieving / prosperous',
+    'ambition':'aspiration / drive / determination / motivation',
+    'goal':'objective / target / milestone / aim',
+    'work hard':'persevere / strive / dedicate oneself / put in the effort',
+    'look up to':'admire / revere / hold in high esteem',
+    'role model':'mentor / exemplar / paragon / inspiration',
+    'achieve':'accomplish / attain / realise / fulfil',
+    'famous':'renowned / eminent / illustrious / celebrated',
+    'try my best':'give my utmost / do my level best / leave no stone unturned',
+    'never give up':'persist / persevere / remain resolute / stay the course',
+    'important':'crucial / vital / paramount / of great significance',
+    'happy':'fulfilled / content / gratified / elated',
+    'proud':'take pride in / feel a sense of accomplishment',
+    'learn from':'draw inspiration from / be shaped by',
+    'think':'believe / consider / hold the view / be of the opinion'
+  };
+  const lower = input.toLowerCase();
+  for (const [k,v] of Object.entries(map)) {
+    if (lower.includes(k)) {
+      res.innerHTML = '✨ <strong>Upgrade:</strong> Try <strong style="color:var(--amber)">"'+input.replace(new RegExp(k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'),v)+'"</strong>';
+      return;
+    }
+  }
+  res.innerHTML = '💡 Try replacing generic words with more specific alternatives.';
+}
+
+// ================================================================
+// SLIDE 5 — BAND SCORE
+// ================================================================
+function calcBand() {
+  const ids = ['bFC','bLR','bGRA','bPron'];
+  let sum = 0;
+  ids.forEach(id => { const v = parseFloat(document.getElementById(id).value); if (!isNaN(v)) sum += v; });
+  const avg = sum / 4;
+  let r;
+  if (avg >= 0) {
+    const rem = avg % 1;
+    if (rem < 0.25) r = Math.floor(avg);
+    else if (rem < 0.75) r = Math.floor(avg) + 0.5;
+    else r = Math.ceil(avg);
+  }
+  document.getElementById('overallBand').textContent = r.toFixed(1);
+  const labels = {'4':'Limited','5':'Modest','6':'Competent','7':'Good','8':'Very good','9':'Expert'};
+  document.getElementById('bandLabel').textContent = labels[Math.floor(r).toString()] || '';
+  const pct = ((r - 4) / 5) * 100;
+  document.getElementById('bandFill').style.height = Math.max(0, Math.min(100, pct)) + '%';
+}
+
+function setTarget(el) {
+  document.querySelectorAll('#targetChips .chip').forEach(c => c.style.borderColor = 'var(--border)');
+  el.style.borderColor = 'var(--primary)';
+  document.getElementById('targetDisplay').innerHTML = '<strong style="color:var(--primary);">Focus:</strong> '+el.textContent+' <span style="color:var(--muted);">— bring this to L7</span>';
+}
+
+// ================================================================
+// SLIDE 6 — CORRECTIONS
+// ================================================================
+function addCorrection() {
+  const out = document.getElementById('inOutput').value.trim();
+  const cor = document.getElementById('inCorrection').value.trim();
+  const type = document.getElementById('inType').value;
+  if (!out || !cor) { alert('Please fill both fields.'); return; }
+  const labels = {lex:'Lexical',gram:'Grammar',cohe:'Coherence',pron:'Pronunciation'};
+  const row = document.createElement('tr');
+  row.innerHTML = '<td style="padding:10px 14px;"><span style="color:var(--red);">'+out+'</span></td><td style="padding:10px 14px;"><span style="color:var(--green);">'+cor+'</span></td><td style="padding:10px 14px;"><span class="type-badge type-'+type+'">'+labels[type]+'</span></td><td style="padding:10px 14px;"><button class="btn btn-secondary btn-sm" onclick="this.closest(\'tr\').remove()">✕</button></td>';
+  document.getElementById('correctionBody').appendChild(row);
+  document.getElementById('inOutput').value = '';
+  document.getElementById('inCorrection').value = '';
+}
+
+// ================================================================
+// INIT
+// ================================================================
+document.addEventListener('DOMContentLoaded', function() {
+  const np = document.getElementById('teacherNotepad');
+  if (np) {
+    np.value = localStorage.getItem('margo_l6_notepad') || '';
+    np.addEventListener('input', function() { localStorage.setItem('margo_l6_notepad', this.value); });
+  }
+  calcBand();
+});
+</script>
+</body>
+</html>

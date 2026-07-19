@@ -1,0 +1,397 @@
+[
+  {
+    "word": "Grammatical",
+    "start": 0.375,
+    "end": 1.012
+  },
+  {
+    "word": "range",
+    "start": 1.012,
+    "end": 1.488
+  },
+  {
+    "word": "and",
+    "start": 1.488,
+    "end": 1.625
+  },
+  {
+    "word": "accuracy",
+    "start": 1.625,
+    "end": 2.462
+  },
+  {
+    "word": "are",
+    "start": 2.462,
+    "end": 2.6
+  },
+  {
+    "word": "among",
+    "start": 2.6,
+    "end": 2.862
+  },
+  {
+    "word": "the",
+    "start": 2.862,
+    "end": 2.95
+  },
+  {
+    "word": "most",
+    "start": 2.95,
+    "end": 3.3
+  },
+  {
+    "word": "heavily",
+    "start": 3.3,
+    "end": 3.763
+  },
+  {
+    "word": "weighted",
+    "start": 3.763,
+    "end": 4.15
+  },
+  {
+    "word": "criteria",
+    "start": 4.15,
+    "end": 4.9
+  },
+  {
+    "word": "in",
+    "start": 4.9,
+    "end": 4.987
+  },
+  {
+    "word": "the",
+    "start": 4.987,
+    "end": 5.125
+  },
+  {
+    "word": "IELTS",
+    "start": 5.125,
+    "end": 5.612
+  },
+  {
+    "word": "Writing",
+    "start": 5.612,
+    "end": 6.05
+  },
+  {
+    "word": "and",
+    "start": 6.05,
+    "end": 6.188
+  },
+  {
+    "word": "Speaking",
+    "start": 6.188,
+    "end": 6.688
+  },
+  {
+    "word": "tests",
+    "start": 6.688,
+    "end": 7.763
+  },
+  {
+    "word": "Examiners",
+    "start": 7.763,
+    "end": 8.5
+  },
+  {
+    "word": "are",
+    "start": 8.5,
+    "end": 8.6
+  },
+  {
+    "word": "not",
+    "start": 8.6,
+    "end": 8.85
+  },
+  {
+    "word": "merely",
+    "start": 8.85,
+    "end": 9.2
+  },
+  {
+    "word": "looking",
+    "start": 9.2,
+    "end": 9.55
+  },
+  {
+    "word": "for",
+    "start": 9.55,
+    "end": 9.713
+  },
+  {
+    "word": "error-free",
+    "start": 9.713,
+    "end": 10.262
+  },
+  {
+    "word": "sentences",
+    "start": 10.262,
+    "end": 11.4
+  },
+  {
+    "word": "they",
+    "start": 11.4,
+    "end": 11.55
+  },
+  {
+    "word": "are",
+    "start": 11.55,
+    "end": 11.675
+  },
+  {
+    "word": "assessing",
+    "start": 11.675,
+    "end": 12.25
+  },
+  {
+    "word": "whether",
+    "start": 12.25,
+    "end": 12.512
+  },
+  {
+    "word": "the",
+    "start": 12.512,
+    "end": 12.637
+  },
+  {
+    "word": "candidate",
+    "start": 12.637,
+    "end": 13.225
+  },
+  {
+    "word": "can",
+    "start": 13.225,
+    "end": 13.4
+  },
+  {
+    "word": "manipulate",
+    "start": 13.4,
+    "end": 14.037
+  },
+  {
+    "word": "complex",
+    "start": 14.037,
+    "end": 14.6
+  },
+  {
+    "word": "structures",
+    "start": 14.6,
+    "end": 15.2
+  },
+  {
+    "word": "with",
+    "start": 15.2,
+    "end": 15.387
+  },
+  {
+    "word": "flexibility",
+    "start": 15.387,
+    "end": 16.225
+  },
+  {
+    "word": "and",
+    "start": 16.225,
+    "end": 16.35
+  },
+  {
+    "word": "precision",
+    "start": 16.35,
+    "end": 17.587
+  },
+  {
+    "word": "A",
+    "start": 17.587,
+    "end": 17.7
+  },
+  {
+    "word": "response",
+    "start": 17.7,
+    "end": 18.325
+  },
+  {
+    "word": "that",
+    "start": 18.325,
+    "end": 18.475
+  },
+  {
+    "word": "relies",
+    "start": 18.475,
+    "end": 19.0
+  },
+  {
+    "word": "predominantly",
+    "start": 19.0,
+    "end": 19.875
+  },
+  {
+    "word": "on",
+    "start": 19.875,
+    "end": 20.113
+  },
+  {
+    "word": "simple",
+    "start": 20.113,
+    "end": 20.6
+  },
+  {
+    "word": "and",
+    "start": 20.6,
+    "end": 20.738
+  },
+  {
+    "word": "compound",
+    "start": 20.738,
+    "end": 21.387
+  },
+  {
+    "word": "sentences",
+    "start": 21.387,
+    "end": 22.438
+  },
+  {
+    "word": "however",
+    "start": 22.438,
+    "end": 22.95
+  },
+  {
+    "word": "accurate",
+    "start": 22.95,
+    "end": 23.9
+  },
+  {
+    "word": "will",
+    "start": 23.9,
+    "end": 24.087
+  },
+  {
+    "word": "struggle",
+    "start": 24.087,
+    "end": 24.55
+  },
+  {
+    "word": "to",
+    "start": 24.55,
+    "end": 24.7
+  },
+  {
+    "word": "exceed",
+    "start": 24.7,
+    "end": 25.188
+  },
+  {
+    "word": "Band",
+    "start": 25.188,
+    "end": 25.65
+  },
+  {
+    "word": "6.5",
+    "start": 25.65,
+    "end": 27.288
+  },
+  {
+    "word": "By",
+    "start": 27.725,
+    "end": 27.938
+  },
+  {
+    "word": "contrast",
+    "start": 27.938,
+    "end": 29.075
+  },
+  {
+    "word": "the",
+    "start": 29.075,
+    "end": 29.212
+  },
+  {
+    "word": "skilful",
+    "start": 29.212,
+    "end": 29.762
+  },
+  {
+    "word": "use",
+    "start": 29.762,
+    "end": 30.1
+  },
+  {
+    "word": "of",
+    "start": 30.1,
+    "end": 30.262
+  },
+  {
+    "word": "subordinate",
+    "start": 30.262,
+    "end": 30.962
+  },
+  {
+    "word": "clauses",
+    "start": 30.962,
+    "end": 32.0
+  },
+  {
+    "word": "conditional",
+    "start": 32.0,
+    "end": 32.625
+  },
+  {
+    "word": "structures",
+    "start": 32.625,
+    "end": 33.325
+  },
+  {
+    "word": "and",
+    "start": 33.325,
+    "end": 33.462
+  },
+  {
+    "word": "participial",
+    "start": 33.462,
+    "end": 34.212
+  },
+  {
+    "word": "phrases",
+    "start": 34.212,
+    "end": 35.225
+  },
+  {
+    "word": "can",
+    "start": 35.225,
+    "end": 35.462
+  },
+  {
+    "word": "elevate",
+    "start": 35.462,
+    "end": 35.888
+  },
+  {
+    "word": "a",
+    "start": 35.888,
+    "end": 35.95
+  },
+  {
+    "word": "performance",
+    "start": 35.95,
+    "end": 36.575
+  },
+  {
+    "word": "from",
+    "start": 36.575,
+    "end": 36.825
+  },
+  {
+    "word": "adequate",
+    "start": 36.825,
+    "end": 37.388
+  },
+  {
+    "word": "to",
+    "start": 37.388,
+    "end": 37.55
+  },
+  {
+    "word": "accomplished",
+    "start": 37.55,
+    "end": 38.825
+  }
+]
