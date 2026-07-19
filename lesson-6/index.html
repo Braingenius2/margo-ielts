@@ -177,8 +177,22 @@ textarea.notepad:focus{border-color:var(--blue)}
 .colloc-card.role .cat{color:var(--blue)}
 .colloc-card.achieve .cat{color:var(--purple)}
 
+.ann-em{color:var(--green);font-weight:600}
+.ann-pu{color:var(--purple);font-weight:600}
+.ann-bl{color:var(--blue);font-weight:600}
+.ann-am{color:var(--primary);font-weight:600}
+.model-toggle{display:none;margin-top:10px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.85;color:var(--text)}
+.model-toggle.open{display:block;animation:fadeIn 0.3s ease}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mobile-nav-toggle{display:none;position:fixed;bottom:20px;right:20px;z-index:200;width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;border:none;font-size:20px;cursor:pointer;align-items:center;justify-content:center;box-shadow:3px 3px 0 rgba(0,0,0,0.12)}
+.sidebar-overlay{display:none;position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.4)}
+.sidebar-overlay.open{display:block}
+
 @media(max-width:768px){
-  .sidebar{display:none}
+  .mobile-nav-toggle{display:flex}
+  .sidebar{position:fixed;left:0;top:var(--header-h);z-index:175;height:calc(100vh - var(--header-h));transform:translateX(-100%);transition:transform 0.25s ease;width:var(--sidebar-w);display:flex !important}
+  .sidebar.open{transform:translateX(0)}
   .main{padding:0 16px 80px}
   .band-grid{grid-template-columns:1fr}
   .corr-grid{grid-template-columns:1fr}
@@ -191,6 +205,7 @@ textarea.notepad:focus{border-color:var(--blue)}
 </head>
 <body>
 <header class="site-header">
+  <a href="../index.html" style="color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap;font-family:'Fira Code',monospace;">← Portal</a>
   <span class="header-logo">IELTS MOCK</span>
   <span class="header-title">Success, Ambition &amp; Role Models</span>
   <span class="header-meta">Margo · L6</span>
@@ -283,6 +298,8 @@ textarea.notepad:focus{border-color:var(--blue)}
           <div class="part-q"><span class="q-num">2.</span> <span class="q-text">What subject(s) are you studying?</span></div>
           <div class="part-q"><span class="q-num">3.</span> <span class="q-text">What do you enjoy most about your studies?</span></div>
           <div class="timer-row"><div class="timer-box active-timer" id="p1t1Timer"><div class="timer-label">⏱ Topic 1</div><div class="timer-display" id="p1t1Disp">1:30</div></div></div>
+          <button class="btn btn-secondary btn-sm" onclick="toggleModel('p1m1')" style="margin-top:8px;">Show Model Answer</button>
+          <div class="model-toggle" id="p1m1"><strong style="color:var(--primary);">Band 7+:</strong> <span class="ann-pu">Well</span>, I'm currently in my third year at university — I'm studying International Relations. <span class="ann-pu">To be honest</span>, it wasn't what I initially planned to do, but I've really <span class="ann-em">grown to love it</span>. What I enjoy most is probably the way it's <span class="ann-em">opened my eyes</span> to how interconnected the world actually is. <span class="ann-am">You know</span>, we tend to see things from our own <span class="ann-em">perspective</span>, but studying IR forces you to consider multiple viewpoints, which I find <span class="ann-em">fascinating</span>.</div>
           <div class="btn-group"><button class="btn btn-blue" onclick="nextP1Topic(2)">→ Topic 2: Ambition & Goals</button></div>
         </div>
         <div class="card" style="border-color:rgba(59,130,246,0.2);display:none;" id="p1t2Card">
@@ -291,6 +308,8 @@ textarea.notepad:focus{border-color:var(--blue)}
           <div class="part-q"><span class="q-num">2.</span> <span class="q-text">Do you think it's important to set goals? Why?</span></div>
           <div class="part-q"><span class="q-num">3.</span> <span class="q-text">Who has influenced your ambitions most?</span></div>
           <div class="timer-row"><div class="timer-box active-timer" id="p1t2Timer"><div class="timer-label">⏱ Topic 2</div><div class="timer-display" id="p1t2Disp">1:30</div></div></div>
+          <button class="btn btn-secondary btn-sm" onclick="toggleModel('p1m2')" style="margin-top:8px;">Show Model Answer</button>
+          <div class="model-toggle" id="p1m2"><strong style="color:var(--primary);">Band 7+:</strong> That's a good question. My main <span class="ann-em">ambition</span>, I'd say, is to build a career in diplomacy or international development. I think setting goals is absolutely <span class="ann-em">crucial</span> — without them, you can kind of drift through life without any real direction. <span class="ann-am">As for</span> who's influenced me most, I'd have to say my parents — they've always encouraged me to <span class="ann-em">aim high</span>, but they've also taught me that success isn't just about career achievements. <span class="ann-pu">I mean</span>, it's about being a decent person along the way.</div>
           <div class="btn-group"><button class="btn btn-blue" onclick="nextP1Topic(3)">→ Topic 3: Defining Success</button></div>
         </div>
         <div class="card" style="border-color:rgba(180,83,9,0.2);display:none;" id="p1t3Card">
@@ -299,6 +318,8 @@ textarea.notepad:focus{border-color:var(--blue)}
           <div class="part-q"><span class="q-num">2.</span> <span class="q-text">Do you think successful people share common qualities?</span></div>
           <div class="part-q"><span class="q-num">3.</span> <span class="q-text">Is it more important to be successful or to be happy?</span></div>
           <div class="timer-row"><div class="timer-box active-timer" id="p1t3Timer"><div class="timer-label">⏱ Topic 3</div><div class="timer-display" id="p1t3Disp">1:30</div></div></div>
+          <button class="btn btn-secondary btn-sm" onclick="toggleModel('p1m3')" style="margin-top:8px;">Show Model Answer</button>
+          <div class="model-toggle" id="p1m3"><strong style="color:var(--primary);">Band 7+:</strong> <span class="ann-pu">You know</span>, I've actually thought about this quite a lot. For me personally, success isn't really about money or status — <span class="ann-pu">I mean</span>, those things are nice to have, but they're not what I'd consider <span class="ann-em">true success</span>. I think real success is about personal <span class="ann-em">fulfilment</span> and making some kind of <span class="ann-em">positive impact</span>, however small. And <span class="ann-am">interestingly</span>, I've noticed that people who are genuinely successful — they all seem to share qualities like <span class="ann-em">resilience</span>, humility, and a willingness to keep learning.</div>
           <div class="btn-group"><button class="btn btn-green" onclick="endPart1()">✓ End Part 1 → Proceed to Part 2</button></div>
         </div>
       </div>
@@ -368,7 +389,11 @@ textarea.notepad:focus{border-color:var(--blue)}
           <div class="card-title"><span class="dot" style="background:var(--blue)"></span>🗣 Follow-up Questions</div>
           <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">"Thank you. Now I have a couple of follow-up questions."</p>
           <div id="p2FollowUpQs"></div>
-          <div class="btn-group"><button class="btn btn-green" onclick="showSlide(3)">→ Proceed to Part 3</button></div>
+          <div class="btn-group" style="margin-top:12px;">
+            <button class="btn btn-secondary btn-sm" onclick="showP2Model()">Show Model Answer</button>
+            <button class="btn btn-green" onclick="showSlide(3)">→ Proceed to Part 3</button>
+          </div>
+          <div class="model-toggle" id="p2ModelArea"></div>
         </div>
       </div>
     </div>
@@ -390,7 +415,7 @@ textarea.notepad:focus{border-color:var(--blue)}
 
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
         <div class="rec-indicator off" id="rec3"><span class="rec-dot"></span><span id="rec3Status">REC OFF</span></div>
-        <button class="btn btn-primary" id="drawSetBtn" onclick="drawSet()">🎲 Draw Question Set</button>
+        <button class="btn btn-primary" id="drawSetBtn" style="display:none;">🎲 Draw Question Set</button>
         <button class="btn btn-blue" id="nextQBtn" onclick="nextQ()" style="display:none;">→ Next Question</button>
       </div>
 
@@ -410,12 +435,18 @@ textarea.notepad:focus{border-color:var(--blue)}
       </div>
 
       <div id="p3QuestionArea" style="display:none;">
+        <div class="card" id="p3Springboard" style="border-color:rgba(180,83,9,0.2);display:none;">
+          <div class="card-title"><span class="dot" style="background:var(--primary)"></span>💡 Discussion Springboard</div>
+          <div style="font-size:14px;line-height:1.7;color:var(--muted);padding:4px 0;" id="p3SpringText"></div>
+        </div>
         <div class="card" style="border-color:rgba(59,130,246,0.2);">
           <div class="card-title">
             <span class="dot" style="background:var(--blue)"></span>
             <span id="p3QHeader">Question 1</span>
           </div>
           <div style="font-size:16px;line-height:1.7;padding:8px 0;" id="p3QText"></div>
+          <button class="btn btn-secondary btn-sm" onclick="toggleModel('p3Model')" style="margin-top:10px;">Show Model Answer</button>
+          <div class="model-toggle" id="p3Model" style="font-size:14px;line-height:1.85;"></div>
         </div>
       </div>
 
@@ -782,6 +813,7 @@ function selectCard(idx) {
 let p2Int, p2Prep = 60, p2Speak = 120;
 
 function startP2() {
+  if (selCard < 0) { alert('Select a cue card first!'); return; }
   document.getElementById('startP2Btn').disabled = true;
   document.getElementById('redealBtn').style.display = 'none';
   recOn('rec2','rec2Status');
@@ -818,6 +850,19 @@ function startP2() {
       }, 1000);
     }
   }, 1000);
+}
+
+const P2MODELS = [
+  '<strong style="color:var(--primary);">Band 7+:</strong> <span class="ann-pu">Right, well</span>, I\'d like to talk about my mother, who I honestly think is one of the most <span class="ann-em">remarkable</span> people I know. She grew up in a fairly <span class="ann-em">modest</span> household — her parents were factory workers — but she was <span class="ann-em">determined</span> to build a better life. She worked incredibly hard, earned a <span class="ann-em">scholarship</span> to medical school, and eventually became a surgeon. <span class="ann-pu">But here\'s the thing</span> — what I admire most isn\'t her professional success. It\'s how she balanced a demanding career with being a <span class="ann-em">genuinely</span> present parent. <span class="ann-pu">I mean</span>, she\'d work twelve-hour shifts and still come home to help me with my homework. Her example has <span class="ann-em">shaped</span> my own <span class="ann-em">aspirations</span> <span class="ann-em">enormously</span>. She taught me that success is about lifting other people up <span class="ann-am">along the way</span>.',
+  '<strong style="color:var(--primary);">Band 7+:</strong> I\'d say the goal I\'ve worked hardest for was getting into my current university. I spent months preparing — <span class="ann-pu">I mean</span>, it felt like my entire life revolved around entrance exams. I\'d wake up early to study before class, then spend evenings writing and rewriting my personal statement. The hardest part was dealing with the <span class="ann-em">self-doubt</span> — constantly questioning whether I was good enough. <span class="ann-am">But</span> I kept going by breaking it down into smaller <span class="ann-em">milestones</span>. Instead of thinking about the final goal, I\'d focus on one exam at a time, one essay at a time. When I finally got the acceptance letter, I felt this overwhelming sense of relief — and pride, I suppose. But looking back, what I value most is what the process taught me about <span class="ann-em">resilience</span> and <span class="ann-em">self-discipline</span>. <span class="ann-pu">I think</span> those lessons have been far more valuable than the acceptance letter itself.',
+  '<strong style="color:var(--primary);">Band 7+:</strong> I\'d like to talk about my high school history teacher, Mr Volkov. Before his classes, I thought history was just about memorising dates — pretty dull, <span class="ann-am">to be honest</span>. <span class="ann-am">But</span> he completely changed my <span class="ann-em">perspective</span>. He\'d challenge us to question the official narratives and form our own opinions. <span class="ann-pu">I remember</span> one lesson where he asked us to write about a historical event from the perspective of the losing side — and that exercise completely changed how I understood history. He was the first person who made me realise that education isn\'t about getting right answers — it\'s about asking the right questions. I ended up choosing International Relations largely because of the <span class="ann-em">curiosity</span> he sparked in me. <span class="ann-pu">I honestly</span> doubt I\'d be where I am today without his influence.',
+  '<strong style="color:var(--primary);">Band 7+:</strong> I\'d like to tell you about a time I helped my younger sister prepare for her final exams. She was struggling with mathematics and had pretty much given up hope. So I created a study plan — nothing too rigid, just breaking down the topics into manageable chunks. We\'d spend about two hours every evening working through problems together. And I made a point of celebrating every small improvement. <span class="ann-pu">You know</span>, if she solved a problem she\'d been stuck on, we\'d take a break and have tea together. Gradually, her confidence grew. She stopped saying <span class="ann-bl">"I can\'t do this"</span> and started saying <span class="ann-bl">"I need more practice."</span> When she got her results — she\'d passed with a grade she\'d thought was impossible — she was absolutely overjoyed. <span class="ann-pu">I think</span> the main thing I learned was that sometimes people don\'t need a genius to solve their problems — they just need someone who <span class="ann-em">believes in them</span> and offers consistent support.'
+];
+
+function showP2Model() {
+  if (selCard < 0) return;
+  document.getElementById('p2ModelArea').innerHTML = P2MODELS[selCard];
+  document.getElementById('p2ModelArea').classList.add('open');
 }
 
 function resetP2() {
@@ -857,12 +902,44 @@ const SETS = [
 ];
 let curSet = -1, curQ = -1;
 
+const P3SPRINGS = [
+  "We're surrounded by images of success — luxury cars, corner offices, social media fame — but research suggests these external markers rarely lead to lasting satisfaction. Psychologists distinguish between <span class=\"ann-em\">extrinsic aspirations</span> — wealth, status, image — and <span class=\"ann-em\">intrinsic ones</span> like personal growth and relationships. People who prioritise the latter consistently report higher wellbeing. So when we discuss success today, let's think beyond the surface-level definitions.",
+  "The interesting thing about ambition is how culturally dependent it is. In some societies, individual ambition is celebrated as a driver of progress. In others, it's viewed more cautiously. And as societies become wealthier, people's ambitions seem to shift from economic security toward <span class=\"ann-em\">self-actualisation</span>. So the question isn't just whether ambition is good or bad — it's about what kind of ambition we're talking about.",
+  "In the past, role models were typically drawn from our immediate community — family members, teachers, local leaders. But social media has completely transformed that landscape. Today, young people are exposed to a global cast of influencers, many of whom achieve prominence through carefully <span class=\"ann-em\">curated personas</span>. This raises interesting questions about <span class=\"ann-em\">authenticity</span> and whether online role models can provide the same guidance as real-world mentors."
+];
+
+const P3MODELS = [
+  [
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I think</span> it\'s a mix, <span class=\"ann-am\">to be honest</span>. Obviously money and status provide security and comfort, which are important. <span class=\"ann-am\">But</span> if you only focus on those things, you might end up feeling empty. <span class=\"ann-pu\">I mean</span>, I know people who are financially successful but <span class=\"ann-em\">deeply unhappy</span>, and others who have very little but are <span class=\"ann-em\">genuinely content</span>. So for me, <span class=\"ann-em\">true success</span> is about finding meaning and making a <span class=\"ann-em\">positive contribution</span> — the material side is just a bonus.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> That\'s a good question. <span class=\"ann-pu\">I think</span> to some extent, yes — there\'s definitely more pressure now than there was for previous generations. Social media plays a big role in that. Young people are constantly comparing themselves to carefully <span class=\"ann-em\">curated highlights</span> of other people\'s lives, which creates this <span class=\"ann-em\">unrealistic standard</span> of what success should look like by age twenty-five. <span class=\"ann-am\">Having said that</span>, I also think there\'s more <span class=\"ann-em\">awareness</span> now about mental health and the dangers of <span class=\"ann-em\">burnout</span>, so it\'s not all negative.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">Well</span>, I think the definition has shifted quite dramatically, <span class=\"ann-am\">actually</span>. A few decades ago, success was largely defined by <span class=\"ann-em\">traditional markers</span> — a stable job, a house, a family. Today, there\'s much more <span class=\"ann-em\">emphasis on individual fulfilment</span> and <span class=\"ann-em\">self-expression</span>. <span class=\"ann-pu\">I mean</span>, people are much more willing to change careers, travel, or pursue unconventional paths. <span class=\"ann-am\">On the other hand</span>, that also creates pressure to \'find your passion\' and constantly <span class=\"ann-em\">optimise</span> your life, which can be <span class=\"ann-em\">exhausting</span>.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I think</span> it comes down to a combination of factors — <span class=\"ann-em\">mindset</span>, opportunity, and <span class=\"ann-em\">resilience</span>. Some people have a <span class=\"ann-em\">growth mindset</span> — they see failure as feedback rather than a reflection of their worth — and that makes a huge difference. Opportunity also plays a role — not everyone has equal access to education, networks, or mentors. <span class=\"ann-am\">But</span> I\'ve noticed that people who <span class=\"ann-em\">persevere</span> and maintain a <span class=\"ann-em\">positive attitude</span> tend to go further, even when the odds are against them.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> Absolutely — I think failure is an essential part of success, <span class=\"ann-am\">actually</span>. <span class=\"ann-pu\">I mean</span>, very few people achieve anything meaningful without <span class=\"ann-em\">experiencing setbacks</span> along the way. Failure teaches you <span class=\"ann-em\">resilience</span>, <span class=\"ann-em\">humility</span>, and often gives you <span class=\"ann-em\">valuable insights</span> that success never could. <span class=\"ann-am\">Having said that</span>, I think it depends on how you <span class=\"ann-em\">respond</span> to failure — some people are <span class=\"ann-em\">paralysed by it</span>, while others use it as <span class=\"ann-em\">motivation</span>. So in that sense, failure can definitely be a form of success if you learn from it.'
+  ],
+  [
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I think</span> it\'s a combination of <span class=\"ann-em\">personality</span> and <span class=\"ann-em\">environment</span>. Some people are naturally more <span class=\"ann-em\">driven</span> — they have a strong internal <span class=\"ann-em\">desire to achieve</span>. <span class=\"ann-am\">But</span> I also think your upbringing and <span class=\"ann-em\">cultural context</span> play a huge role. If you grow up in an environment where ambition is encouraged and <span class=\"ann-em\">role-modelled</span>, you\'re more likely to develop it yourself. <span class=\"ann-am\">On the flip side</span>, if you\'re constantly told to \'know your place\', that can <span class=\"ann-em\">suppress</span> your ambition.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I\'d say</span> it\'s mostly developed, <span class=\"ann-am\">actually</span>. <span class=\"ann-pu\">I mean</span>, there might be some <span class=\"ann-em\">temperamental</span> differences — some people are naturally more <span class=\"ann-em\">competitive</span> or <span class=\"ann-em\">driven</span> — but ambition is largely <span class=\"ann-em\">shaped by experience</span>. If you achieve something and it feels rewarding, you\'re likely to want more of that feeling. If you fail repeatedly without support, your ambition might <span class=\"ann-em\">diminish</span>. So I think it\'s more about <span class=\"ann-em\">nurture than nature</span>, <span class=\"ann-am\">to be honest</span>.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I think</span> it varies by society, <span class=\"ann-am\">to be honest</span>. In some countries, young people seem incredibly <span class=\"ann-em\">driven</span> and <span class=\"ann-em\">competitive</span> — there\'s this sense that you have to <span class=\"ann-em\">get ahead</span> or you\'ll be left behind. In other societies, there\'s more <span class=\"ann-em\">emphasis on work-life balance</span> and <span class=\"ann-em\">wellbeing</span>. <span class=\"ann-pu\">But</span> I think globally, the pressure is increasing because of social media and <span class=\"ann-em\">economic uncertainty</span>. Young people today are aware that <span class=\"ann-em\">stable careers</span> are less guaranteed than they were for previous generations.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> That\'s an interesting perspective. <span class=\"ann-pu\">I think</span> fear of failure plays a <span class=\"ann-em\">significant role</span>, but it can work in two ways. For some people, the fear of <span class=\"ann-em\">embarrassment</span> or <span class=\"ann-em\">disappointing others</span> is a powerful <span class=\"ann-em\">motivator</span> — it pushes them to work harder and prepare more thoroughly. <span class=\"ann-am\">But</span> for others, that same fear can be <span class=\"ann-em\">paralysing</span> — they become so afraid of failure that they <span class=\"ann-em\">avoid challenges altogether</span>. So I\'d say it\'s not the fear itself that matters, but how you <span class=\"ann-em\">channel it</span>.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I think</span> both are important, <span class=\"ann-am\">actually</span>. Encouraging ambition without regard for happiness can lead to <span class=\"ann-em\">burnout</span> and <span class=\"ann-em\">anxiety</span> — I\'ve seen that happen to people. <span class=\"ann-am\">But</span> focusing only on happiness without any ambition can lead to <span class=\"ann-em\">complacency</span> and a lack of <span class=\"ann-em\">direction</span>. So I\'d say the ideal is to help children develop <span class=\"ann-em\">healthy ambition</span> — where they\'re motivated to achieve things, but their self-worth isn\'t <span class=\"ann-em\">entirely tied to outcomes</span>.'  
+  ],
+  [
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I think</span> in some ways yes, and in some ways no. Young people today have access to more <span class=\"ann-em\">information</span> and a wider range of potential role models through the internet. <span class=\"ann-am\">But</span> at the same time, I think real-life role models — parents, teachers, community leaders — are becoming less <span class=\"ann-em\">prominent</span> in young people\'s lives. And I think that\'s a problem, because online role models often present an <span class=\"ann-em\">unrealistic</span> or <span class=\"ann-em\">commercialised</span> version of success. So yes, the need is greater, but the quality of role models may be <span class=\"ann-em\">declining</span>.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I\'d say</span> someone from everyday life, <span class=\"ann-am\">to be honest</span>. Celebrities might be <span class=\"ann-em\">aspirational</span>, but their lives are so <span class=\"ann-em\">removed from reality</span> that it\'s hard to <span class=\"ann-em\">relate to them</span> on a personal level. A teacher, a family member, or a community leader — those are people you can actually observe, learn from, and interact with. You can see how they <span class=\"ann-em\">handle challenges</span> in real time, which I think is far more <span class=\"ann-em\">valuable</span> than admiring someone from a distance.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> Absolutely — I think that\'s quite common, <span class=\"ann-am\">actually</span>. Nobody\'s perfect, after all. A person can be an <span class=\"ann-em\">exceptional</span> scientist or artist but have <span class=\"ann-em\">flawed personal relationships</span>. Or they might be a <span class=\"ann-em\">brilliant</span> athlete but make poor financial decisions. <span class=\"ann-pu\">I think</span> the important thing is to <span class=\"ann-em\">admire specific qualities</span> rather than idealising the whole person. <span class=\"ann-pu\">I mean</span>, you can respect someone\'s <span class=\"ann-em\">professional achievements</span> without <span class=\"ann-em\">endorsing</span> everything they do.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">I think</span> social media has had a <span class=\"ann-em\">profound impact</span>. In the past, role models were largely <span class=\"ann-em\">determined by proximity</span> — you looked up to people you actually knew or learned about through <span class=\"ann-em\">traditional media</span>. Now, algorithms <span class=\"ann-em\">curate</span> a stream of influencers based on engagement, not necessarily <span class=\"ann-em\">substance</span>. This means young people are exposed to role models who are <span class=\"ann-em\">skilled at self-promotion</span> rather than those who have <span class=\"ann-em\">genuine expertise</span> or <span class=\"ann-em\">integrity</span>. That\'s quite worrying, <span class=\"ann-am\">I think</span>.',
+    '<strong style="color:var(--primary);">Band 7+:</strong> <span class=\"ann-pu\">That\'s a tricky one</span>. On one hand, if someone <span class=\"ann-em\">positions themselves</span> as a role model or <span class=\"ann-em\">public figure</span>, I think they have a <span class=\"ann-em\">responsibility</span> to be conscious of their influence. <span class=\"ann-am\">On the other hand</span> — holding them to <span class=\"ann-em\">unrealistically high standards</span> isn\'t fair either. Everyone makes mistakes. <span class=\"ann-pu\">I think</span> the key is <span class=\"ann-em\">transparency</span> and <span class=\"ann-em\">accountability</span> — if a role model <span class=\"ann-em\">acknowledges</span> their mistakes and learns from them, that can actually be a positive example in itself.'
+  ]
+];
+
 function drawSet(idx) {
   curSet = idx; curQ = 0;
   document.getElementById('drawSetBtn').style.display = 'none';
   document.getElementById('nextQBtn').style.display = 'inline-flex';
   document.getElementById('p3Sets').style.display = 'none';
   document.getElementById('nextQBtn').textContent = '→ Question 1';
+  document.getElementById('p3Springboard').style.display = 'block';
+  document.getElementById('p3SpringText').innerHTML = P3SPRINGS[idx];
   recOn('rec3','rec3Status');
   showQ();
 }
@@ -882,6 +959,8 @@ function showQ() {
   document.getElementById('p3QHeader').textContent = s.icon + ' ' + s.name + ' — Question ' + (curQ+1);
   document.getElementById('p3QText').textContent = s.qs[curQ];
   document.getElementById('nextQBtn').textContent = curQ < s.qs.length-1 ? '→ Next Question' : '→ Final Question';
+  document.getElementById('p3Model').classList.remove('open');
+  document.getElementById('p3Model').innerHTML = P3MODELS[curSet] ? P3MODELS[curSet][curQ] || '' : '';
 }
 
 function nextQ() {
@@ -947,6 +1026,8 @@ function setTarget(el) {
   document.getElementById('targetDisplay').innerHTML = '<strong style="color:var(--primary);">Focus:</strong> '+el.textContent+' <span style="color:var(--muted);">— bring this to L7</span>';
 }
 
+function toggleModel(id) { document.getElementById(id).classList.toggle('open'); }
+
 function addCorrection() {
   const out = document.getElementById('inOutput').value.trim();
   const cor = document.getElementById('inCorrection').value.trim();
@@ -967,7 +1048,27 @@ document.addEventListener('DOMContentLoaded', function() {
     np.addEventListener('input', function() { localStorage.setItem('margo_l6_notepad', this.value); });
   }
   calcBand();
+
+  // Mobile nav toggle
+  document.getElementById('mobileNavToggle').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('open');
+  });
+  document.getElementById('sidebarOverlay').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  });
+  var origShowSlideL6 = showSlide;
+  showSlide = function(n) {
+    origShowSlideL6(n);
+    if (window.innerWidth <= 768) {
+      document.querySelector('.sidebar').classList.remove('open');
+      document.getElementById('sidebarOverlay').classList.remove('open');
+    }
+  };
 });
 </script>
+<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open lesson navigation">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 </body>
 </html>
