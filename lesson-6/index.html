@@ -219,9 +219,7 @@ textarea.notepad:focus{border-color:var(--blue)}
     <button class="nav-btn" onclick="showSlide(2)"><span class="nav-num">02</span><span>Part 2</span></button>
     <button class="nav-btn" onclick="showSlide(3)"><span class="nav-num">03</span><span>Part 3</span></button>
     <button class="nav-btn" onclick="showSlide(4)"><span class="nav-num">04</span><span>Harvest</span></button>
-    <button class="nav-btn" onclick="showSlide(5)"><span class="nav-num">05</span><span>Band Score</span></button>
-    <button class="nav-btn" onclick="showSlide(6)"><span class="nav-num">06</span><span>Corrections</span></button>
-    <button class="nav-btn" onclick="showSlide(7)"><span class="nav-num">07</span><span>Homework</span></button>
+    <button class="nav-btn" onclick="showSlide(5)"><span class="nav-num">05</span><span>Homework</span></button>
   </nav>
 
   <main class="main">
@@ -237,7 +235,7 @@ textarea.notepad:focus{border-color:var(--blue)}
             IELTS Speaking Mock
           </div>
           <div class="hero-title">Success, Ambition &amp; Role Models</div>
-          <div class="hero-sub">Full simulated test · Part 1 → Part 2 → Part 3 · Band Score Analysis</div>
+          <div class="hero-sub">Full simulated test · Part 1 → Part 2 → Part 3 · Analysis &amp; Homework</div>
         </div>
       </div>
 
@@ -527,127 +525,10 @@ textarea.notepad:focus{border-color:var(--blue)}
       </div>
     </div>
 
-    <!-- ===== SLIDE 5: BAND SCORE ===== -->
+    <!-- ===== SLIDE 5: HOMEWORK ===== -->
     <div class="slide" id="slide5">
       <div class="slide-header">
         <span class="slide-num">05</span>
-        <div>
-          <div class="slide-title">Band Score Analysis</div>
-          <div class="slide-subtitle">Criterion-by-criterion feedback + weekly target</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>📊 Estimated Band — Today's Mock</div>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Adjust each criterion score. Overall is calculated automatically.</p>
-        <div class="band-grid">
-          <div class="band-item">
-            <div class="band-criterion">Fluency & Coherence</div>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <input class="band-score-input" id="bFC" type="number" min="4" max="9" step="0.5" value="6.5" oninput="calcBand()">
-              <span style="font-size:12px;color:var(--muted);">/ 9</span>
-            </div>
-          </div>
-          <div class="band-item">
-            <div class="band-criterion">Lexical Resource</div>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <input class="band-score-input" id="bLR" type="number" min="4" max="9" step="0.5" value="6.5" oninput="calcBand()">
-              <span style="font-size:12px;color:var(--muted);">/ 9</span>
-            </div>
-          </div>
-          <div class="band-item">
-            <div class="band-criterion">Grammatical Range & Accuracy</div>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <input class="band-score-input" id="bGRA" type="number" min="4" max="9" step="0.5" value="6.5" oninput="calcBand()">
-              <span style="font-size:12px;color:var(--muted);">/ 9</span>
-            </div>
-          </div>
-          <div class="band-item">
-            <div class="band-criterion">Pronunciation</div>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <input class="band-score-input" id="bPron" type="number" min="4" max="9" step="0.5" value="7.0" oninput="calcBand()">
-              <span style="font-size:12px;color:var(--muted);">/ 9</span>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:16px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
-          <div style="flex:1;">
-            <div class="band-thermo">
-              <div class="band-scale" id="bandScale" style="height:160px;">
-                <div class="band-fill" id="bandFill" style="height:60%;"></div>
-              </div>
-              <div class="band-labels" style="height:160px;">
-                <span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span>
-              </div>
-            </div>
-          </div>
-          <div style="text-align:center;flex:2;">
-            <div style="font-size:13px;color:var(--muted);margin-bottom:4px;">Estimated Overall Band</div>
-            <div style="font-family:'Fira Code',monospace;font-size:56px;font-weight:800;" id="overallBand">6.5</div>
-            <div style="font-size:12px;color:var(--muted);" id="bandLabel">Good user — operational command</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" style="border-color:rgba(5,150,105,0.2);">
-        <div class="card-title"><span class="dot" style="background:var(--green)"></span>🎯 Weekly Target</div>
-        <div class="chip-grid" id="targetChips">
-          <span class="chip" style="background:var(--green-dim);color:var(--green);border:1px solid rgba(5,150,105,0.15);cursor:pointer;" onclick="setTarget(this)">Fluency — reduce mid-sentence pauses</span>
-          <span class="chip" style="background:var(--blue-dim);color:var(--blue);border:1px solid rgba(59,130,246,0.15);cursor:pointer;" onclick="setTarget(this)">Lexical — use 3 topic collocations</span>
-          <span class="chip" style="background:var(--primary-dim);color:var(--primary);border:1px solid rgba(180,83,9,0.15);cursor:pointer;" onclick="setTarget(this)">Grammar — use mixed conditionals</span>
-          <span class="chip" style="background:var(--red-dim);color:var(--red);border:1px solid rgba(220,38,38,0.15);cursor:pointer;" onclick="setTarget(this)">Pronunciation — sentence stress</span>
-        </div>
-        <div id="targetDisplay" style="margin-top:12px;font-size:14px;color:var(--muted);font-style:italic;">Tap a chip to set your focus for next mock (L7 — Travel).</div>
-      </div>
-    </div>
-
-    <!-- ===== SLIDE 6: CORRECTIONS ===== -->
-    <div class="slide" id="slide6">
-      <div class="slide-header">
-        <span class="slide-num">06</span>
-        <div>
-          <div class="slide-title">Corrections Board</div>
-          <div class="slide-subtitle">Error log from today's mock + teacher notepad</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--primary)"></span>Teacher Notepad <span style="font-size:11px;color:var(--muted);font-weight:400;margin-left:8px;text-transform:none;letter-spacing:0;">Auto-saved</span></div>
-        <textarea class="notepad" id="teacherNotepad" placeholder="Type lesson notes, observations, priorities for next session…"></textarea>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Add Correction</div>
-        <div class="corr-grid">
-          <div><div class="corr-label">Margo's Output</div><input class="input-field" id="inOutput" placeholder="What she said…"></div>
-          <div><div class="corr-label">Correction / Upgrade</div><input class="input-field" id="inCorrection" placeholder="Better version…"></div>
-          <div>
-            <div class="corr-label">Type</div>
-            <select class="input-field" id="inType" style="cursor:pointer;">
-              <option value="lex">Lexical</option><option value="gram">Grammar</option><option value="cohe">Coherence</option><option value="pron">Pronunciation</option>
-            </select>
-          </div>
-          <div><div class="corr-label">&nbsp;</div><button class="btn btn-primary" onclick="addCorrection()" style="width:100%;justify-content:center;">+ Add</button></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><span class="dot" style="background:var(--red)"></span>Correction Table</div>
-        <table class="feedback-table">
-          <thead><tr><th>Margo's Output</th><th>Correction / Upgrade</th><th>Type</th><th></th></tr></thead>
-          <tbody id="correctionBody">
-            <tr><td style="padding:10px 14px;"><span style="color:var(--red);">"I want to be success"</span></td><td style="padding:10px 14px;"><span style="color:var(--green);">"I aspire to be successful"</span></td><td style="padding:10px 14px;"><span class="type-badge type-lex">Lexical</span></td><td style="padding:10px 14px;"><button class="btn btn-secondary btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td style="padding:10px 14px;"><span style="color:var(--red);">"When I will go to university"</span></td><td style="padding:10px 14px;"><span style="color:var(--green);">"When I go to university" (no 'will' in time clause)</span></td><td style="padding:10px 14px;"><span class="type-badge type-gram">Grammar</span></td><td style="padding:10px 14px;"><button class="btn btn-secondary btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td style="padding:10px 14px;"><span style="color:var(--red);">Repeated fillers: "actually, well, I think actually"</span></td><td style="padding:10px 14px;"><span style="color:var(--green);">"To be honest…" / pause instead of filler</span></td><td style="padding:10px 14px;"><span class="type-badge type-cohe">Coherence</span></td><td style="padding:10px 14px;"><button class="btn btn-secondary btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- ===== SLIDE 7: HOMEWORK ===== -->
-    <div class="slide" id="slide7">
-      <div class="slide-header">
-        <span class="slide-num">07</span>
         <div>
           <div class="slide-title">Homework</div>
           <div class="slide-subtitle">Prepare for L7 — Travel &amp; Cultural Immersion mock</div>
@@ -703,7 +584,7 @@ function showSlide(n) {
   document.getElementById('slide' + n).classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.nav-btn')[n-1].classList.add('active');
-  document.getElementById('progressBar').style.width = (n/7*100) + '%';
+  document.getElementById('progressBar').style.width = (n/5*100) + '%';
 }
 
 let p1Timer, p1Topic = 1, p1Rem = [90,90,90];
@@ -1028,27 +909,7 @@ function setTarget(el) {
 
 function toggleModel(id) { document.getElementById(id).classList.toggle('open'); }
 
-function addCorrection() {
-  const out = document.getElementById('inOutput').value.trim();
-  const cor = document.getElementById('inCorrection').value.trim();
-  const type = document.getElementById('inType').value;
-  if (!out || !cor) { alert('Please fill both fields.'); return; }
-  const labels = {lex:'Lexical',gram:'Grammar',cohe:'Coherence',pron:'Pronunciation'};
-  const row = document.createElement('tr');
-  row.innerHTML = '<td style="padding:10px 14px;"><span style="color:var(--red);">'+out+'</span></td><td style="padding:10px 14px;"><span style="color:var(--green);">'+cor+'</span></td><td style="padding:10px 14px;"><span class="type-badge type-'+type+'">'+labels[type]+'</span></td><td style="padding:10px 14px;"><button class="btn btn-secondary btn-sm" onclick="this.closest(\'tr\').remove()">✕</button></td>';
-  document.getElementById('correctionBody').appendChild(row);
-  document.getElementById('inOutput').value = '';
-  document.getElementById('inCorrection').value = '';
-}
-
 document.addEventListener('DOMContentLoaded', function() {
-  const np = document.getElementById('teacherNotepad');
-  if (np) {
-    np.value = localStorage.getItem('margo_l6_notepad') || '';
-    np.addEventListener('input', function() { localStorage.setItem('margo_l6_notepad', this.value); });
-  }
-  calcBand();
-
   // Mobile nav toggle
   document.getElementById('mobileNavToggle').addEventListener('click', function() {
     document.querySelector('.sidebar').classList.toggle('open');
